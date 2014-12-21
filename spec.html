@@ -13,10 +13,19 @@
           font-family: Consolas, Inconsolata, monospace;
           background: #DDD;
           padding: 2px 4px 2px 4px;
+          position: relative;
       }
       pre code{
           display: block;
       }
+      code.definition::before,code.example::before{
+          background: #FFF;
+          position: absolute;
+          top: 0; right: 0;
+          padding: 0 3px 0 3px;
+      }
+      code.definition::before{content:"Definition";}
+      code.example::before{content:"Example";}
     </style>
   </head>
   <body>
@@ -217,7 +226,7 @@ terminator ::= "\ "
       </code></pre>
       <pre><code class="example">
 / HTML
-&lt;a href="foo"&gt>FOO!&lt;/a&gt;
+&lt;a href="foo"&gt;FOO!&lt;/a&gt;
 \ HTML
       </code></pre>
       <p>
