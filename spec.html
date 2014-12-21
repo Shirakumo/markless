@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Markless Specification</title>
+    <style type="text/css">
+      body{
+          margin: 30px auto 30px auto;
+          max-width: 800px;
+          font-size: 12pt;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Markless Specification</h1>
+    <ol id="contents">
+      <li><a href="#Introduction">Introduction</a></li>
+      <li><a href="#Block_Components">Block Components</a>
+        <ol>
+          <li><a href="#Headers">Headers</a></li>
+          <li><a href="#Rules">Rules</a></li>
+          <li><a href="#Instructions">Instructions</a></li>
+          <li><a href="#Comments">Comments</a></li>
+          <li><a href="#Quotes">Quotes</a></li>
+          <li><a href="#Code">Code</a></li>
+          <li><a href="#Lists">Lists</a></li>
+          <li><a href="#Alternates">Alternates</a></li>
+          <li><a href="#Paragraphs">Paragraphs</a></li>
+        </ol>
+      </li>
+      <li><a href="#Inline_Components">Inline Components</a>
+        <ol>
+          <li><a href="#Enclosings">Enclosings</a></li>
+          <li><a href="#Singulars">Singulars</a></li>
+          <li><a href="#Resources">Resources</a></li>
+        </ol>
+      </li>
+      <li><a href="#Compiler_Instructions">Compiler Instructions</a></li>
+      <li><a href="#Glossary">Glossary</a>
+        <ul>
+          <li><a href="#Glossary/Block">Block</a></li>
+          <li><a href="#Glossary/Character">Character</a></li>
+          <li><a href="#Glossary/Dash">Dash</a></li>
+          <li><a href="#Glossary/Document">Document</a></li>
+          <li><a href="#Glossary/Embed">Embed</a></li>
+          <li><a href="#Glossary/Inline">Inline</a></li>
+          <li><a href="#Glossary/Line">Line</a></li>
+          <li><a href="#Glossary/Link">Link</a></li>
+          <li><a href="#Glossary/Markup">Markup</a></li>
+          <li><a href="#Glossary/String">String</a></li>
+          <li><a href="#Glossary/Text">Text</a></li>
+          <li><a href="#Glossary/URL">URL</a></li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2 id="Introduction">Introduction</h2>
+    <p>
+      Markdown and similar ASCII markup languages have a couple of significant
+      drawbacks that Markless attempts to avoid. First and foremost, due to the
+      big amount of leniency in what is allowed, writing a parser is increasingly
+      a pain without bringing much of a benefit for the user in exchange.
+      Markless fixes this by following consistent rules for its syntax throughout
+      that lower the difficulty of writing a well performing and compliant parser.
+      Second, often times rather convenient and easy to implement options seem to
+      be left out for no particular reason. Markless therefore attempts to
+      include all options that offer a good usage vs. parsing difficulty ratio.
+      Third, most languages do not allow inclusion of arbitrary, different
+      languages, but rather limit themselves to HTML or some limited subset
+      thereof, if any inclusion is allowed at all. Markless allows arbitrary
+      languages to be intermixed as long as the compiler supports them.
+    </p>
+    <p>
+      Markless specifies no necessary output format nor an internal representation
+      of a Markless document. However, the syntax was specified with HTML output
+      in mind, and as such some options may fit more or less well depending on the
+      intended output format.
+    </p>
+    <p>
+      Markless is split into two different kinds of markup types. Blocks and Inlines.
+      Blocks are all determined by the leading two characters of a line. Depending
+      on those two characters, a certain block can be invoked. Inlines on the other
+      hand are intended to help mark sections of text within blocks specially. They
+      don't all follow a uniform way of markup recognition, but are instead split
+      into three different categories.
+    </p>
+    <p>
+      Following from the strict generality of the block syntax, a sane parser
+      strategy would be to read the first two chars of a line, determine the current
+      block mode, parse the rest of the line according to inline component
+      specification and repeat on line break detection.
+    </p>
+
+    <h2 id="Block_Components">Block Components</h2>
+    <p>
+    </p>
+    <div>
+      <h3 id="Headers">Headers</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Rules">Rules</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Instructions">Instructions</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Comments">Comments</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Quotes">Quotes</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Code">Code</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Lists">Lists</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Alternates">Alternates</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Paragraphs">Paragraphs</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+    </div>
+
+    <h2 id="Inline_Components">Inline Components</h2>
+    <p>
+    </p>
+    <div>
+      <h3 id="Enclosings">Enclosings</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Singulars">Singulars</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+      
+      <h3 id="Resources">Resources</h3>
+      <pre><code></code></pre>
+      <p>
+      </p>
+    </div>
+
+    <h2 id="Compiler_Instructions">Compiler Instructions</h2>
+    <p>
+    </p>
+
+    <h2 id="Glossary">Glossary</h2>
+    <p>
+    </p>
+    <div>
+      <h3 id="Glossary/"></h3>
+      <p></p>
+      
+      <h3 id="Glossary/"></h3>
+      <p></p>
+    </div>
+  </body>
+</html>
