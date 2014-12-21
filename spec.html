@@ -9,6 +9,14 @@
           max-width: 800px;
           font-size: 12pt;
       }
+      code{
+          font-family: Consolas, Inconsolata, monospace;
+          background: #DDD;
+          padding: 2px 4px 2px 4px;
+      }
+      pre code{
+          display: block;
+      }
     </style>
   </head>
   <body>
@@ -43,11 +51,14 @@
           <li><a href="#Glossary/Dash">Dash</a></li>
           <li><a href="#Glossary/Document">Document</a></li>
           <li><a href="#Glossary/Embed">Embed</a></li>
+          <li><a href="#Glossary/Initiator">Initiator</a></li>
           <li><a href="#Glossary/Inline">Inline</a></li>
           <li><a href="#Glossary/Line">Line</a></li>
           <li><a href="#Glossary/Link">Link</a></li>
           <li><a href="#Glossary/Markup">Markup</a></li>
+          <li><a href="#Glossary/Nesting">Nesting</a></li>
           <li><a href="#Glossary/String">String</a></li>
+          <li><a href="#Glossary/Terminator">Terminator</a></li>
           <li><a href="#Glossary/Text">Text</a></li>
           <li><a href="#Glossary/URL">URL</a></li>
         </ul>
@@ -93,50 +104,102 @@
 
     <h2 id="Block_Components">Block Components</h2>
     <p>
+      A block is a segment in the document that groups together a region of characters
+      under specified interpretation and representation rules.
+    </p>
+    <p>
+      A block may span any number of lines, but must always begin and end at the
+      beginning and end of a line respectively. The beginning and end of a block
+      are marked by the initiator and terminator patterns of the block. If the block
+      terminator is never recognised, the block terminates at the end of the document.
+      Initiators and terminators must be minimally identifiable by the first two
+      characters of a line, but may take up more characters if provided and
+      specifically allowed by the block definition.
     </p>
     <div>
       <h3 id="Headers">Headers</h3>
-      <pre><code></code></pre>
+      <pre><code>
+# This is a h1
+## This is a h2
+### And so on
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Rules">Rules</h3>
-      <pre><code></code></pre>
+      <pre><code>
+==
+====
+=======
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Instructions">Instructions</h3>
-      <pre><code></code></pre>
+      <pre><code>
+! (setf language :markless)
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Comments">Comments</h3>
-      <pre><code></code></pre>
+      <pre><code>
+;; Here we have
+;;;; A comment block
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Quotes">Quotes</h3>
-      <pre><code></code></pre>
+      <pre><code>
+| A quote
+| | A nested quote
+
+* Author
+| A quote with an author header
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Code">Code</h3>
-      <pre><code></code></pre>
+      <pre><code>
+-- common-lisp
+#1=(lisp . #1#)
+--
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Lists">Lists</h3>
-      <pre><code></code></pre>
+      <pre><code>
+1 A numbered list
+2 which can span
+  multiple lines
+3 1 and nest
+  2 the way you would expect
+
+. This is an unordered list
+. of two items.
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Alternates">Alternates</h3>
-      <pre><code></code></pre>
+      <pre><code>
+/ HTML
+&lt;a href="foo"&gt>FOO!&lt;/a&gt;
+\ HTML
+      </code></pre>
       <p>
       </p>
       
       <h3 id="Paragraphs">Paragraphs</h3>
-      <pre><code></code></pre>
+      <pre><code>
+This is a paragraph
+
+  And this is a new paragraph, which
+  contains two lines.
+      </code></pre>
       <p>
       </p>
     </div>
@@ -146,17 +209,56 @@
     </p>
     <div>
       <h3 id="Enclosings">Enclosings</h3>
-      <pre><code></code></pre>
       <p>
       </p>
+      <div>
+        <h4>Bold</h4>
+        <pre><code>*bold*</code></pre>
+        <p></p>
+        
+        <h4>Italics</h4>
+        <pre><code>/italics/</code></pre>
+        <p></p>
+        
+        <h4>Underline</h4>
+        <pre><code>_underline_</code></pre>
+        <p></p>
+        
+        <h4>Overline</h4>
+        <pre><code>‾overline‾</code></pre>
+        <p></p>
+        
+        <h4>Strikethrough</h4>
+        <pre><code>-strikethrough-</code></pre>
+        <p></p>
+        
+        <h4>Code</h4>
+        <pre><code>`code`</code></pre>
+        <p></p>
+      </div>
       
       <h3 id="Singulars">Singulars</h3>
-      <pre><code></code></pre>
       <p>
       </p>
+      <div>
+        <h4>Subtext</h4>
+        <pre><code>v[subtext]</code></pre>
+        <p></p>
+        
+        <h4>Supertext</h4>
+        <pre><code>^[supertext]</code></pre>
+        <p></p>
+        
+        <h4>Spoiler</h4>
+        <pre><code>|?spoiler?|</code></pre>
+        <p></p>
+      </div>
       
       <h3 id="Resources">Resources</h3>
-      <pre><code></code></pre>
+      <pre><code>
+[a label](a resource)
+&lt;a type&gt;(a resource)
+      </code></pre>
       <p>
       </p>
     </div>
