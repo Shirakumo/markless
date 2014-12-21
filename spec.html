@@ -114,11 +114,17 @@
       terminator is never recognised, the block terminates at the end of the document.
       Initiators and terminators must be minimally identifiable by the first two
       characters of a line, but may take up more characters if provided and
-      specifically allowed by the block definition.
+      specifically allowed by the block definition. If no terminator is specified, the
+      block ends at the end of the line before the line that shows the initiator of a
+      different block.
     </p>
     <div>
       <h3 id="Headers">Headers</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= "# " | "##"
+terminator ::= EOL
+      </code></pre>
+      <pre><code class="example">
 # This is a h1
 ## This is a h2
 ### And so on
@@ -127,7 +133,11 @@
       </p>
       
       <h3 id="Rules">Rules</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= "=="
+terminator ::= EOL
+      </code></pre>
+      <pre><code class="example">
 ==
 ====
 =======
@@ -136,14 +146,20 @@
       </p>
       
       <h3 id="Instructions">Instructions</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= "! "
+      </code></pre>
+      <pre><code class="example">
 ! (setf language :markless)
       </code></pre>
       <p>
       </p>
       
       <h3 id="Comments">Comments</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= ";;"
+      </code></pre>
+      <pre><code class="example">
 ;; Here we have
 ;;;; A comment block
       </code></pre>
@@ -151,7 +167,10 @@
       </p>
       
       <h3 id="Quotes">Quotes</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= "| " | "* "
+      </code></pre>
+      <pre><code class="example">
 | A quote
 | | A nested quote
 
@@ -162,7 +181,11 @@
       </p>
       
       <h3 id="Code">Code</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= "--"
+terminator ::= "--"
+      </code></pre>
+      <pre><code class="example">
 -- common-lisp
 #1=(lisp . #1#)
 --
@@ -171,7 +194,10 @@
       </p>
       
       <h3 id="Lists">Lists</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= (number " ") | ". "
+      </code></pre>
+      <pre><code class="example">
 1 A numbered list
 2 which can span
   multiple lines
@@ -185,7 +211,11 @@
       </p>
       
       <h3 id="Alternates">Alternates</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  ::= "/ "
+terminator ::= "\ "
+      </code></pre>
+      <pre><code class="example">
 / HTML
 &lt;a href="foo"&gt>FOO!&lt;/a&gt;
 \ HTML
@@ -194,7 +224,10 @@
       </p>
       
       <h3 id="Paragraphs">Paragraphs</h3>
-      <pre><code>
+      <pre><code class="definition">
+initiator  --- None needed
+      </code></pre>
+      <pre><code class="example">
 This is a paragraph
 
   And this is a new paragraph, which
@@ -213,27 +246,27 @@ This is a paragraph
       </p>
       <div>
         <h4>Bold</h4>
-        <pre><code>*bold*</code></pre>
+        <pre><code class="example">*bold*</code></pre>
         <p></p>
         
         <h4>Italics</h4>
-        <pre><code>/italics/</code></pre>
+        <pre><code class="example">/italics/</code></pre>
         <p></p>
         
         <h4>Underline</h4>
-        <pre><code>_underline_</code></pre>
+        <pre><code class="example">_underline_</code></pre>
         <p></p>
         
         <h4>Overline</h4>
-        <pre><code>‾overline‾</code></pre>
+        <pre><code class="example">‾overline‾</code></pre>
         <p></p>
         
         <h4>Strikethrough</h4>
-        <pre><code>-strikethrough-</code></pre>
+        <pre><code class="example">-strikethrough-</code></pre>
         <p></p>
         
         <h4>Code</h4>
-        <pre><code>`code`</code></pre>
+        <pre><code class="example">`code`</code></pre>
         <p></p>
       </div>
       
@@ -242,20 +275,20 @@ This is a paragraph
       </p>
       <div>
         <h4>Subtext</h4>
-        <pre><code>v[subtext]</code></pre>
+        <pre><code class="example">v[subtext]</code></pre>
         <p></p>
         
         <h4>Supertext</h4>
-        <pre><code>^[supertext]</code></pre>
+        <pre><code class="example">^[supertext]</code></pre>
         <p></p>
         
         <h4>Spoiler</h4>
-        <pre><code>|?spoiler?|</code></pre>
+        <pre><code class="example">|?spoiler?|</code></pre>
         <p></p>
       </div>
       
       <h3 id="Resources">Resources</h3>
-      <pre><code>
+      <pre><code class="example">
 [a label](a resource)
 &lt;a type&gt;(a resource)
       </code></pre>
