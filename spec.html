@@ -34,6 +34,7 @@
       <li><a href="#Introduction">Introduction</a></li>
       <li><a href="#Block_Components">Block Components</a>
         <ol>
+          <li><a href="#Documents">Documents</a></li>
           <li><a href="#Headers">Headers</a></li>
           <li><a href="#Rules">Rules</a></li>
           <li><a href="#Instructions">Instructions</a></li>
@@ -55,83 +56,31 @@
       <li><a href="#Compiler_Instructions">Compiler Instructions</a></li>
       <li><a href="#Glossary">Glossary</a>
         <ul>
-          <li><a href="#Glossary/Block">Block</a></li>
-          <li><a href="#Glossary/Character">Character</a></li>
-          <li><a href="#Glossary/Dash">Dash</a></li>
-          <li><a href="#Glossary/Document">Document</a></li>
-          <li><a href="#Glossary/Embed">Embed</a></li>
-          <li><a href="#Glossary/Initiator">Initiator</a></li>
-          <li><a href="#Glossary/Inline">Inline</a></li>
-          <li><a href="#Glossary/Line">Line</a></li>
-          <li><a href="#Glossary/Link">Link</a></li>
-          <li><a href="#Glossary/Markup">Markup</a></li>
-          <li><a href="#Glossary/Nesting">Nesting</a></li>
-          <li><a href="#Glossary/String">String</a></li>
-          <li><a href="#Glossary/Terminator">Terminator</a></li>
-          <li><a href="#Glossary/Text">Text</a></li>
-          <li><a href="#Glossary/URL">URL</a></li>
         </ul>
       </li>
     </ol>
 
     <h2 id="Introduction">Introduction</h2>
-    <p>
-      Markdown and similar ASCII markup languages have a couple of significant
-      drawbacks that Markless attempts to avoid. First and foremost, due to the
-      big amount of leniency in what is allowed, writing a parser is increasingly
-      a pain without bringing much of a benefit for the user in exchange.
-      Markless fixes this by following consistent rules for its syntax throughout
-      that lower the difficulty of writing a well performing and compliant parser.
-      Second, often times rather convenient and easy to implement options seem to
-      be left out for no particular reason. Markless therefore attempts to
-      include all options that offer a good usage vs. parsing difficulty ratio.
-      Third, most languages do not allow inclusion of arbitrary, different
-      languages, but rather limit themselves to HTML or some limited subset
-      thereof, if any inclusion is allowed at all. Markless allows arbitrary
-      languages to be intermixed as long as the compiler supports them.
-    </p>
-    <p>
-      Markless specifies no necessary output format nor an internal representation
-      of a Markless document. However, the syntax was specified with HTML output
-      in mind, and as such some options may fit more or less well depending on the
-      intended output format.
-    </p>
-    <p>
-      Markless is split into two different kinds of markup types. Blocks and Inlines.
-      Blocks are all determined by the leading two characters of a line. Depending
-      on those two characters, a certain block can be invoked. Inlines on the other
-      hand are intended to help mark sections of text within blocks specially. They
-      don't all follow a uniform way of markup recognition, but are instead split
-      into three different categories.
-    </p>
-    <p>
-      Following from the strict generality of the block syntax, a sane parser
-      strategy would be to read the first two chars of a line, determine the current
-      block mode, parse the rest of the line according to inline component
-      specification and repeat on line break detection.
-    </p>
+    
 
     <h2 id="Block_Components">Block Components</h2>
     <p>
-      A block is a segment in the document that groups together a region of characters
-      under specified interpretation and representation rules.
+      A block is a component that may contain text or other components and always
+      takes up the full width of the document in the output.
     </p>
     <p>
       A block may span any number of lines, but must always begin and end at the
-      beginning and end of a line respectively. The beginning and end of a block
-      are marked by the initiator and terminator patterns of the block. If the block
-      terminator is never recognised, the block terminates at the end of the document.
-      Initiators and terminators must be minimally identifiable by the first two
-      characters of a line, but may take up more characters if provided and
-      specifically allowed by the block definition. If no terminator is specified, the
-      block ends at the end of the line before the line that shows the initiator of a
-      different block.
+      beginning and end of a line respectively.
     </p>
     <div>
+      <h3 id="Documents">Documents</h3>
+      <p></p>
+      
       <h3 id="Headers">Headers</h3>
       <pre><code class="definition">
-initiator  ::= "# " | "##"
-terminator ::= EOL
+header      ::= level " " header-text EOL
+level       ::= "#"+
+header-text --- A text to be put into the header block.
       </code></pre>
       <pre><code class="example">
 # This is a h1
@@ -143,8 +92,7 @@ terminator ::= EOL
       
       <h3 id="Rules">Rules</h3>
       <pre><code class="definition">
-initiator  ::= "=="
-terminator ::= EOL
+rule ::= "==" "="*
       </code></pre>
       <pre><code class="example">
 ==
@@ -156,7 +104,8 @@ terminator ::= EOL
       
       <h3 id="Instructions">Instructions</h3>
       <pre><code class="definition">
-initiator  ::= "! "
+instruction ::= "! " expression
+expression  --- A valid compiler instruction
       </code></pre>
       <pre><code class="example">
 ! (setf language :markless)
@@ -177,7 +126,9 @@ initiator  ::= ";;"
       
       <h3 id="Quotes">Quotes</h3>
       <pre><code class="definition">
-initiator  ::= "| " | "* "
+initiator  ::= header | quote
+header     ::= "* "
+quote      ::= "| "
       </code></pre>
       <pre><code class="example">
 | A quote
@@ -191,7 +142,8 @@ initiator  ::= "| " | "* "
       
       <h3 id="Code">Code</h3>
       <pre><code class="definition">
-initiator  ::= "--"
+initiator  ::= "--" 
+code-type  --- A string identifying the code.
 terminator ::= "--"
       </code></pre>
       <pre><code class="example">
@@ -313,10 +265,40 @@ This is a paragraph
     <p>
     </p>
     <div>
-      <h3 id="Glossary/"></h3>
-      <p></p>
+      <h3 id="Glossary/Document">Document</h3>
+      <p>A document is a tree of components that form an abstract representation of the Markless structure.</p>
       
-      <h3 id="Glossary/"></h3>
+      <h3 id="Glossary/Component">Component</h3>
+      <p>A unit that specifies a set of representation rules for its contents.</p>
+      
+      <h3 id="Glossary/File">Character</h3>
+      <p>A character is the atomic unit of a string. Characters must be comparable by identity.</p>
+      
+      <h3 id="Glossary/Matching">Matching</h3>
+      <p>The act of identifying a certain string.</p>
+      
+      <h3 id="Glossary/Pattern">Pattern</h3>
+      <p>Patterns are functions that match regions of a string according to a fixed set of rules.</p>
+      
+      <h3 id="Glossary/Syntax">Syntax</h3>
+      <p>A syntax is a combination of patterns.</p>
+      
+      <h3 id="Glossary/String">String</h3>
+      <p>A strictly ordered sequence of characters. Any sub-sequence of a string is also a string.</p>
+      
+      <h3 id="Glossary/Newline">Newline</h3>
+      <p>The newline is a specific character that is usually visually interpreted as a line break.</p>
+      
+      <h3 id="Glossary/EOL">EOL</h3>
+      <p>EOL is any position within a string that is taken by a newline character, as well as the last character in the string.</p>
+      
+      <h3 id="Glossary/">BOL</h3>
+      <p>BOL is any position within a string immediately after a newline character, as well as the first character in the string.</p>
+      
+      <h3 id="Glossary/Markup">Markup</h3>
+      <p>A syntax that associates certain sub-sequences in a string with components.</p>
+      
+      <h3 id="Glossary/Text">Text</h3>
       <p></p>
     </div>
   </body>
