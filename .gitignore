@@ -1,0 +1,11 @@
+*.aux
+*.glg
+*.glo
+*.gls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdy
+*.pdf
+auto/
