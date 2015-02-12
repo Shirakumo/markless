@@ -1,0 +1,41 @@
+\providecommand{\doctitle}{Markless Specification}
+\providecommand{\docauthor}{Nicolas Hafner}
+\providecommand{\doccopyright}{Shirakumo}
+
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[top=1.5cm, bottom=2.5cm, left=1cm, right=1cm]{geometry}
+\usepackage{textcomp}
+\usepackage{fix-cm}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage[xindy,toc,nonumberlist,nopostdot]{glossaries}
+\usepackage{xstring}
+
+\title{\doctitle}
+\author{\docauthor}
+\date{\d_mny\today}
+
+\input{x-commands.tex}
+\input{x-glossary.tex}
+
+\begin{document}
+\begin{center}{\bfseries\Huge\doctitle}\end{center}
+\tableofcontents
+
+\input{1-preamble}
+\input{2-documents}
+\input{3-line-directives}
+
+\glsaddall
+\printglossaries
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

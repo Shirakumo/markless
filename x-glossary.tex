@@ -1,0 +1,73 @@
+
+\glossarystyle{altlist}
+\makeglossaries
+
+\defineglossary{encoding}{
+  A particular interpretation of a sequence of bytes into distinguishable \gpl{character}.
+}
+
+\defineglossary{character}{
+  A singular entity as specified by an \g{encoding}.
+}
+
+\defineglossary{string}{
+  A sequence of \gpl{character}.
+}
+
+\defineglossary{text}{
+  Text is made up of a series of \gpl{string} and \gpl{textual component}.
+}
+
+\defineglossary{textual component}{
+  A section of \g{text} with specific visual styling and representation properties.
+}
+
+\defineglossary{document}{
+1) The top-most \g{textual component} that is not contained in any other \g{textual component}.
+2) A \g{string} to be interpreted into a \g{textual component} using rules outlined by \gpl{directive}.
+}
+
+\defineglossary{document format}{
+  A set of grammar and semantics to \glink{interpretation}{interpret} the contents of a \g{document}.
+}
+
+\defineglossary{newline}{
+  Any \g{character} that represents that a new line should be started.
+}
+
+\defineglossary{line}{
+  Any sub-sequence within a \g{string} that is delimited by the \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline}.
+}
+
+\defineglossary{directive}{
+  A distinctive sequence of \gpl{character} that marks a region within a \g{string} to belong to a specified \g{textual component}.
+}
+
+\defineglossary{line directive}{
+  A \g{directive} that spans one or more \gpl{line}.
+}
+
+\defineglossary{equivalent}{
+  Two objects are considered equivalent, if they denote the same meaning or idea. In specific, two \gpl{character} are equivalent, if they denote the same visual identity.
+}
+
+\defineglossary{interpretation}{
+  The act of detecting \gpl{directive} and executing their effects on a \g{document}.
+}
+
+\defineglossary{implementation}{
+  Some form of program or system that implements the semantics of Markless.
+}
+
+\defineglossary{conforming implementation}{
+  An \g{implementation} that fully and correctly adheres to all requirements laid down by this specification. An \g{implementation} may support additional features not described in this specification and still be conforming, as long as none of the features interfere with the \g{interpretation} of a \g{conforming document}.
+}
+
+\defineglossary{conforming document}{
+  A \g{document} that does not violate any of the requirements set forth by the \gpl{directive} outlined in this specification and can thus be properly \gpl{interpretation}{interpreted} by any \g{conforming implementation}.
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% End:

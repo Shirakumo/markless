@@ -1,0 +1,67 @@
+
+\def\inline{\lstinline[basicstyle=\ttfamily]}
+
+\newcommand{\symbolref}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[symbol:#1]{\expandafter\inline\expandafter{\WORD}}%
+}
+
+\newcommand{\symboldef}[1]{%
+  \inline{#1}\label{symbol:#1}%
+}
+
+\newcommand{\sectiondef}[1]{%
+  \section{#1}\label{section:#1}%
+}
+
+\newcommand{\subsectiondef}[1]{%
+  \subsection{#1}\label{section:#1}%
+}
+
+\newcommand{\subsubsectiondef}[1]{%
+  \subsubsection{#1}\label{section:#1}%
+}
+
+\newcommand{\sectionref}[1]{%
+  \hyperref[section:#1]{#1}%
+}
+
+\newcommand{\defineglossary}[2]{%
+  \StrSubstitute{#1}{ }{}[\stripped]%
+  \newglossaryentry{\stripped}{%
+    name={\capitalisewords{#1}},%
+    text={#1},%
+    description={#2},%
+    sort={#1}%
+  }%
+}
+
+\newcommand{\g}[1]{%
+  \StrSubstitute{#1}{ }{}[\stripped]%
+  \textit{\gls{\stripped}}%
+}
+
+\newcommand{\G}[1]{%
+  \StrSubstitute{#1}{ }{}[\stripped]%
+  \textit{\Gls{\stripped}}%
+}
+
+\newcommand{\gpl}[1]{%
+  \StrSubstitute{#1}{ }{}[\stripped]%
+  \textit{\glspl{\stripped}}%
+}
+
+\newcommand{\Gpl}[1]{%
+  \StrSubstitute{#1}{ }{}[\stripped]%
+  \textit{\Glspl{\stripped}}%
+}
+
+\newcommand{\glink}[2]{%
+  \StrSubstitute{#1}{ }{}[\stripped]%
+  \textit{\glslink{\stripped}{#2}}%
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% End:
