@@ -6,19 +6,35 @@
   \hyperref[symbol:#1]{\expandafter\inline\expandafter{\WORD}}%
 }
 
-\newcommand{\symboldef}[1]{%
+\newcommand{\definesymbol}[1]{%
   \inline{#1}\label{symbol:#1}%
 }
 
-\newcommand{\sectiondef}[1]{%
+\newcommand{\defineidentifier}[2]{%
+  \makebox[\textwidth][l]{%
+    \textit{Identifier} %
+    \textbf{\capitalisewords{#1}}: %
+    \expandafter\inline\expandafter{#2}%
+  }%
+}
+
+\newcommand{\definetextualcomponent}[2]{%
+  \makebox[\textwidth][l]{%
+    \textit{Textual Component} %
+    \textbf{\capitalisewords{#1}}: %
+    \expandafter\inline\expandafter{#2}%
+  }%
+}
+
+\newcommand{\definesection}[1]{%
   \section{#1}\label{section:#1}%
 }
 
-\newcommand{\subsectiondef}[1]{%
+\newcommand{\definesubsection}[1]{%
   \subsection{#1}\label{section:#1}%
 }
 
-\newcommand{\subsubsectiondef}[1]{%
+\newcommand{\definesubsubsection}[1]{%
   \subsubsection{#1}\label{section:#1}%
 }
 

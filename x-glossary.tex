@@ -10,8 +10,19 @@
   A singular entity as specified by an \g{encoding}.
 }
 
+\defineglossary{alphanumeric}{
+  Any \g{character} that is one of the following: \\
+  \inline{0123456789}\\
+  \inline{abcdefghijklmnopqrstuvwxyz}\\
+  \inline{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+}
+
 \defineglossary{string}{
   A sequence of \gpl{character}.
+}
+
+\defineglossary{substring}{
+  A sequence of \gpl{character} within a \g{string}.
 }
 
 \defineglossary{text}{
@@ -39,12 +50,24 @@
   Any sub-sequence within a \g{string} that is delimited by the \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline}.
 }
 
+\defineglossary{match}{
+  A \g{match} occurs if, a \g{string} is exactly recognised by some specific pattern or method.
+}
+
+\defineglossary{identifier}{
+  Some form of pattern or method by which a \g{string} is recognisable. More specifically, an \g{identifier} provides a means by which a \g{substring} can be distinguished from the rest of the \g{string}. 
+}
+
 \defineglossary{directive}{
-  A distinctive sequence of \gpl{character} that marks a region within a \g{string} to belong to a specified \g{textual component}.
+  A directive associates an \g{identifier} to a \g{textual component}. The string within the \g{identifier} thus belongs to the associated \g{textual component} in the resulting \g{document}.
 }
 
 \defineglossary{line directive}{
   A \g{directive} that spans one or more \gpl{line}.
+}
+
+\defineglossary{inline directive}{
+  A \g{directive} that can appear at any point within a \g{string}.
 }
 
 \defineglossary{equivalent}{
