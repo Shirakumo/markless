@@ -2,39 +2,43 @@
 In order to concisely specify \gpl{identifier} we use a special syntax that is based on regular expressions. For completeness, and in order to avoid ambiguity, the full grammar and semantics are reflected here using BNF notation. \\
 
 \begin{tabular}{lcl}
-rule &::=& ``(``? (matcher* quantifier?)+ ``)''? \\
+rule &::=& ``\inline{(}``? (matcher* quantifier?)+ ``\inline{)}''? \\
 matcher &::=& string | some-characters | any-character \\
 string &::=& character+ \\
-some-characters &::=& ``[`` character+ ``]'' \\
-any-character &::=& ``.'' \\
+some-characters &::=& ``\inline{[}`` character+ ``\inline{]}'' \\
+any-character &::=& ``\inline{.}'' \\
 quantifier &::=& one-or-more | none-or-more | one-or-none | repeat \\
-one-or-more &::=& rule ``+'' \\
-none-or-more &::=& rule ``*'' \\
-one-or-none &::=& rule ``?'' \\
-repeat &::=& rule ``\{`` number (``,'' number?)? ``\}'' \\
-binding &::=& ``<`` name rule ``>'' \\
-binding-reference &::=& ``<`` name ``>'' \\
+one-or-more &::=& rule ``\inline{+}'' \\
+none-or-more &::=& rule ``\inline{*}'' \\
+one-or-none &::=& rule ``\inline{?}'' \\
+repeat &::=& rule ``\inline${$`` number (``\inline{,}'' number?)? ``\inline$}$'' \\
+binding &::=& ``\inline{<}`` name rule ``\inline{>}'' \\
+binding-reference &::=& ``\inline{<}`` name ``\inline{>}'' \\
 name &---& Some \g{alphanumeric} \g{string} to identify the text matched by the rule. \\
 character &---& A \g{character}. \\
-\end{tabular}
+\end{tabular} \\
 
-In order for a string to match, the exact sequence of characters must be found.
+\noindent Appearing within the ```` quotes are \gpl{character} to be found in the \g{identifier specifier}. 
 
-In order for some-characters to match, one of the characters must be found.
+\noindent If a backslash appears anywhere within the \g{identifier specifier}, it is ignored and the \g{character} immediately after it is taken literally without being interpreted as one of the characters in the syntax rules.
 
-In order for any-character to match, a single character must be found, but it matters not what character it is.
+\noindent In order for a string to match, the exact sequence of characters must be found.
 
-In order for one-or-more to match, the rule must be found at least once, but may be found an arbitrary number of times immediately after each other.
+\noindent In order for some-characters to match, one of the characters must be found.
 
-In order for none-or-more to match, the rule must not be found at all, but may be found an arbitrary number of times immediately after each other.
+\noindent In order for any-character to match, a single character must be found, but it matters not what character it is.
 
-In order for one-or-none to match, the rule must not be found at all, but if it is, it is only matched exactly once.
+\noindent In order for one-or-more to match, the rule must be found at least once, but may be found an arbitrary number of times immediately after each other.
 
-In order for repeat to match, the rule must be found at least the number of times of the first number. If only the comma is provided after the first number, it may match any number of times greater than the first number. If the second number is provided, it cannot match more times than the second number.
+\noindent In order for none-or-more to match, the rule must not be found at all, but may be found an arbitrary number of times immediately after each other.
 
-In order for binding to match, the rule contained must match. The specific string matched by the rule is then associated with the name of the binding.
+\noindent In order for one-or-none to match, the rule must not be found at all, but if it is, it is only matched exactly once.
 
-In order for binding-reference to match, the exact string associated with the name of the binding must be found.
+\noindent In order for repeat to match, the rule must be found at least the number of times of the first number. If only the comma is provided after the first number, it may match any number of times greater than the first number. If the second number is provided, it cannot match more times than the second number.
+
+\noindent In order for a binding to match, the rule contained must match. The specific string matched by the rule is then associated with the name of the binding.
+
+\noindent In order for a binding-reference to match, the exact string associated with the name of the binding must be found.
 
 %%% Local Variables:
 %%% mode: latex
