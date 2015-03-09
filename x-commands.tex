@@ -7,7 +7,15 @@
 }
 
 \newcommand{\definesymbol}[1]{%
-  \inline{#1}\label{symbol:#1}%
+  \inline$#1$\label{symbol:#1}%
+}
+
+\newcommand{\definesyntax}[1]{%
+  \inline$#1$\label{syntax:#1}%
+}
+
+\newcommand{\syntax}[1]{%
+  \hyperref[syntax:#1]{\inline$#1$}%
 }
 
 \newcommand{\defineidentifier}[2]{%
@@ -27,7 +35,7 @@
 }
 
 \newcommand{\definesection}[1]{%
-  \section{#1}\label{section:#1}%
+  \newpage\section{#1}\label{section:#1}%
 }
 
 \newcommand{\definesubsection}[1]{%
@@ -50,6 +58,19 @@
     description={#2},%
     sort={#1}%
   }%
+}
+
+\newenvironment{examples}{%
+  \par
+  {\bfseries\large Examples:} \\
+  \begin{tabular}{lcl}
+}{%
+  \end{tabular}
+  \par%
+}
+
+\newcommand{\example}[2]{%
+  \inline$#1$ &$\Rightarrow$& #2 \\
 }
 
 \newcommand{\g}[1]{%

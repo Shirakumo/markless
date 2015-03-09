@@ -1,9 +1,13 @@
 \definesubsection{Bold}
-\defineidentifier{bold}{(start [*]+)(content .*)(start)}
+\defineidentifier{bold}{<start [*]+><content .*><start>}
 \definetextualcomponent{bold}{font-weight: bold} \\
 
-The bold \g{directive} marks the \g{text} to belong to a \g{textual component} that sets the font-weight to bold.
+The bold \g{directive} marks the \g{text} to belong to a \g{textual component} that sets the weight of the font to bold. Only the \g{text} held by the \inline{content} binding is outputted to the \g{textual component}. \\
 
+\begin{examples}
+  \example{not *bold* at all}{not \textbf{bold} at all}
+  \example{and ***some *things* are bad***}{and \textbf{some *things* are bad}}
+\end{examples}
 
 %%% Local Variables:
 %%% mode: latex

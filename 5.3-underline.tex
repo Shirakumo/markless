@@ -1,0 +1,15 @@
+\definesubsection{Underline}
+\defineidentifier{underline}{<start [\_]+><content .*><start>}
+\definetextualcomponent{underline}{font-style: underline} \\
+
+The underline \g{directive} marks the \g{text} to belong to a \g{textual component} that sets the style of the font to underline. Only the \g{text} held by the \inline{content} binding is outputted to the \g{textual component}. \\
+
+\begin{examples}
+  \example{We \_must\_ finish this.}{We \underline{must} finish this.}
+  \example{This \_\_CONSTANT\_VALUE\_\_ is variable.}{This \underline{CONSTANT\_VALUE} is variable.}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% End:

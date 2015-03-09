@@ -1,0 +1,15 @@
+\definesubsection{Italic}
+\defineidentifier{italic}{<start [/]+><content .*><start>}
+\definetextualcomponent{italic}{font-style: italic} \\
+
+The italic \g{directive} marks the \g{text} to belong to a \g{textual component} that sets the style of the font to italic. Only the \g{text} held by the \inline{content} binding is outputted to the \g{textual component}. \\
+
+\begin{examples}
+  \example{I /really/ don't care.}{I \textit{really} don't care.}
+  \example{//de/allocate// is important.}{\textit{de/allocate} is important.}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% End:

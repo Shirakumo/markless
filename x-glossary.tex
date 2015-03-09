@@ -51,7 +51,7 @@
 }
 
 \defineglossary{match}{
-  A \g{match} occurs if, a \g{string} is exactly recognised by some specific pattern or method.
+  A \g{match} occurs if a \g{string} is exactly recognised by some specific pattern or method.
 }
 
 \defineglossary{identifier}{
@@ -92,6 +92,10 @@
 
 \defineglossary{conforming document}{
   A \g{document} that does not violate any of the requirements set forth by the \gpl{directive} outlined in this specification and can thus be properly \gpl{interpretation}{interpreted} by any \g{conforming implementation}.
+}
+
+\defineglossary{level}{
+  A number representing the depth of a \g{directive} within the \g{document}. The level within any \g{directive} is one higher than the level the \g{directive} itself is at. The level of the \g{document} is always 0.
 }
 
 %%% Local Variables:
