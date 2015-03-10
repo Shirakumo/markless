@@ -1,0 +1,19 @@
+\definesubsection{Blockquote}
+\begin{identifier}{blockquote header}
+\* <header .+>
+\end{identifier}
+\begin{identifier}{blockquote body}
+| <content .*>
+\end{identifier}
+\definetextualcomponent{blockquote header}{margin: left; font-weight: bold}
+\definetextualcomponent{blockquote body}{margin: left} \\
+
+The blockquote header always spans exactly the line it is \glink{match}{matched} at. Only the \inline{header} of the line is outputted into the \g{resulting textual component}. The blockquote header can only contain \gpl{inline directive}. \\
+
+The blockquote body spans for as long as the blockquote body \g{identifier} \glink{match}{matches}. Only the \inline{content} of each line is outputted into the \g{resulting textual component}. The blockquote body can contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. In essence this means that the beginning of the line prefix required to \g{match} the \g{identifier} is not considered for inner \gpl{directive}.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:

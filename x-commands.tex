@@ -22,15 +22,22 @@
   \makebox[\textwidth][l]{%
     \textit{Identifier} %
     \textbf{\capitalisewords{#1}}: %
-    \expandafter\inline\expandafter{#2}%
+    \inline$#2$%
   }%
+}
+
+\lstnewenvironment{identifier}[1]{%
+  \textit{Identifier} %
+  \textbf{\capitalisewords{#1}}: %
+  \lstset{basicstyle=\ttfamily}%
+}{
 }
 
 \newcommand{\definetextualcomponent}[2]{%
   \makebox[\textwidth][l]{%
     \textit{Textual Component} %
     \textbf{\capitalisewords{#1}}: %
-    \expandafter\inline\expandafter{#2}%
+    \inline$#2$%
   }%
 }
 

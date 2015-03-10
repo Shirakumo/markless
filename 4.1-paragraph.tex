@@ -1,0 +1,15 @@
+\definesubsection{Paragraph}
+\begin{identifier}{paragraph}
+<spaces [ ]*><content![ ].*>
+\end{identifier}
+\definetextualcomponent{paragraph}{margin: top, bottom} \\
+
+The paragraph is the default \g{textual component} and acts as a fall-back. \Gpl{line} belong to the same paragraph until the length of \inline{spaces} changes. On each \g{line} that belongs to a paragraph, only the \inline{content} is outputted to the \g{resulting textual component}. The paragraph \g{directive} can only contain \gpl{inline directive}. \\
+
+Paragraphs are visually distinguished by a margin above and below the \g{text}. An \g{implementation} may additionally employ indentation rules to distinguish the beginning of a paragraph.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:

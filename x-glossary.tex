@@ -17,6 +17,10 @@
   \inline{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
 }
 
+\defineglossary{whitespace}{
+  Any \g{character} that represents a horizontal gap. Examples include space, tab, zero-width space, etc.
+}
+
 \defineglossary{string}{
   A sequence of \gpl{character}.
 }
@@ -37,6 +41,10 @@
   A \g{textual component} that is declared in this specification.
 }
 
+\defineglossary{resulting textual component}{
+  The \g{textual component} that the \g{directive} puts in place of the \g{identifier} in the \g{document}.
+}
+
 \defineglossary{document}{
 1) The top-most \g{textual component} that is not contained in any other \g{textual component}.
 2) A \g{string} to be interpreted into a \g{textual component} using rules outlined by \gpl{directive}.
@@ -54,6 +62,10 @@
   Any sub-sequence within a \g{string} that is delimited by the \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline}.
 }
 
+\defineglossary{empty line}{
+  A \g{line} that contains at most a \g{newline}.
+}
+
 \defineglossary{match}{
   A \g{match} occurs if a \g{string} is exactly recognised by some specific pattern or method.
 }
@@ -67,7 +79,7 @@
 }
 
 \defineglossary{directive}{
-  A directive associates an \g{identifier} to a \g{textual component}. The string within the \g{identifier} thus belongs to the associated \g{textual component} in the resulting \g{document}.
+  A directive associates an \g{identifier} to a \g{textual component} and specifies what \g{text} to put into this \g{resulting textual component}.
 }
 
 \defineglossary{line directive}{
