@@ -1,6 +1,7 @@
 \definesubsection{Bold}
-\defineidentifier{bold}{<start [*]+><content .*><start>}
+\defineidentifier{bold}{<start [*]+><content ![*].*><start>}
 \definetextualcomponent{bold}{font-weight: bold} \\
+
 
 The bold \g{directive} marks the \g{text} to belong to a \g{textual component} that sets the weight of the font to bold. Only the \g{text} held by the \inline{content} binding is outputted to the \g{textual component}. \\
 
@@ -12,4 +13,5 @@ The bold \g{directive} marks the \g{text} to belong to a \g{textual component} t
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
 %%% End:

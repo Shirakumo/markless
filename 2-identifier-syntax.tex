@@ -2,12 +2,13 @@
 In order to concisely specify \gpl{identifier} we use a special syntax, of which the full grammar and semantics are reflected here using BNF notation. \\
 
 \begin{tabular}{lcl}
-  \definesyntax{rule} &::=& ``\inline{(}''? (\syntax{matcher}* \syntax{quantifier}?)+ ``\inline{)}''? \\
-  \definesyntax{matcher} &::=& \syntax{string} | \syntax{some-characters} | \syntax{any-character} \\
+  \definesyntax{rule} &::=& ``\inline{(}''? (\syntax{matcher} \syntax{quantifier}?)+ ``\inline{)}''? \\
+  \definesyntax{matcher} &::=& \syntax{rule} \mid \syntax{string} \mid \syntax{some-characters} \mid \syntax{other-characters} \mid \syntax{any-character} \\
   \definesyntax{string} &::=& \syntax{character}+ \\
   \definesyntax{some-characters} &::=& ``\inline{[}'' \syntax{character}+ ``\inline{]}'' \\
+  \definesyntax{other-characters} &::=& ``\inline{![}'' \syntax{character}+ ``\inline{]}'' \\
   \definesyntax{any-character} &::=& ``\inline{.}'' \\
-  \definesyntax{quantifier} &::=& \syntax{one-or-more} | \syntax{none-or-more} | \syntax{one-or-none} | \syntax{repeat} \\
+  \definesyntax{quantifier} &::=& \syntax{one-or-more} \mid \syntax{none-or-more} \mid \syntax{one-or-none} \mid \syntax{repeat} \\
   \definesyntax{one-or-more} &::=& \syntax{rule} ``\inline{+}'' \\
   \definesyntax{none-or-more} &::=& \syntax{rule} ``\inline{*}'' \\
   \definesyntax{one-or-none} &::=& \syntax{rule} ``\inline{?}'' \\
@@ -23,9 +24,13 @@ In order to concisely specify \gpl{identifier} we use a special syntax, of which
 
 \noindent If a backslash appears anywhere within the \g{identifier specifier}, it is ignored and the \g{character} immediately after it is taken literally without being interpreted as one of the \gpl{character} in the syntax rules and without being interpreted using this backslash rule. Thus two backslashes immediately after one another are interpreted as a single, literal backslash \g{character}.
 
+\noindent In order for a \syntax{rule} to \g{match}, the \syntax{quantifier} supplied with the \syntax{matcher} must match. If no \syntax{quantifier} is included in a \syntax{rule}, the \syntax{rule} \glink{match}{matches} if the \syntax{matcher} \glink{match}{matches} exactly once.
+
 \noindent In order for a \syntax{string} to \g{match}, the exact sequence of \gpl{character} must be found.
 
 \noindent In order for \syntax{some-characters} to \g{match}, one of the \gpl{character} must be found.
+
+\noindent In order for \syntax{other-characters} to \g{match}, a \g{character} that is not one of the indicated \gpl{character} must be found.
 
 \noindent In order for \syntax{any-character} to \g{match}, a single \g{character} must be found, but it matters not which \g{character} it is.
 
@@ -44,4 +49,5 @@ In order to concisely specify \gpl{identifier} we use a special syntax, of which
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
 %%% End:
