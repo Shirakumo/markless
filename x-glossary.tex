@@ -45,6 +45,10 @@
   The \g{textual component} that the \g{directive} puts in place of the \g{identifier} in the \g{document}.
 }
 
+\defineglossary{style}{
+  A \g{style} is an attribute of a \g{textual component} that specifies how the \g{textual component} and its contents are supposed to be visually represented in the \g{document}.
+}
+
 \defineglossary{document}{
 1) The top-most \g{textual component} that is not contained in any other \g{textual component}.
 2) A \g{string} to be interpreted into a \g{textual component} using rules outlined by \gpl{directive}.
@@ -63,7 +67,7 @@
 }
 
 \defineglossary{empty line}{
-  A \g{line} that contains at most a \g{newline}.
+  A \g{line} that only contains \g{whitespace} and a \g{newline}, or a sole \g{newline}.
 }
 
 \defineglossary{match}{
@@ -86,8 +90,33 @@
   A \g{directive} that spans one or more \gpl{line}.
 }
 
+
+\defineglossary{singular line directive}{
+  A \g{line directive} as specified in \sectionref{singular line directives}.
+}
+
+\defineglossary{spanning line directive}{
+  A \g{line directive} as specified in \sectionref{spanning line directives}.
+}
+
+\defineglossary{guarded line directive}{
+  A \g{line directive} as specified in \sectionref{guarded line directives}.
+}
+
 \defineglossary{inline directive}{
   A \g{directive} that can appear at any point within a \g{string}.
+}
+
+\defineglossary{surrounding inline directive}{
+  An \g{inline directive} as specified in \sectionref{surrounding inline directives}.
+}
+
+\defineglossary{entity inline directive}{
+  An \g{inline directive} as specified in \sectionref{entity inline directives}.
+}
+
+\defineglossary{compound inline directive}{
+  An \g{inline directive} as specified in \sectionref{compound inline directives}.
 }
 
 \defineglossary{equivalent}{
@@ -107,11 +136,19 @@
 }
 
 \defineglossary{conforming document}{
-  A \g{document} that does not violate any of the requirements set forth by the \gpl{directive} outlined in this specification and can thus be properly \gpl{interpretation}{interpreted} by any \g{conforming implementation}.
+  A \g{document} that does not violate any of the requirements set forth by the \gpl{directive} outlined in this specification and can thus be properly \glink{interpretation}{interpreted} by any \g{conforming implementation}.
 }
 
 \defineglossary{level}{
   A number representing the depth of a \g{directive} within the \g{document}. The level within any \g{directive} is one higher than the level the \g{directive} itself is at. The level of the \g{document} is always 0.
+}
+
+\defineglossary{binding}{
+  A \syntax{binding} syntax rule, the content of which is the \g{string} it \glink{match}{matches}.
+}
+
+\defineglossary{content binding}{
+  A \g{binding} with the \syntax{name} \inline$content$.
 }
 
 %%% Local Variables:

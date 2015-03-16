@@ -1,6 +1,10 @@
 
 \def\inline{\lstinline[basicstyle=\ttfamily]}
 
+\newcommand{\unicode}[1]{%
+  \char"#1  (\inline$U+#1$)%
+}
+
 \newcommand{\symbolref}[1]{%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[symbol:#1]{\expandafter\inline\expandafter{\WORD}}%
@@ -11,22 +15,28 @@
 }
 
 \newcommand{\definesyntax}[1]{%
-  \inline$#1$\label{syntax:#1}%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \inline$#1$\label{syntax:\WORD}%
 }
 
 \newcommand{\syntax}[1]{%
-  \hyperref[syntax:#1]{\inline$#1$}%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[syntax:\WORD]{\inline$#1$}%
 }
 
 \newcommand{\defineidentifier}[2]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Identifier} %
     \textbf{\capitalisewords{#1}}: %
     \inline$#2$%
   }%
+  \label{identifier:\WORD}%
 }
 
 \lstnewenvironment{identifier}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \label{identifier:\WORD}
   \textit{Identifier} %
   \textbf{\capitalisewords{#1}}: %
   \lstset{basicstyle=\ttfamily}%
@@ -34,27 +44,33 @@
 }
 
 \newcommand{\definetextualcomponent}[2]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Textual Component} %
     \textbf{\capitalisewords{#1}}: %
     \inline$#2$%
   }%
+  \label{textualcomponent:\WORD}%
 }
 
 \newcommand{\definesection}[1]{%
-  \newpage\section{#1}\label{section:#1}%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \newpage\section{#1}\label{section:\WORD}%
 }
 
 \newcommand{\definesubsection}[1]{%
-  \subsection{#1}\label{section:#1}%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \subsection{#1}\label{section:\WORD}%
 }
 
 \newcommand{\definesubsubsection}[1]{%
-  \subsubsection{#1}\label{section:#1}%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \subsubsection{#1}\label{section:\WORD}%
 }
 
 \newcommand{\sectionref}[1]{%
-  \hyperref[section:#1]{#1}%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[section:\WORD]{\textit{#1}}%
 }
 
 \newcommand{\defineglossary}[2]{%
@@ -85,7 +101,7 @@
   \textit{\gls{\stripped}}%
 }
 
-\newcommand{\G}[1]{%
+\renewcommand{\G}[1]{%
   \StrSubstitute{#1}{ }{}[\stripped]%
   \textit{\Gls{\stripped}}%
 }

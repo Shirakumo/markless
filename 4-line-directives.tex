@@ -3,8 +3,18 @@ In order for a \g{directive} to be a \g{line directive}, its \g{identifier} must
 
 A \g{textual component} specified by a \g{line directive} can potentially contain any other \g{textual component}. Therefore, any \g{directive} is potentially recognisable within a \g{line directive}, including other \gpl{line directive}. However, a \g{line directive} may explicitly restrict which \gpl{directive} are recognised within itself.
 
+\definesubsubsection{Singular Line Directives}
+A \g{line directive} is a \g{singular line directive} if it is only ever active for a single \g{line}. If it is matched on two consecutive \gpl{line} this results in two separate \gpl{resulting textual component}.
+
+\definesubsubsection{Spanning Line Directives}
+A \g{line directive} is a \g{spanning line directive} if the \g{identifier} contains a \g{content binding}, and if \glink{match}{matches} on consecutive \gpl{line} of the \g{identifier} are interpreted as a single \g{match}. The semantics of such a spanning match are as follows: Only a single \g{resulting textual component} is produced for all the consecutively \glink{match}{matching} \gpl{line}. The \g{text} of this \g{resulting textual component} is produced by concatenating the contents of the \g{content binding} on each \g{line}. If the \g{content binding} does not \g{match} the \g{newline} on every \g{line}, the \g{newline} must be inserted between each \g{string} of the \g{content binding}.
+
+\definesubsubsection{Guarded Line Directives}
+A \g{line directive} is a \g{guarded line directive} if its \glink{match}{matched} region is specified by two \gpl{identifier} that each match a single \g{line}. The \g{text} of the \g{resulting textual component} is the \g{text} from the \g{line} immediately after the \g{line} the first \g{identifier} \glink{match}{matches} until and including the \g{line} immediately before the \g{line} the second \g{identifier} \glink{match}{matches}.
+
 \input{4.1-paragraph.tex}
 \input{4.2-blockquote.tex}
+\input{4.3-lists.tex}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "0-markless"
