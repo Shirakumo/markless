@@ -2,19 +2,19 @@
 In order to concisely specify \gpl{identifier} we use a special syntax, of which the full grammar and semantics are reflected here using BNF notation. \\
 
 \begin{tabular}{lcl}
-  \definesyntax{rule} &::=& ``\inline{(}''? (\syntax{matcher} \syntax{quantifier}?)+ ``\inline{)}''? \\
+  \definesyntax{rule} &::=& ``\inline$($''? (\syntax{matcher} \syntax{quantifier}?)+ ``\inline$)$ ''? \\
   \definesyntax{matcher} &::=& \syntax{rule} \mid \syntax{string} \mid \syntax{some-characters} \mid \syntax{other-characters} \mid \syntax{any-character} \\
   \definesyntax{string} &::=& \syntax{character}+ \\
-  \definesyntax{some-characters} &::=& ``\inline{[}'' \syntax{character}+ ``\inline{]}'' \\
-  \definesyntax{other-characters} &::=& ``\inline{![}'' \syntax{character}+ ``\inline{]}'' \\
-  \definesyntax{any-character} &::=& ``\inline{.}'' \\
+  \definesyntax{some-characters} &::=& ``\inline$[$'' \syntax{character}+ ``\inline$]$'' \\
+  \definesyntax{other-characters} &::=& ``\inline$![$'' \syntax{character}+ ``\inline$]$'' \\
+  \definesyntax{any-character} &::=& ``\inline$.$'' \\
   \definesyntax{quantifier} &::=& \syntax{one-or-more} \mid \syntax{none-or-more} \mid \syntax{one-or-none} \mid \syntax{repeat} \\
-  \definesyntax{one-or-more} &::=& \syntax{rule} ``\inline{+}'' \\
-  \definesyntax{none-or-more} &::=& \syntax{rule} ``\inline{*}'' \\
-  \definesyntax{one-or-none} &::=& \syntax{rule} ``\inline{?}'' \\
-  \definesyntax{repeat} &::=& \syntax{rule} ``\inline${$'' \syntax{number} (``\inline{,}'' \syntax{number}?)? ``\inline$}$'' \\
-  \definesyntax{binding} &::=& ``\inline{<}'' \syntax{name} \syntax{rule} ``\inline{>}'' \\
-  \definesyntax{binding-reference} &::=& ``\inline{<}'' \syntax{name} ``\inline{>}'' \\
+  \definesyntax{one-or-more} &::=& \syntax{rule} ``\inline$+$'' \\
+  \definesyntax{none-or-more} &::=& \syntax{rule} ``\inline$*$'' \\
+  \definesyntax{one-or-none} &::=& \syntax{rule} ``\inline$?$'' \\
+  \definesyntax{repeat} &::=& \syntax{rule} ``\inline${$'' \syntax{number} (``\inline$,$'' \syntax{number}?)? ``\inline$}$'' \\
+  \definesyntax{binding} &::=& ``\inline$<$'' \syntax{name} \syntax{rule} ``\inline$>$'' \\
+  \definesyntax{binding-reference} &::=& ``\inline$<$'' \syntax{name} ``\inline$>$'' \\
   \definesyntax{name} &---& Some \g{alphanumeric} \g{string} to identify the text matched by the \syntax{rule}. \\
   \definesyntax{character} &---& A \g{character}. \\
   \definesyntax{number} &---& An integer. \\
