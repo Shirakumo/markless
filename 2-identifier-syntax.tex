@@ -3,48 +3,58 @@ In order to concisely specify \gpl{identifier} we use a special syntax, of which
 
 \begin{tabular}{lcl}
   \definesyntax{rule} &::=& ``\inline$($''? (\syntax{matcher} \syntax{quantifier}?)+ ``\inline$)$ ''? \\
-  \definesyntax{matcher} &::=& \syntax{rule} \mid \syntax{string} \mid \syntax{some-characters} \mid \syntax{other-characters} \mid \syntax{any-character} \\
+  \definesyntax{matcher} &::=& \multilinecell{\syntax{rule} | \syntax{string} | \syntax{some-characters} | \syntax{other-characters} \\
+  | \syntax{any-character} | \syntax{either} | \syntax{binding} \\
+  | \syntax{binding-reference} | \syntax{identifier-reference}} \\
   \definesyntax{string} &::=& \syntax{character}+ \\
+  \definesyntax{word-char} &::=& ``\inline$\w$'' \\
   \definesyntax{some-characters} &::=& ``\inline$[$'' \syntax{character}+ ``\inline$]$'' \\
   \definesyntax{other-characters} &::=& ``\inline$![$'' \syntax{character}+ ``\inline$]$'' \\
   \definesyntax{any-character} &::=& ``\inline$.$'' \\
-  \definesyntax{quantifier} &::=& \syntax{one-or-more} \mid \syntax{none-or-more} \mid \syntax{one-or-none} \mid \syntax{repeat} \\
+  \definesyntax{either} &::=& \syntax{rule} ``\inline$|$'' \syntax{rule}\\
+  \definesyntax{binding} &::=& ``\inline$<$'' \syntax{name} ``\inline$ $'' \syntax{rule} ``\inline$>$'' \\
+  \definesyntax{binding-reference} &::=& ``\inline$<$'' \syntax{name} ``\inline$>$'' \\
+  \definesyntax{identifier-reference} &::=& ``\inline${$'' \syntax{name} ``\inline$}$'' \\
+  \definesyntax{quantifier} &::=& \syntax{one-or-more} | \syntax{none-or-more} | \syntax{one-or-none} \\
   \definesyntax{one-or-more} &::=& \syntax{rule} ``\inline$+$'' \\
   \definesyntax{none-or-more} &::=& \syntax{rule} ``\inline$*$'' \\
   \definesyntax{one-or-none} &::=& \syntax{rule} ``\inline$?$'' \\
-  \definesyntax{repeat} &::=& \syntax{rule} ``\inline${$'' \syntax{number} (``\inline$,$'' \syntax{number}?)? ``\inline$}$'' \\
-  \definesyntax{binding} &::=& ``\inline$<$'' \syntax{name} \syntax{rule} ``\inline$>$'' \\
-  \definesyntax{binding-reference} &::=& ``\inline$<$'' \syntax{name} ``\inline$>$'' \\
   \definesyntax{name} &---& Some \g{alphanumeric} \g{string} to identify the text matched by the \syntax{rule}. \\
   \definesyntax{character} &---& A \g{character}. \\
   \definesyntax{number} &---& An integer. \\
 \end{tabular} \\
 
-\noindent Appearing within the ``'' quotes are \gpl{character} to be found in the \g{identifier specifier}. 
+{\setlength{\parindent}{0cm}
+Appearing within the ``'' quotes are \gpl{character} to be found in the \g{identifier specifier}. \\
 
-\noindent If a backslash appears anywhere within the \g{identifier specifier}, it is ignored and the \g{character} immediately after it is taken literally without being interpreted as one of the \gpl{character} in the syntax rules and without being interpreted using this backslash rule. Thus two backslashes immediately after one another are interpreted as a single, literal backslash \g{character}.
+If a backslash appears anywhere within the \g{identifier specifier}, it is ignored and the \g{character} immediately after it is taken literally without being interpreted as one of the \gpl{character} in the syntax rules and without being interpreted using this backslash rule. Thus two backslashes immediately after one another are interpreted as a single, literal backslash \g{character}. \\
 
-\noindent In order for a \syntax{rule} to \g{match}, the \syntax{quantifier} supplied with the \syntax{matcher} must match. If no \syntax{quantifier} is included in a \syntax{rule}, the \syntax{rule} \glink{match}{matches} if the \syntax{matcher} \glink{match}{matches} exactly once.
+In order for a \syntax{rule} to \g{match}, the \syntax{quantifier} supplied with the \syntax{matcher} must match. If no \syntax{quantifier} is included in a \syntax{rule}, the \syntax{rule} \glink{match}{matches} if the \syntax{matcher} \glink{match}{matches} exactly once. \\
 
-\noindent In order for a \syntax{string} to \g{match}, the exact sequence of \gpl{character} must be found.
+In order for a \syntax{string} to \g{match}, the exact sequence of \gpl{character} must be found. \\
 
-\noindent In order for \syntax{some-characters} to \g{match}, one of the \gpl{character} must be found.
+In order for a \syntax{word-char} to \g{match}, one \g{alphanumeric} character must be found. \\
 
-\noindent In order for \syntax{other-characters} to \g{match}, a \g{character} that is not one of the indicated \gpl{character} must be found.
+In order for \syntax{some-characters} to \g{match}, one of the \gpl{character} must be found. \\
 
-\noindent In order for \syntax{any-character} to \g{match}, a single \g{character} must be found, but it matters not which \g{character} it is.
+In order for \syntax{other-characters} to \g{match}, a \g{character} that is not one of the indicated \gpl{character} must be found. \\
 
-\noindent In order for \syntax{one-or-more} to \g{match}, the \syntax{rule} must be \glink{match}{matched} at least once, but may be \glink{match}{matched} an arbitrary number of times immediately after each other. The \syntax{rule} is only repeatedly \glink{match}{matched} until the \syntax{rule} immediately after the \syntax{one-or-more} is \glink{match}{matched}.
+In order for \syntax{any-character} to \g{match}, a single \g{character} must be found, but it matters not which \g{character} it is. \\
 
-\noindent In order for \syntax{none-or-more} to \g{match}, the \syntax{rule} does not have to be \glink{match}{matched} at all, but may be \glink{match}{matched} an arbitrary number of times immediately after each other. The \syntax{rule} is only repeatedly \glink{match}{matched} until the \syntax{rule} immediately after the \syntax{none-or-more} is \glink{match}{matched}.
+In order for \syntax{either} to \g{match}, either the \syntax{rule} left to it, or the \syntax{rule} right to it must \g{match}. \\
 
-\noindent In order for \syntax{one-or-none} to \g{match}, the \syntax{rule} does not have to be \glink{match}{matched} at all, but if it is, it is only \glink{match}{matched} exactly once.
+In order for \syntax{one-or-more} to \g{match}, the \syntax{rule} must be \glink{match}{matched} at least once, but may be \glink{match}{matched} an arbitrary number of times immediately after each other. The \syntax{rule} is only repeatedly \glink{match}{matched} until the \syntax{rule} immediately after the \syntax{one-or-more} is \glink{match}{matched}. \\
 
-\noindent In order for \syntax{repeat} to \g{match}, the \syntax{rule} must be \glink{match}{matched} at least the number of times of the first \syntax{number}. If only the comma is provided after the first \syntax{number}, it may \g{match} any number of times greater than the first \syntax{number}. If the second \syntax{number} is provided, it cannot \g{match} more times than the second \syntax{number}.
+In order for \syntax{none-or-more} to \g{match}, the \syntax{rule} does not have to be \glink{match}{matched} at all, but may be \glink{match}{matched} an arbitrary number of times immediately after each other. The \syntax{rule} is only repeatedly \glink{match}{matched} until the \syntax{rule} immediately after the \syntax{none-or-more} is \glink{match}{matched}. \\
 
-\noindent In order for a \syntax{binding} to \g{match}, the \syntax{rule} contained must \g{match}. The specific \g{string} \glink{match}{matched} by the \syntax{rule} is then associated with the \syntax{name} of the \syntax{binding}.
+In order for \syntax{one-or-none} to \g{match}, the \syntax{rule} does not have to be \glink{match}{matched} at all, but if it is, it is only \glink{match}{matched} exactly once. \\
 
-\noindent In order for a \syntax{binding-reference} to \g{match}, the exact \g{string} associated with the \syntax{name} of the \syntax{binding} must be found.
+In order for a \syntax{binding} to \g{match}, the \syntax{rule} contained must \g{match}. The specific \g{string} \glink{match}{matched} by the \syntax{rule} is then associated with the \syntax{name} of the \syntax{binding}. \\
+
+In order for an \syntax{identifier-reference} to \g{match}, the \g{identifier} corresponding to the \syntax{name} must \g{match}. The effect is the as if the according \g{identifier specifier} was used in place of the \syntax{identifier-reference}.\\
+
+In order for a \syntax{binding-reference} to \g{match}, the exact \g{string} associated with the \syntax{name} of the \syntax{binding} must be found.
+}
 
 %%% Local Variables:
 %%% mode: latex
