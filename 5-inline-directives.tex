@@ -1,7 +1,7 @@
 \definesection{Inline Directives}
 A \g{directive} is an \g{inline directive} if its identification is not bound to \gpl{line}. Unlike \gpl{line directive} therefore it can potentially be identified at any point in a string and span any length. \\
 
-Any \g{textual component} specified by an \g{inline directive} can only contain \gpl{textual component} specified by \gpl{inline directive}. Furthermore, an \g{inline directive} cannot contain another \g{inline directive} of its own type at any \g{level}. An \g{inline directive} may further restrict which \gpl{directive} may appear within itself.
+Any \g{textual component} specified by an \g{inline directive} can only contain \gpl{textual component} specified by \gpl{inline directive}. Furthermore, an \g{inline directive} cannot contain another \g{inline directive} of its own type at any \g{level}. An \g{inline directive} may further restrict which \gpl{directive} may appear within itself. An \g{inline directive} cannot cross the boundaries of another \g{directive} of a different kind. If such a case were to occur, the current \g{inline directive} is forcibly ended without regard for any possible trailing \g{match}. A special exception is made in the case of \gpl{spanning line directive}: since a \g{spanning line directive} is the combination of multiple matches of the same kind on consecutive lines into a singular \g{textual component}, an \g{inline directive} must be allowed to span over multiple matches.
 
 \definesubsubsection{Surrounding Inline Directives}
 An \g{inline directive} is an \g{surrounding inline directive} if its \g{identifier} is terminated by a \syntax{binding-reference} to a \syntax{binding} at the start of the \g{identifier}. The \g{resulting textual component} of a \g{surrounding inline directive} never contains the \gpl{string} \glink{match}{matched} by the \g{identifier}'s starting \syntax{binding}. Instead, each \g{surrounding inline directive} \g{identifier} contains a \g{content binding} that matches all the \g{text} that the \g{resulting textual component} will contain.
@@ -18,13 +18,10 @@ An \g{inline directive} is a \g{compound inline directive} if its \g{identifier}
 \input{5.4-strikethrough.tex}
 \input{5.5-code.tex}
 \input{5.6-dashes.tex}
-% \input{5.x-subtext.tex}
-% \input{5.x-supertext.tex}
-% \input{5.x-spoiler.tex}
-% \input{5.x-color.tex}
-% \input{5.x-size.tex}
-% \input{5.x-hyperlinks.tex}
-% \input{5.x-embeds.tex}
+\input{5.7-subtext.tex}
+\input{5.8-supertext.tex}
+\input{5.9-url.tex}
+\input{5.10-compound.tex}
 
 %%% Local Variables:
 %%% mode: latex

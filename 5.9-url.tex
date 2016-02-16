@@ -1,0 +1,15 @@
+\definesubsection{URL}
+\defineidentifier{url}{<target \w(\w|[+-.])*://(\w|[\$-_.+!*'()\&+,/:;=?@])+>}
+\definetextualcomponent{url}{interaction: link; target: target} \\
+
+
+
+\begin{examples}
+  \longexample{Come chat with us at irc://irc.freenode.net/\%23lisp\\!}{Come chat with us at \url{irc://irc.freenode.net/\%23lisp}!}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:

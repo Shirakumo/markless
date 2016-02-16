@@ -1,0 +1,15 @@
+\definesubsection{Supertext}
+\defineidentifier{supertext}{^<start [(]+><content ![(].*><start>}
+\definetextualcomponent{supertext}{vertical-align: super} \\
+
+The supertext \g{directive} marks the \g{text} to belong to a \g{textual component} that sets the style of the text to appear smaller and above the default text line. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. \\
+
+\begin{examples}
+  \example{This is a good example ^([citation needed])}{This is a good example \raisebox{.4ex}{\scriptsize [citation needed]}}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:
