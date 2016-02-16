@@ -2,7 +2,7 @@
 \defineidentifier{em-dash}{--}
 \definetextualcomponent{em-dash}{display: em-dash} \\
 
-If the \g{document} does not have direct for em-dashes, the unicode character \unicode{2014} may be used instead. \\
+If the \g{document} does not have direct support for em-dashes, a fallback character may be used when appropriate instead. In unicode encoded documents, this should be \unicode{2014}. \\
 
 \begin{examples}
   \example{A game -- or gamble, if you will.}{A game --- or gamble, if you will.}
