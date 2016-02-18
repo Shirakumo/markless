@@ -1,0 +1,22 @@
+\definesubsection{Instruction}
+\begin{identifier}{instruction}
+! <instruction .*>
+\end{identifier}
+
+The instruction is a \g{singular line directive}. Its purpose is to interact with the \g{implementation} and cause it to perform differently. There is no corresponding \g{resulting textual component} for the comment \g{directive} and as such it must not have any effect on the \g{document}. \\
+
+The following instructions and their effect must be supported by an \g{implementation}. \\
+\begin{tabularx}{\textwidth}{lX}
+  \inline$disable-directives <directive>*$ & Adds the named directives to the list of \gpl{disabled directive}. \\
+  \inline$enable-directives <directive>*$ & Removes the named directives from the list of \gpl{disabled directive}. \\
+  \inline$set-source-language <language>$ & Sets the source language by which the rest of the document should be \glink{compilation}{compiled}. If the \g{implementation} does not support the requested language, an \g{error} is \glink{signalling}{signalled}.\\
+\end{tabularx} \\
+
+\begin{examples}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:
