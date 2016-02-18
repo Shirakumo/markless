@@ -1,4 +1,3 @@
-
 \glossarystyle{altlist}
 \makeglossaries
 
@@ -10,15 +9,43 @@
   A singular entity as specified by an \g{encoding}.
 }
 
-\defineglossary{alphanumeric}{
+\defineglossary{alphabetic}{
   Any \g{character} that is one of the following: \\
-  \inline{0123456789}\\
-  \inline{abcdefghijklmnopqrstuvwxyz}\\
-  \inline{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+  \inline$abcdefghijklmnopqrstuvwxyz$\\
+  \inline$ABCDEFGHIJKLMNOPQRSTUVWXYZ$
+}
+
+\defineglossary{numeric}{
+  Any \g{character} that is one of the following: \\
+  \inline$0123456789$
+}
+
+\defineglossary{alphanumeric}{
+  Any \g{character} that is either \g{alphabetic} or \g{numeric}.
 }
 
 \defineglossary{whitespace}{
   Any \g{character} that represents a horizontal gap. Examples include space, tab, zero-width space, etc.
+}
+
+\defineglossary{character class}{
+  A specified set of \gpl{character}.
+}
+
+\defineglossary{hexadecimal number}{
+  A sequence of \gpl{character} that are one of \inline$0123456789abcdefABCDEF$ and thus form a mathematical number in base-16/hexadecimal representation.
+}
+
+\defineglossary{decimal number}{
+  A sequence of \gpl{character} that are \g{numeric} and thus form a mathematical number in base-10/decimal representation.
+}
+
+\defineglossary{real number}{
+  A sequence of \gpl{character} as follows: One or more \g{numeric} \gpl{character}, optionally followed by a \inline$.$ dot, followed by an arbitrary number of \g{numeric} \gpl{character}. This forms a mathematical real number in base-10/decimal representation where the dot denotes the decimal point.
+}
+
+\defineglossary{case insensitive}{
+  When both the lower- and upper-case representation of an \g{alphabetic} \g{character} are treated as \g{equivalent}.
 }
 
 \defineglossary{string}{
@@ -49,9 +76,18 @@
   A \g{style} is an attribute of a \g{textual component} that specifies how the \g{textual component} and its contents are supposed to be visually represented in the \g{document}.
 }
 
+\defineglossary{format}{
+  A particular representation of data.
+}
+
+\defineglossary{compilation}{
+  The process by which input data of a certain \g{format}, typically a \g{string}, is interpreted with a set of rules and transformed into a different, output \g{format}.
+}
+
 \defineglossary{document}{
-1) The top-most \g{textual component} that is not contained in any other \g{textual component}.
-2) A \g{string} to be interpreted into a \g{textual component} using rules outlined by \gpl{directive}.
+  1) The top-most \g{textual component} that is not contained in any other \g{textual component}.
+  2) A \g{string} to be interpreted into a \g{textual component} using rules outlined by \gpl{directive}.
+  3) The result of the \g{compilation} of a Markless document.
 }
 
 \defineglossary{document format}{
@@ -153,6 +189,19 @@
 
 \defineglossary{content binding}{
   A \g{binding} with the \syntax{name} \inline$content$.
+}
+
+\defineglossary{user}{
+  Some entity ---usually a human--- that can view and interact with a \g{document}.
+}
+
+\defineglossary{action}{
+  Some form of interaction that a \g{user} viewing a \g{document} can perform.
+}
+
+\defineglossary{label}{
+  1) A unique name within a \g{document} that is associated with a single \g{textual component} of the \g{document}. 
+  2) A \g{textual component} that is associated through a \g{label}.
 }
 
 %%% Local Variables:
