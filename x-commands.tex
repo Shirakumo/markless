@@ -51,6 +51,26 @@
 }{
 }
 
+\newcommand{\ident}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[identifier:\WORD]{\textit{#1}}%
+}
+
+\newcommand{\definestyle}[2]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \makebox[\textwidth][l]{%
+    \textit{Style} %
+    \textbf{\capitalisewords{#1}}: %
+    \inline$#2$%
+  }%
+  \label{style:\WORD}%
+}
+
+\newcommand{\style}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[style:\WORD]{\textit{#1}}%
+}
+
 \newcommand{\definetextualcomponent}[2]{%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
@@ -59,6 +79,12 @@
     \inline$#2$%
   }%
   \label{textualcomponent:\WORD}%
+  \label{style:\WORD}%
+}
+
+\newcommand{\comp}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[textualcomponent:\WORD]{\textit{#1}}%
 }
 
 \newcommand{\definesection}[1]{%
@@ -105,8 +131,8 @@
 }
 
 \newcommand{\longexample}[2]{%
-\end{tabular}%
-\;\multilinecell{\inline$#1$}\\\hspace*{1em}$\Rightarrow$\multilinecell{#2}\\%
+\end{tabular}\\%
+\hspace*{0.5em}\multilinecell{\inline$#1$}\\\hspace*{1em}$\Rightarrow$\multilinecell{#2}\\%
 \begin{tabular}{lcl}%
 }
 
