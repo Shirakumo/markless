@@ -1,0 +1,23 @@
+\definesubsubsection{Hyperlink}
+\defineidentifier{compound-hyperlink}{\{url\}|(#<internal .+>)|(link <external .+>)}
+\definestyle{compound-hyperlink}{interaction: link;target: target} \\
+
+This option marks the \g{style} to set the interaction to allow following to the target. The user must be presented with an action that allows them to follow to the target. The exact manner in which the target is followed as well as the way in which the action is presented are \g{implementation dependant}. The target can be given in three ways:
+\begin{enumerate}
+\item As an URL, contained in the \inline$target$ \g{binding}. In this case the semantics are the same as for the \comp{URL} \g{textual component}.
+\item As an external reference, contained in the \inline$external$ \g{binding}. The exact semantics and allowed values for external references are \g{implementation dependant}.
+\item As an internal reference, contained in the \inline$internal$ \g{binding}. The target is set to the position of the \g{textual component} associated with the \g{label} of the same name as the contents of the binding.
+\end{enumerate}
+If the specified target is invalid or unknown to the \g{implementation} according to the above restrictions, no interaction change occurs. \\
+
+\begin{examples}
+  \longexample{The "hyperspec"(to http://l1sp.org/cl/) is very useful.}{The \href{http://l1sp.org/cl/}{hyperspec} is very useful.}
+  \example{And in "part 2"(to #identifier-syntax)...}{And in \hyperref[section:IDENTIFIER SYNTAX]{part 2}...}
+  \example{I drew "something"(to ~/drawings/test.jpg) today.}{I drew \href{run:~/drawings/test.jpg}{something} today.}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:

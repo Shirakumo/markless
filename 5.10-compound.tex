@@ -1,48 +1,24 @@
 \definesubsection{Compound}
-\defineidentifier{compound-content}{<start ["]+><content !["].*><start>|<content [ (]+>}
-\defineidentifier{compound-options}{\((in|to)( <option .*>,?)+\)}
-\defineidentifier{compound}{\{compound-content\} ?\{compound-options\}}
+\defineidentifier{compound-content}{<start ["]+><content !["].*><start>|<content ![ (]+>}
+\defineidentifier{compound-options}{\((in|to)( <option .*>,)+\)}
+\defineidentifier{compound}{\{compound-content\}\{compound-options\}}
 \definetextualcomponent{compound}{} \\
 
-The compound \g{directive} determines its style dynamically by the combination of options present. An \g{implementation} must at least support the options specified in this section, but may add additional options, the syntax and implications thereof are completely \g{implementation dependant}. If an option is found that the \g{implementation} does not support, it is ignored. \\
+The \comp{compound} \g{directive} determines its \g{style} dynamically by the additive combination of present \ident{compound-options}. In the case where the style combination of two options conflicts, the style of the last option has priority. \\
 
-Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. \\
+Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. The \ident{compound-options} \g{identifier} cannot contain any other \gpl{directive}.\\
 
-\definesubsubsection{Bold}
-\defineidentifier{compound-bold}{bold}
-\definetextualcomponent{compound-bold}{font-weight: bold} \\
+An \g{implementation} must at least support the options specified in this section, but may add additional options the syntax and implications of which are completely \g{implementation dependant}. If an option is found that the \g{implementation} does not support, it is ignored. \\
 
-\definesubsubsection{Italic}
-\defineidentifier{compound-italic}{italic}
-\definetextualcomponent{compound-italic}{font-style: italic} \\
-
-\definesubsubsection{Underline}
-\defineidentifier{compound-underline}{underline}
-\definetextualcomponent{compound-underline}{text-decoration: underline} \\
-
-\definesubsubsection{Strikethrough}
-\defineidentifier{compound-strikethrough}{strikethrough}
-\definetextualcomponent{compound-strikethrough}{text-decoration: strikethrough} \\
-
-\definesubsubsection{Spoiler}
-\defineidentifier{compound-spoiler}{spoiler}
-\definetextualcomponent{compound-spoiler}{display: hidden} \\
-
-\definesubsubsection{Font}
-\defineidentifier{compound-font}{font <font ![, ]+>}
-\definetextualcomponent{compound-font}{font-family: font} \\
-
-\definesubsubsection{Color}
-\defineidentifier{compound-color}{color <color ![, ]+>}
-\definetextualcomponent{compound-color}{color: color} \\
-
-\definesubsubsection{Size}
-\defineidentifier{compound-size}{size <size ![, ]+>}
-\definetextualcomponent{compound-size}{font-size: size} \\
-
-\definesubsubsection{Hyperlink}
-\defineidentifier{compound-hyperlink}{\{url\}|(#<target ![, ]+>)|(link <target ![, ]>)}
-\definetextualcomponent{compound-hyperlink}{interaction: link;target: target} \\
+\input{5.10.1-bold.tex}
+\input{5.10.2-italic.tex}
+\input{5.10.3-underline.tex}
+\input{5.10.4-strikethrough.tex}
+\input{5.10.5-spoiler.tex}
+\input{5.10.6-font.tex}
+\input{5.10.7-color.tex}
+\input{5.10.8-size.tex}
+\input{5.10.9-hyperlink.tex}
 
 %%% Local Variables:
 %%% mode: latex

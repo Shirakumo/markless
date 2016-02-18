@@ -1,0 +1,25 @@
+\definesubsubsection{Color}
+\defineidentifier{compound-color}{(color (<hex #.+>|<r ~n+>,<g ~n+>,<b ~n+>))|<name .+>}
+\definestyle{compound-color}{color: color} \\
+
+If given, this option marks the \g{style} to change the colour. The colour can be given in three ways:
+\begin{enumerate}
+\item Through a hexadecimal notation, contained in the \inline$hex$ \g{binding}. The \g{hexadecimal number} following the \inline$#$ must be exactly six \gpl{character} long.
+\item Through a red, green, blue component notation, contained in the \inline$r$,\inline$g$, and \inline$b$ \gpl{binding}. Each of these bindings must contain a \g{decimal number} that may only range between 0 and 255. If the number lies outside this range, it is clamped to the nearest boundary.
+\item Through an explicit colour name, contained in the \inline$name$ \g{binding}. The name must be \g{case insensitive}. The set of supported colour names is \g{implementation dependant}.
+\end{enumerate}
+If the specified colour value is invalid or unknown to the \g{implementation} according to the above restrictions, no colour change occurs. If the \g{document} does not support the specified colour, the \g{implementation} must choose an alternative colour that approximates the specified one as closely as possible. \\
+
+\definecolor{5-10-7-2}{RGB}{157,14,204}
+\definecolor{5-10-7-3}{RGB}{145,16,16}
+\begin{examples}
+  \example{This is blue(in blue).}{This is \textcolor{blue}{blue}.}
+  \example{Magic!(in color #9D0ECC)}{\textcolor{5-10-7-2}{Magic!}}
+  \example{Now in technicolor(in color 145,16,16).}{Now in \textcolor{5-10-7-3}{technicolor}.}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:

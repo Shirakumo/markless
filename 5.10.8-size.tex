@@ -1,0 +1,34 @@
+\definesubsubsection{Size}
+\defineidentifier{compound-size}{(size )?(<point ~n+pt>|<em ~n+?(\\.~n+?)?em>|<name .+>)}
+\definestyle{compound-size}{font-size: size} \\
+
+This option marks the \g{style} to change the font size. The size can be given in three ways:
+\begin{enumerate}
+\item Through a point value, contained in the \inline$point$ \g{binding}. The \g{real number} must be greater than zero.
+\item Through an em value, contained in the \inline$em$ \g{binding}. The \g{real number} must be greater than zero. The font size is scaled according to the \g{real number} multiplied by the font size of the \g{textual component} one \g{level} below.
+\item Through a name, contained in the \inline$name$ \g{binding}. The name must be \g{case insensitive}. At least the following names, corresponding to scaling factors, must be supported by the \g{implementation}:
+  \begin{itemize}[noitemsep]
+  \item Microscopic 0.25em
+  \item Tiny 0.5em
+  \item Small 0.8em
+  \item Normal 1.0em
+  \item Big 1.5em
+  \item Large 2.0em
+  \item Huge 2.5em
+  \item Gigantic 4.0em
+  \end{itemize}
+  An implementation may support additional names, the exact sizing effects of which are \g{implementation dependant}.
+\end{enumerate}
+If the specified size value is invalid or unknown to the \g{implementation} according to the above restrictions, no size change occurs. \\
+
+\begin{examples}
+  \example{Oh "shit!"(in huge)}{Oh {\fontsize{2.5em}{2.6em}\selectfont shit!}}
+  \example{In "20pt."(in 20pt)}{In {\fontsize{20pt}{20pt}\selectfont 20pt.}}
+  \longexample{Well ""uh, "I don't know..."(in size 0.5em)""(in size 0.8em)}{Well {\fontsize{0.8em}{0.8em}\selectfont uh, {\fontsize{0.5em}{0.5em}\selectfont I don't know...}}}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "0-markless"
+%%% TeX-engine: luatex
+%%% End:
