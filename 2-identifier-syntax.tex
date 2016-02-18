@@ -7,7 +7,7 @@ In order to concisely specify \gpl{identifier} we use a special syntax, of which
   | \syntax{any-character} | \syntax{either} | \syntax{binding} \\
   | \syntax{binding-reference} | \syntax{identifier-reference}} \\
   \definesyntax{string} &::=& \syntax{character}+ \\
-  \definesyntax{word-char} &::=& ``\inline$\w$'' \\
+  \definesyntax{char-class} &::=& ``\inline$~$'' \syntax{character} \\
   \definesyntax{some-characters} &::=& ``\inline$[$'' \syntax{character}+ ``\inline$]$'' \\
   \definesyntax{other-characters} &::=& ``\inline$![$'' \syntax{character}+ ``\inline$]$'' \\
   \definesyntax{any-character} &::=& ``\inline$.$'' \\
@@ -33,7 +33,7 @@ In order for a \syntax{rule} to \g{match}, the \syntax{quantifier} supplied with
 
 In order for a \syntax{string} to \g{match}, the exact sequence of \gpl{character} must be found. \\
 
-In order for a \syntax{word-char} to \g{match}, one \g{alphanumeric} character must be found. \\
+In order for a \syntax{char-class} to \g{match}, a \g{character} specified by the \g{character class} associated with the given \syntax{character} must be found. The following classes are specified: \inline$a$ for \g{alphabetic}, \inline$n$ for \g{numeric}, \inline$_$ for \g{whitespace}, and \inline$w$ for \g{alphanumeric}. \\
 
 In order for \syntax{some-characters} to \g{match}, one of the \gpl{character} must be found. \\
 
