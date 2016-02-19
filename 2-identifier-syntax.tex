@@ -3,14 +3,14 @@ In order to concisely specify \gpl{identifier} we use a special syntax, of which
 
 \begin{tabular}{lcl}
   \definesyntax{rule} &::=& ``\inline$($''? (\syntax{matcher} \syntax{quantifier}?)+ ``\inline$)$ ''? \\
-  \definesyntax{matcher} &::=& \multilinecell{\syntax{rule} | \syntax{string} | \syntax{some-characters} | \syntax{other-characters} \\
-  | \syntax{any-character} | \syntax{either} | \syntax{binding} \\
+  \definesyntax{matcher} &::=& \multilinecell{\syntax{rule} | \syntax{string} | \syntax{some-characters} \\
+  | \syntax{any-character} | \syntax{not} | \syntax{either} | \syntax{binding} \\
   | \syntax{binding-reference} | \syntax{identifier-reference}} \\
   \definesyntax{string} &::=& \syntax{character}+ \\
   \definesyntax{char-class} &::=& ``\inline$~$'' \syntax{character} \\
   \definesyntax{some-characters} &::=& ``\inline$[$'' \syntax{character}+ ``\inline$]$'' \\
-  \definesyntax{other-characters} &::=& ``\inline$![$'' \syntax{character}+ ``\inline$]$'' \\
   \definesyntax{any-character} &::=& ``\inline$.$'' \\
+  \definesyntax{not} &::=& ``\inline$!$'' \syntax{matcher} \\
   \definesyntax{either} &::=& \syntax{rule} ``\inline$|$'' \syntax{rule}\\
   \definesyntax{binding} &::=& ``\inline$<$'' \syntax{name} ``\inline$ $'' \syntax{rule} ``\inline$>$'' \\
   \definesyntax{binding-reference} &::=& ``\inline$<$'' \syntax{name} ``\inline$>$'' \\
@@ -37,9 +37,10 @@ In order for a \syntax{char-class} to \g{match}, a \g{character} specified by th
 
 In order for \syntax{some-characters} to \g{match}, one of the \gpl{character} must be found. \\
 
-In order for \syntax{other-characters} to \g{match}, a \g{character} that is not one of the indicated \gpl{character} must be found. \\
-
 In order for \syntax{any-character} to \g{match}, a single \g{character} must be found, but it matters not which \g{character} it is. \\
+
+In order for \syntax{not} to \g{match}, the following \syntax{matcher} must not \g{match}. \\
+
 
 In order for \syntax{either} to \g{match}, either the \syntax{rule} left to it, or the \syntax{rule} right to it must \g{match}. \\
 
