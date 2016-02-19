@@ -80,14 +80,9 @@
   A particular representation of data.
 }
 
-\defineglossary{compilation}{
-  The process by which input data of a certain \g{format}, typically a \g{string}, is interpreted with a set of rules and transformed into a different, output \g{format}.
-}
-
 \defineglossary{document}{
   1) The top-most \g{textual component} that is not contained in any other \g{textual component}.
   2) A \g{string} to be interpreted into a \g{textual component} using rules outlined by \gpl{directive}.
-  3) The result of the \g{compilation} of a Markless document.
 }
 
 \defineglossary{document format}{
@@ -119,7 +114,7 @@
 }
 
 \defineglossary{directive}{
-  A directive associates an \g{identifier} to a \g{textual component} and specifies what \g{text} to put into this \g{resulting textual component}.
+  A directive specifies what happens when the \g{implementation} \glink{match}{matches} a particular \g{identifier}. In particular, it may specify how the input \g{string} is \glink{interpretation}{interpreted} into \g{text} in the \g{document}.
 }
 
 \defineglossary{line directive}{
@@ -214,7 +209,7 @@
 }
 
 \defineglossary{signalling}{
-  The act by which an \g{implementation} can give feedback about the \g{compilation} of the \g{document}.
+  The act by which an \g{implementation} can give feedback about the \g{interpretation} of the \g{document}.
 }
 
 %%% Local Variables:
