@@ -6,7 +6,31 @@
 
 The paragraph is the default \g{textual component} and acts as a fall-back. \Gpl{line} belong to the same paragraph until the length of \inline{spaces} changes, a new \g{inline directive} is recognised, or an \g{empty line} is encountered. The paragraph is a \g{spanning line directive}. The paragraph \g{directive} can only contain \gpl{inline directive}. \\
 
-Paragraphs are visually distinguished by a margin above and below the \g{text}. An \g{implementation} may additionally employ indentation rules to distinguish the beginning of a paragraph.
+Paragraphs are visually distinguished by a margin above and below the \g{text}. An \g{implementation} may additionally employ indentation rules to distinguish the beginning of a paragraph. \\
+
+\begin{examples}
+  \begin{examplesource}
+This is a paragraph
+that spans multiple lines
+
+This is another paragraph.
+  \end{examplesource}
+  \begin{exampleoutput}
+    This is a paragraph\\
+    that spans multiple lines.\\
+    \\
+    This is another paragraph.
+  \end{exampleoutput}
+  \begin{examplesource}
+Paragraph One
+  Paragraph Two
+  \end{examplesource}
+  \begin{exampleoutput}
+    Paragaph One\\
+    \\
+    Paragraph Two
+  \end{exampleoutput}
+\end{examples}
 
 %%% Local Variables:
 %%% mode: latex
