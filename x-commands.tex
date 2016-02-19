@@ -1,7 +1,12 @@
-\lstdefinestyle{inline}{
-  basicstyle=\ttfamily\lst@ifdisplaystyle\scriptsize\fi
+\lstdefinestyle{codestyle}{
+  basicstyle=\ttfamily,
+  columns=flexible,
+  keepspaces=true,
+  breaklines=true,
+  breakatwhitespace=true,
+  escapeinside={\$}{\$}
 }
-\def\inline{\lstinline[style=inline]}
+\def\inline{\lstinline[style=codestyle]}
 
 \newcommand{\multilinecell}[2][l]{
   \begin{tabular}{@{}#1@{}}%
@@ -119,21 +124,47 @@
 
 \newenvironment{examples}{%
   \par
+  \begin{minipage}{\textwidth}
   {\bfseries\large Examples:} \\
+  \renewcommand{\arraystretch}{1.3}%
   \begin{tabular}{lcl}
 }{%
   \end{tabular}
+  \renewcommand{\arraystretch}{1}%
+  \end{minipage}
   \par%
 }
 
 \newcommand{\example}[2]{%
-  \multilinecell{\inline$#1$} &$\Rightarrow$& \multilinecell{#2} \\
+  \inline$#1$ &$\Rightarrow$& \multilinecell{#2} \\
+}
+
+\lstnewenvironment{examplesource}{\lstset{style=codestyle}}{}
+
+\NewEnviron{exampleoutput}{
+  \toks0=\expandafter{\BODY}%
+  \toks2={&$\Rightarrow$&}%
+  \xdef\TableRowContents{\the\toks2 \noexpand\multilinecell{\the\toks0}\noexpand\\}%
+  \aftergroup\TableRowContents
 }
 
 \newcommand{\longexample}[2]{%
-\end{tabular}\\%
-\hspace*{0.5em}\multilinecell{\inline$#1$}\\\hspace*{1em}$\Rightarrow$\multilinecell{#2}\\%
-\begin{tabular}{lcl}%
+  \multicolumn{3}{l}{%
+    \multilinecell{%
+      \inline$#1$ \\%
+      \hspace*{1em}$\Rightarrow$ #2%
+    }%
+  } \\%
+}
+
+\NewEnviron{blockquote}[1][]{%
+  \begin{minipage}{0.3\textwidth}%
+    {\itshape\BODY}%
+    \ifx\relax#1\relax%
+    \else%
+    \vspace{-0.2cm}\begin{flushright}--- #1\end{flushright}%
+    \fi%
+  \end{minipage}%
 }
 
 \newcommand{\g}[1]{%
