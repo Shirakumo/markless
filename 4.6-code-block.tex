@@ -1,18 +1,27 @@
 \definesubsection{Code block}
 \begin{identifier}{code block}
-
+:: <language ![ ]+>?<options .*>
+<content .*>
+::
 \end{identifier}
 \definetextualcomponent{code block}{} \\
 
-
+Code. \\
 
 \begin{examples}
-  \begin{examplesource}
-
-  \end{examplesource}
-  \begin{exampleoutput}
-    
-  \end{exampleoutput}
+\begin{examplesource}
+Some unexciting code:
+:: common-lisp
+(print "Hello world")
+::
+\end{examplesource}
+  &$\Rightarrow$&
+  \begin{tabular}{@{}l@{}}
+Some unexciting code: \\
+\begin{lstlisting}[style=codestyle,language=Lisp,showstringspaces=false]
+(print "Hello world")
+\end{lstlisting}
+\end{tabular}
 \end{examples}
 
 %%% Local Variables:

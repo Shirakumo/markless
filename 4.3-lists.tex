@@ -6,6 +6,39 @@
 \. <content .*>
 \end{identifier}
 
+Lists. \\
+
+\begin{examples}
+\begin{examplesource}
+. Finish this spec
+. Implement a parser
+\end{examplesource}
+  \begin{exampleoutput}
+    \begin{minipage}{0.5\textwidth}
+      \begin{itemize}[noitemsep]
+      \item Finish this spec
+      \item Implement a parser
+      \end{itemize}
+    \end{minipage}
+  \end{exampleoutput}
+\begin{examplesource}
+1 Buy some ingredients
+2 Clean the kitchen
+  Don't forget the sink!
+5 Watch TV
+\end{examplesource}
+  \begin{exampleoutput}
+    \begin{minipage}{0.5\textwidth}
+      \begin{enumerate}[noitemsep]
+      \item Buy some ingredients
+      \item Clean the kitchen\\Don't forget the sink!
+        \setcounter{enumi}{4}
+      \item Watch TV
+      \end{enumerate}
+    \end{minipage}
+  \end{exampleoutput}
+\end{examples}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "0-markless"
