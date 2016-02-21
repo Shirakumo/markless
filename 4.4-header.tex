@@ -2,22 +2,50 @@
 \begin{identifier}{header}
 <level #+> <content .+>
 \end{identifier}
-\definetextualcomponent{header}{} \\
+\definetextualcomponent{header}{font-weight:bold; font-size: 1-level; indent: true; label: content} \\
 
-The header is a \g{singular line directive}. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. \\
+The header is a \g{singular line directive}. It represents a section heading. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. The header can only contain \gpl{inline directive}.\\
+
+The length of the \inline$level$ \g{binding} determines the level of the heading. The level may potentially be infinitely high, though the \g{implementation} may represent levels above a certain number in the same manner. It must however support a different representation for at least levels 1 and 2. Generally, the higher the level, the smaller the font size of the heading should be. \\
+
+An \g{implementation} may choose to number each header, where this number prefix is put together by the number prefix of the header on a level one higher followed by a dot and a counter representing how many headers of the same level have appeared until and including the current one since the last header of a higher level. In the case of a level one heading only the counter is used, as there is no higher level prefix to prepend. In the case where no level one higher is contained in the \g{document}, the level is treated as if it existed with the counter for it being 0.\\
+
+The \g{resulting textual component} is associated with a \g{label} of the same name as the \g{text} of the \g{resulting textual component}. \\
 
 \begin{examples}
   \begin{examplesource}
 # Header
 The header is a singular line
 directive
+## Subsection
+That allows neat sectioning!
   \end{examplesource}
   \begin{exampleoutput}
     \textbf{\quad\Large Header}\\
     The header is a singular line\\
-    directive.
+    directive.\\
+    \textbf{\quad\large Subsection}\\
+    That allows neat sectioning!\\
   \end{exampleoutput}
-  \example{## Subsection}{\textbf{\quad\large Subsection}}
+\begin{examplesource}
+# Cooking a Lasagna
+Here's what you have to buy:
+## Ingredients
+A buncha stuff!
+## Steps
+It's a lengthy recipe, but finally \
+you'll have to
+#### Bake it
+\end{examplesource}
+  \begin{exampleoutput}
+    \textbf{\quad\Large 1 Cooking a Lasagna}\\
+    Here's what you have to buy: \\
+    \textbf{\quad\large 1.1 Ingredients}\\
+    A buncha stuff! \\
+    \textbf{\quad\large 1.2 Steps}\\
+    It's a lengthy recipe, but finally you'll have to \\
+    \textbf{\quad\small 1.2.0.1 Bake it}\\
+  \end{exampleoutput}
 \end{examples}
 
 %%% Local Variables:

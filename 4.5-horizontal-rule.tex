@@ -2,9 +2,9 @@
 \begin{identifier}{horizontal-rule}
 ==+
 \end{identifier}
-\definetextualcomponent{horizontal-rule}{} \\
+\definetextualcomponent{horizontal-rule}{display: line} \\
 
-Rule. \\
+The horizontal rule is a \g{singular line directive}. It is translated into a \g{resulting textual component} that represents a horizontal rule or break on the page. This must span the entire width of the document and could be represented by a thin line. If the \g{document} cannot support the drawing of lines, the horizontal rule may instead be approximated through other means.\\
 
 \begin{examples}
   \example{==}{\rule{0.5\textwidth}{1pt}}

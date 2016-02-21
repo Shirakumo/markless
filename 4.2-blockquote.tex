@@ -8,9 +8,11 @@
 \definetextualcomponent{blockquote header}{margin: left; font-weight: bold}
 \definetextualcomponent{blockquote body}{margin: left} \\
 
-The blockquote header is a \g{singular line directive}. Only the \inline{header} of the line is outputted into the \g{resulting textual component}. The blockquote header can only contain \gpl{inline directive}. \\
+The blockquote header is a \g{singular line directive} that identifies the source of a quote. Only the \g{text} held by the \g{content binding} is outputted into the \g{resulting textual component}. The blockquote header can only contain \gpl{inline directive}. \\
 
-The blockquote body is a \g{spanning line directive}. The blockquote body can contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. In essence this means that only the \g{content binding} contents are considered for \gpl{directive} on a higher \g{level}. \\
+The blockquote body is a \g{spanning line directive} that identifies a body of \g{text} that is being quoted. The blockquote body can contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. \\
+
+An implementation may choose to group the \comp{blockquote header} and \comp{blockquote body} together and reorder them if they are found consecutive to one another. However, a body can only ever be grouped together with a single header. In the case where a header lies between two bodies, the header is counted to belong to the second body. If a header is found without a corresponding body, the \g{implementation} may \glink{signalling}{signal} a \g{warning}. \\
 
 \begin{examples}
   \begin{examplesource}
