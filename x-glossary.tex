@@ -72,6 +72,10 @@
   The \g{textual component} that the \g{directive} puts in place of the \g{identifier} in the \g{document}.
 }
 
+\defineglossary{current component}{
+  The \g{textual component} with the highest \g{level} that the \g{position} is in.
+}
+
 \defineglossary{style}{
   A \g{style} is an attribute of a \g{textual component} that specifies how the \g{textual component} and its contents are supposed to be visually represented in the \g{document}.
 }
@@ -218,6 +222,18 @@
 
 \defineglossary{line break mode}{
   Specifies how \g{newline} \gpl{character} are \glink{interpretation}{interpreted} into the output \g{text} of the \g{document}.
+}
+
+\defineglossary{instruction}{
+  An instance of the \sectionref{instruction} \g{directive}.
+}
+
+\defineglossary{position}{
+  A marker for where the \g{implementation} is in the resulting \g{document} during \g{interpretation}.
+}
+
+\defineglossary{cursor}{
+  A marker for where the \g{implementation} is in the inputting \g{document} during \g{interpretation}.
 }
 
 %%% Local Variables:

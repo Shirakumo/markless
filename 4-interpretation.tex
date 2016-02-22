@@ -1,5 +1,35 @@
 \definesection{Interpretation}
 
+\definesubsection{Parser State}
+An \g{implementation} must keep several parts of information that can be modified by the \g{interpretation}.
+
+\begin{itemize}
+\item A \g{document} \g{textual component} where all resulting \g{text} is kept.
+\item The \g{position} within the resulting \g{document}.
+\item The \g{cursor} within the inputting \g{document}.
+\item The \g{line break mode}.
+\item A list of \gpl{disabled directive}.
+\item A table associating \gpl{label} to \gpl{textual component}. Label names must be \g{case insensitive}.
+\item Additionally, it might keep a variety of internal variables that can be changed by an \g{instruction}.
+\end{itemize}
+
+\definesubsection{Parser Steps}
+When \glink{interpretation}{interpreting} a \g{document} exactly three things can happen to modify the resulting \g{document}:
+
+\begin{itemize}
+\item A \g{textual component} is started. This causes a new instance of the component to be inserted at the current \g{position}, the \g{position} to be moved to inside this instance, and the \g{level} to be increased by one.
+\item An open \g{textual component} is ended. If this component is not the uppermost, this step is repeated for the \g{current component} until the component to close is the current. The current \g{position} is moved to outside and after the component and the \g{level} is decreased by one.
+\item \G{text} is inserted. This means that the \g{text} is inserted at the current \g{position} and the \g{position} is moved to after the inserted \g{text}.
+\end{itemize}
+
+
+
+% Line break behaviour
+% Backslash escaping
+% Parsing order
+% Labels
+% Parser states and switches
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "0-markless"
