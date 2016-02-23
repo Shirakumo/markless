@@ -18,6 +18,31 @@ The following instructions and their effect must be supported by an \g{implement
 \end{tabularx}
 \renewcommand{\arraystretch}{1}
 
+\begin{examples}
+\begin{examplesource}
+! set line-break-mode always
+foo
+bar\
+baz
+! set line-break-mode never
+bada
+boom
+\end{examplesource}
+\begin{exampleoutput}
+foo\\
+bar\\
+baz\\
+badaboom
+\end{exampleoutput}
+\begin{examplesource}
+! disable-directives instruction
+! error Exit!
+\end{examplesource}
+\begin{exampleoutput}
+! error Exit!
+\end{exampleoutput}
+\end{examples}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "0-markless"
