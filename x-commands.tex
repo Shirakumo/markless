@@ -15,6 +15,14 @@
   urlcolor={blue!80!black}
 }
 
+\newcommand{\warn}[1]{
+  \begin{tcolorbox}[width=\textwidth,colback={red},boxrule=0pt,arc=0mm,fontupper=\bfseries,colupper=white]%
+    \begin{center}%
+      {\Large #1}%
+    \end{center}%
+  \end{tcolorbox}%
+}
+
 \newcommand{\multilinecell}[2][l]{
   \begin{tabular}{@{}#1@{}}%
     #2%
