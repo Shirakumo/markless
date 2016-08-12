@@ -2,9 +2,11 @@
 \begin{identifier}{embed}
 \[<type ![ ]*> <target ![ ]*>( <parameter ![ ]*>)*\]
 \end{identifier}
-\definetextualcomponent{embed}{} \\
+\definetextualcomponent{embed}{display: block;target: target} \\
 
 The embed is a \g{singular line directive}. The content of the \inline$type$ binding determines the embed's type, and the \inline$parameter$ bindings determine the embed's parameters. The style of the \g{resulting textual component} is dynamically dependant on the given type. If a type is specified that the \g{implementation} does not recognise, a \g{warning} is \glink{signalling}{signalled} and no \g{resulting textual component} is outputted into the \g{document}. \\
+
+Unless the \ident{embed-property-width} or \ident{embed-property-width} parameters are present, the size of the embed \g{resulting textual component} is constrained to be smaller than the width and height of the \g{document} while preserving the embed content's aspect ratio. If the \g{document} has no width or height, or the embed content's dimensions are smaller than both of those, then the embed content is sized to its own dimensions. \\
 
 \input{5.9.1-types.tex}
 \input{5.9.2-parameters.tex}

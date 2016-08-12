@@ -1,6 +1,8 @@
 \definesubsubsubsection{Height}
-\defineidentifier{embed-property-height}{height <size ![ ]*>}
-\definestyle{embed-property-height}{height: size}
+\defineidentifier{embed-property-height}{height (<pixels ~n+px>|<percent ~n+\%>)}
+\definestyle{embed-property-height}{height: size} \\
+
+Causes the embed content's height to be fixed to the specified size. The size can be given in either \inline$pixels$ or \inline$percent$ where \inline$pixels$ will set the height to be the exact amount of pixels given if the document is viewed at its native resolution. \inline$percent$ will scale the height to the given percentage of the height of the \g{document}. If the \g{document} should not have a height, the \inline$percent$ specification does nothing. Unless the \ident{embed-property-width} is also specified, the embed content's aspect ratio must be preserved. \\
 
 %%% Local Variables:
 %%% mode: latex

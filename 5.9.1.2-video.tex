@@ -1,6 +1,10 @@
 \definesubsubsubsection{Video}
 \defineidentifier{embed-type-video}{video}
-\definestyle{embed-type-video}{interaction: video;target: target} \\
+\defineidentifier{embed-property-loop}{loop}
+\defineidentifier{embed-property-autoplay}{autoplay}
+\definestyle{embed-type-video}{interaction: video} \\
+
+Embeds the video pointed to by the \inline$target$ into the document. The supported video formats are \g{implementation dependant}. If the format of the target is not supported by the \g{implementation}, the \g{directive} is treated as if it were given an unknown type. The \g{resulting textual component} must be interactive in such a way that the \g{user} is presented with a way to start, pause, seek, and change the volume of the video. The video should not play automatically, unless the \ident{embed-property-autoplay} flag property is present. If the \ident{embed-property-loop} flag property is present, the video should start over from the beginning once it reaches the end. \\
 
 \begin{examples}
   \example{[video sample.mp4]}{\url{file://./sample.mp4}}
