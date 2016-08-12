@@ -99,6 +99,9 @@
   \hyperref[textualcomponent:\WORD]{\textit{#1}}%
 }
 
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{6}
+
 \newcommand{\definesection}[1]{%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \newpage\section{#1}\label{section:\WORD}%
@@ -112,6 +115,16 @@
 \newcommand{\definesubsubsection}[1]{%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \subsubsection{#1}\label{section:\WORD}%
+}
+
+\newcommand{\definesubsubsubsection}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \paragraph{#1}\label{section:\WORD}\mbox{}\\%
+}
+
+\newcommand{\definesubsubsubsubsection}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \subparagraph{#1}\label{section:\WORD}\mbox{}\\%
 }
 
 \newcommand{\sectionref}[1]{%
