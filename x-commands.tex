@@ -15,6 +15,9 @@
   urlcolor={blue!80!black}
 }
 
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
 \newcommand{\warn}[1]{
   \begin{tcolorbox}[width=\textwidth,colback={red},boxrule=0pt,arc=0mm,fontupper=\bfseries,colupper=white]%
     \begin{center}%
@@ -30,7 +33,7 @@
 }
 
 \newcommand{\unicode}[1]{%
-  \char"#1  (\inline$U+#1$)%
+  \char"#1{} (\inline$U+#1$)%
 }
 
 \newcommand{\symbolref}[1]{%

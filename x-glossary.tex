@@ -206,6 +206,7 @@
 \defineglossary{disabled directive}{
   1) A \g{directive} on the \g{implementation}'s internal list of disabled directives.
   2) A \g{directive} whose \gpl{identifier} must not be recognised.
+  3) A \g{directive} that cannot be contained in the \g{current component}.
 }
 
 \defineglossary{error}{
@@ -221,7 +222,7 @@
 }
 
 \defineglossary{line break mode}{
-  Specifies how \g{newline} \gpl{character} are \glink{interpretation}{interpreted} into the output \g{text} of the \g{document}.
+  A \g{variable} of the name \inline$line-break$ that specifies how \g{newline} \gpl{character} are \glink{interpretation}{interpreted} into the output \g{text} of the \g{document}. Only four values are permitted: \inline$always$, \inline$never$, \inline$escaped$, and \inline$unescaped$.
 }
 
 \defineglossary{instruction}{
@@ -234,6 +235,10 @@
 
 \defineglossary{cursor}{
   A marker for where the \g{implementation} is in the inputting \g{document} during \g{interpretation}.
+}
+
+\defineglossary{variable}{
+  A name associated with some internal state of the \g{implementation}.
 }
 
 %%% Local Variables:
