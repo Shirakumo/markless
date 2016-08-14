@@ -3,16 +3,16 @@
 \warn{This section is unfinished!}
 
 \definesubsection{Parser State}
-An \g{implementation} must keep several parts of information that can be modified by the \g{interpretation}.
+An \g{implementation} must keep several \gpl{variable} that can be modified by the \g{interpretation}.
 
 \begin{itemize}
 \item A \g{document} \g{textual component} where all resulting \g{text} is kept.
 \item The \g{position} within the resulting \g{document}.
 \item The \g{cursor} within the inputting \g{document}.
-\item The \g{line break mode}.
+\item The \g{line break mode}, defaulting to \inline$unescaped$.
 \item A list of \gpl{disabled directive}.
 \item A table associating \gpl{label} to \gpl{textual component}. Label names must be \g{case insensitive}.
-\item Additionally, it might keep a variety of internal variables that can be changed by an \g{instruction}.
+\item Additionally, it might keep a variety of internal \gpl{variable} that can be changed by an \g{instruction}.
 \end{itemize}
 
 \definesubsection{Parser Steps}
@@ -24,13 +24,30 @@ When \glink{interpretation}{interpreting} a \g{document} exactly three things ca
 \item \G{text} is inserted. This means that the \g{text} is inserted at the current \g{position} and the \g{position} is moved to after the inserted \g{text}.
 \end{itemize}
 
+When processing the input document, the following steps are taken in order, starting again from the beginning until the \g{document} \g{textual component} is ended.
 
+\begin{enumerate}
+\item If the \g{character} at the \g{cursor}'s position is \unicode{5C} then the cursor is advanced by one. If the \g{character} at the new position is not a \g{newline} then it is inserted into the output \g{document} and the \g{cursor} is advanced by one again.
+\item If the cursor is at the beginning of a \g{line} or at the beginning of the \g{content binding} of a \g{line directive}:
+  \begin{enumerate}
+  \item The \g{text} form the \g{cursor}'s position onward is \glink{match}{matched} against every \g{line directive} that is not a \g{disabled directive}, until a match is found.
+  \item If a match is found, new \gpl{textual component} are inserted as necessary for the \g{directive} and the \g{resulting textual component} for the \g{directive}, if applicable, is started. Processing is handed over to the \g{directive}.
+  \item If no match is found, the processing continues as below.
+  \end{enumerate}
+\item If the cursor is at the end of a \g{line}:
+  \begin{enumerate}
+  \item If the \g{line break mode} is \inline$always$, a line break is inserted.
+  \item If the \g{line break mode} is \inline$unescaped$ and the \g{character} at the position one before the \g{cursor} is not a \unicode{5C}, a line break is inserted.
+  \item If the \g{line break mode} is \inline$escaped$ and the \g{character} at the position one before the \g{cursor} is a \unicode{5C}, a line break is inserted.
+  \item If there are any more lines, the \g{cursor} is moved to the beginning of the next \g{line} and processing continues from step 1 again. Otherwise the document parsing is finished and the \g{document} \g{textual component} is ended.
+  \end{enumerate}
+\item The \g{text} from the \g{cursor}'s position onward is \glink{match}{matched} against every \g{inline directive} that is not a \g{disabled directive}, until a match is found.
+\item If a match is found, new \gpl{textual component} are inserted as necessary for the \g{directive} and the \g{resulting textual component} for the \g{directive}, if applicable, is started. Processing is handed over to the \g{directive}.
+\item The character at the \g{cursor}'s position is inserted and the \g{cursor} is advanced by one.
+\end{enumerate}
 
-% Line break behaviour
-% Backslash escaping
 % Parsing order
 % Labels
-% Parser states and switches
 
 %%% Local Variables:
 %%% mode: latex
