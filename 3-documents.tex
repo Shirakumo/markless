@@ -1,7 +1,7 @@
 \definesection{Documents}
 Markless describes a number of \gpl{directive} to transform a \g{document} from its bare \g{string} representation into that of a \g{textual component}. While the \gpl{directive} are described in this specification using UTF-8 \gpl{character}, the specification does not enforce any particular \g{encoding} on the \g{document}. However, in order for an \g{implementation} to be \glink{conforming implementation}{conforming}, \gpl{character} used to identify a \g{directive} in a \g{document} must be \g{equivalent} to those in this specification. \\
 
-The effect of a \g{textual component} on its \g{text} applies on all \gpl{level}. In the case of conflicting \gpl{style}, the \g{style} of the \g{textual component} on the closest \g{level} above the \g{text} apply. In effect this means that a \g{textual component} on a lower \g{level} can override a \g{style} for its \g{text}.  \\
+The effect of a \g{textual component} on its \g{text} applies on all \gpl{level}. In the case of conflicting \gpl{style}, the \g{style} of the \g{textual component} on the closest \g{level} above the \g{text} applies. In effect this means that a \g{textual component} on a lower \g{level} can override a \g{style} for its \g{text}.  \\
 
 An \g{implementation} may choose to compose multiple \gpl{textual component} in order to achieve the effect of a single \g{specified textual component}. It may also insert \gpl{textual component} at any point in the \g{document} if necessary by the resulting \g{document format}. An \g{implementation} may also ignore any \g{style} of a \g{specified textual component} if the resulting\g{document format} cannot support its effect.
 

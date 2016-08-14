@@ -2,10 +2,11 @@
 \defineidentifier{subtext}{v<start [(]+><content ![()].*><end [)]+>}
 \definetextualcomponent{subtext}{vertical-align: sub} \\
 
-Subtext is a \g{surrounding inline directive}. It marks the \g{text} to belong to a \g{textual component} that sets the style of the text to appear smaller and below the default text line. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. The length of the \g{text} held by the \inline$start$ and \inline$end$ \gpl{binding} must be the same in order for the \ident{subtext} \g{identifier} to \g{match}.\\
+Subtext is an \g{inline directive}. It marks the \g{text} to belong to a \g{textual component} that sets the style of the text to appear smaller and below the default text line. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. The length of the \g{text} held by the \inline$start$ and \inline$end$ \gpl{binding} must be the same in order for the \ident{subtext} \g{identifier} to \g{match}.\\
 
 \begin{examples}
   \example{This is an example v(just so you know)}{This is an example \raisebox{-.4ex}{\scriptsize just so you know}}
+  \longexample{Sometimes you have to be discreet v((or so they say (I wouldn't know))).}{Sometimes you have to be discreet \raisebox{-.4ex}{\scriptsize or so they say (I wouldn't know)}.}
 \end{examples}
 
 %%% Local Variables:
