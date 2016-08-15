@@ -1,5 +1,5 @@
 \definesubsection{Underline}
-\defineidentifier{underline}{<start [_]+><content !<start>.*><start>}
+\defineidentifier{underline}{<start [_]+><content ![_].*><start>}
 \definetextualcomponent{underline}{text-decoration: underline} \\
 
 Underline is a \g{surrounding inline directive}. It marks the \g{text} to belong to a \g{textual component} that sets the style of the text to underline. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. \\

@@ -109,6 +109,10 @@
   A \g{match} occurs if a \g{string} is exactly recognised by some specific pattern or method.
 }
 
+\defineglossary{full match}{
+  A \g{full match} occurs if a \g{match} occurs and the \g{cursor} is located immediately after the matched \g{string}.
+}
+
 \defineglossary{identifier}{
   Some form of pattern or method by which a \g{string} is recognisable. More specifically, an \g{identifier} provides a means by which a \g{substring} can be distinguished from the rest of the \g{string}. 
 }
@@ -160,6 +164,14 @@
 
 \defineglossary{interpretation}{
   The act of detecting \gpl{directive} and executing their effects on a \g{document}.
+}
+
+\defineglossary{processing}{
+  The act of evaluating a \g{directive} on a \glink{match}{matched} \g{string} and translating it into either effects on the \g{parser state} or \gpl{resulting textual component}.
+}
+
+\defineglossary{parser state}{
+  A set of information that the \g{implementation} keeps during \g{interpretation}.
 }
 
 \defineglossary{implementation}{
@@ -239,6 +251,10 @@
 
 \defineglossary{variable}{
   A name associated with some internal state of the \g{implementation}.
+}
+
+\defineglossary{standard processing loop}{
+  The algorithm to \glink{processing}{process} a \g{document} as described in \sectionref{parser steps}.
 }
 
 %%% Local Variables:

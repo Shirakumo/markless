@@ -4,13 +4,17 @@ A \g{directive} is an \g{inline directive} if its identification is not bound to
 Any \g{textual component} specified by an \g{inline directive} can only contain \gpl{textual component} specified by \gpl{inline directive}. Furthermore, an \g{inline directive} cannot contain another \g{inline directive} of its own type at any \g{level}. An \g{inline directive} may further restrict which \gpl{directive} may appear within itself. An \g{inline directive} cannot cross the boundaries of another \g{directive} of a different kind. If such a case were to occur, the current \g{inline directive} is forcibly ended without regard for any possible trailing \g{match}. A special exception is made in the case of \gpl{spanning line directive}: since a \g{spanning line directive} is the combination of multiple matches of the same kind on consecutive lines into a singular \g{textual component}, an \g{inline directive} must be allowed to span over multiple matches.
 
 \definesubsubsection{Surrounding Inline Directives}
-An \g{inline directive} is a \g{surrounding inline directive} if its \g{identifier} is terminated by a \syntax{binding-reference} to a \syntax{binding} at the start of the \g{identifier}. The \g{resulting textual component} of a \g{surrounding inline directive} never contains the \gpl{string} \glink{match}{matched} by the \g{identifier}'s starting \syntax{binding}. Instead, each \g{surrounding inline directive} \g{identifier} contains a \g{content binding} that matches all the \g{text} that the \g{resulting textual component} will contain.
+An \g{inline directive} is a \g{surrounding inline directive} if its \g{identifier} is terminated by a \syntax{binding-reference} to a \syntax{binding} at the start of the \g{identifier} or its \g{identifier} contains a \inline$start$ and \inline$end$ \syntax{binding}, both of which are required to be the \g{equivalent} in length. The \g{resulting textual component} of a \g{surrounding inline directive} never contains the \gpl{string} \glink{match}{matched} by the \g{identifier}'s starting \syntax{binding}. Instead, each \g{surrounding inline directive} \g{identifier} contains a \g{content binding} that matches all the \g{text} that the \g{resulting textual component} will contain. \\
+
+When a \g{surrounding inline directive} is \glink{processing}{processed}, processing begins anew over the \g{content binding} until the the part of the \g{identifier} after the \g{content binding} is \glink{full match}{fully matched}, at which point the \g{resulting textual component} is ended and control is handed back to the \g{standard processing loop}.
 
 \definesubsubsection{Entity Inline Directives}
-An \g{inline directive} is an \g{entity inline directive} if its \g{identifier} does not contain any \syntax{binding}s and instead the \g{text} of the \g{resulting textual component} is entirely dependant on the \g{entity inline directive} specification.
+An \g{inline directive} is an \g{entity inline directive} if its \g{identifier} does not contain any \syntax{binding}s and instead the \g{text} of the \g{resulting textual component} is entirely dependant on the \g{entity inline directive} specification. \\
+
+When a \g{entity inline directive} is \glink{processing}{processed}, the \g{resulting textual component} is ended once the \g{identifier} has been \glink{full match}{fully matched}. Then control is handed back to the \g{standard processing loop}.
 
 \definesubsubsection{Compound Inline Directives}
-An \g{inline directive} is a \g{compound inline directive} if its \g{identifier} consists of multiple \syntax{binding}s the contents of which are in some form outputted to the \g{resulting textual component}.
+An \g{inline directive} is a \g{compound inline directive} if its \g{identifier} consists of multiple \syntax{binding}s the contents of which are in some form outputted to the \g{resulting textual component}. \\
 
 \input{6.1-bold.tex}
 \input{6.2-italic.tex}

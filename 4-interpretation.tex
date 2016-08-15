@@ -24,13 +24,13 @@ When \glink{interpretation}{interpreting} a \g{document} exactly three things ca
 \item \G{text} is inserted. This means that the \g{text} is inserted at the current \g{position} and the \g{position} is moved to after the inserted \g{text}.
 \end{itemize}
 
-When processing the input document, the following steps are taken in order, starting again from the beginning until the \g{document} \g{textual component} is ended.
+When \g{processing} the input \g{document}, the following steps are taken in order, starting again from the beginning until the \g{document} \g{textual component} is ended.
 
 \begin{enumerate}
-\item If the \g{character} at the \g{cursor}'s position is \unicode{5C} then the cursor is advanced by one. If the \g{character} at the new position is not a \g{newline} then it is inserted into the output \g{document} and the \g{cursor} is advanced by one again.
-\item If the cursor is at the beginning of a \g{line} or at the beginning of the \g{content binding} of a \g{line directive}:
+\item If the \g{character} at the \g{cursor}'s position is \unicode{5C} then the cursor is advanced by one. If the \g{character} at the new position is not a \g{newline} then it is inserted into the output \g{document}. The \g{cursor} is advanced by one again.
+\item If the cursor is at the beginning of a \g{line} or the position is at the beginning of a \g{resulting textual component} of a \g{line directive}:
   \begin{enumerate}
-  \item The \g{text} form the \g{cursor}'s position onward is \glink{match}{matched} against every \g{line directive} that is not a \g{disabled directive}, until a match is found.
+  \item The \g{text} from the \g{cursor}'s position onward is \glink{match}{matched} against every \g{line directive} that is not a \g{disabled directive}, until a match is found.
   \item If a match is found, new \gpl{textual component} are inserted as necessary for the \g{directive} and the \g{resulting textual component} for the \g{directive}, if applicable, is started. Processing is handed over to the \g{directive}.
   \item If no match is found, the processing continues as below.
   \end{enumerate}
@@ -46,8 +46,7 @@ When processing the input document, the following steps are taken in order, star
 \item The character at the \g{cursor}'s position is inserted and the \g{cursor} is advanced by one.
 \end{enumerate}
 
-% Parsing order
-% Labels
+An \g{implementation} may optimise the \glink{match}{matching} process of \gpl{directive} in the following matter: if the part of the \g{identifier} before the \g{content binding} \glink{match}{matches}, then the whole \g{identifier} may be considered matched. \\
 
 %%% Local Variables:
 %%% mode: latex

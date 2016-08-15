@@ -1,8 +1,8 @@
 \definesubsection{Strikethrough}
-\defineidentifier{strikethrough}{\\<-<content .*>-\\>}
+\defineidentifier{strikethrough}{<start \\<-+><content ![-].*><end -+\\>>}
 \definetextualcomponent{strikethrough}{text-decoration: strikethrough} \\
 
-Strikethrough is an \g{inline directive}. It marks the \g{text} to belong to a \g{textual component} that sets the style of the text to strikethrough. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. \\
+Strikethrough is a \g{surrounding inline directive}. It marks the \g{text} to belong to a \g{textual component} that sets the style of the text to strikethrough. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. The length of the \g{text} held by the \inline$start$ and \inline$end$ \gpl{binding} must be the same in order for the \ident{strikethrough} \g{identifier} to \g{match}.\\
 
 \begin{examples}
   \example{To Do: <-nothing->}{To Do: \sout{nothing}}
