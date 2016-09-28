@@ -1,0 +1,30 @@
+\definesubsection{Footnote}
+\begin{identifier}{footnote}
+  \[<number ~n+>\] <content .+>
+\end{identifier}
+\definetextualcomponent{footnote}{} \\
+
+The footnote is a \g{singular line directive}. Outputted to the \g{resulting textual component} is the \g{text} held by the \inline$number$ \g{binding} followed by a \unicode{3A}, followed by the \g{text} held by the \g{content binding}. The footnote can only contain \gpl{inline directive}. \\
+
+Unlike other \gpl{directive} the footnote's \g{resulting textual component} cannot be placed where the \g{identifier} is found. It must be placed such that it is at the end of a \g{page} in the \g{document}.\\
+
+The \g{resulting textual component} is associated with a \g{label} with the name being the content of the \inline$number$ \g{binding}. \\
+
+\begin{examples}
+  \begin{examplesource}
+    Examples[1] are not authoritative.
+    
+    [1] Examples are things like this.
+  \end{examplesource}
+  \begin{exampleoutput}
+    Examples\raisebox{.4ex}{\scriptsize \hyperref[footnote:ex1]{[1]}} are not authoritative. \\
+    \rule{0.2\textwidth}{1pt} \\
+    \label{footnote:ex1}1: Examples are things like this.
+  \end{exampleoutput}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% End:
