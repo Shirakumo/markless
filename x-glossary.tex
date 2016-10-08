@@ -11,13 +11,25 @@
 
 \defineglossary{alphabetic}{
   Any \g{character} that is one of the following: \\
-  \inline$abcdefghijklmnopqrstuvwxyz$\\
-  \inline$ABCDEFGHIJKLMNOPQRSTUVWXYZ$
+  {\ttfamily
+    \unicode{61} \unicode{62} \unicode{63} \unicode{64} \unicode{65}\\
+    \unicode{66} \unicode{67} \unicode{68} \unicode{69} \unicode{6A}\\
+    \unicode{6B} \unicode{6C} \unicode{6D} \unicode{6E} \unicode{6F}\\
+    \unicode{70} \unicode{71} \unicode{72} \unicode{73} \unicode{74}\\
+    \unicode{75} \unicode{76} \unicode{77} \unicode{78} \unicode{79}\\
+    \unicode{7A} \unicode{41} \unicode{42} \unicode{43} \unicode{44}\\
+    \unicode{45} \unicode{46} \unicode{47} \unicode{48} \unicode{49}\\
+    \unicode{4A} \unicode{4B} \unicode{4C} \unicode{4D} \unicode{4E}\\
+    \unicode{4F} \unicode{50} \unicode{51} \unicode{52} \unicode{53}\\
+    \unicode{54} \unicode{55} \unicode{56} \unicode{57} \unicode{58}\\
+    \unicode{59} \unicode{5A}}
 }
 
 \defineglossary{numeric}{
   Any \g{character} that is one of the following: \\
-  \inline$0123456789$
+  {\ttfamily
+    \unicode{30} \unicode{31} \unicode{32} \unicode{33} \unicode{34}\\
+    \unicode{35} \unicode{36} \unicode{37} \unicode{38} \unicode{39}}
 }
 
 \defineglossary{alphanumeric}{
@@ -33,7 +45,12 @@
 }
 
 \defineglossary{hexadecimal number}{
-  A sequence of \gpl{character} that are one of \inline$0123456789abcdefABCDEF$ and thus form a mathematical number in base-16/hexadecimal representation.
+  A sequence of \gpl{character} that are one of the following and thus form a mathematical number in base-16/hexadecimal representation. \\
+  {\ttfamily
+    \unicode{30} \unicode{31} \unicode{32} \unicode{33} \unicode{34}\\
+    \unicode{35} \unicode{36} \unicode{37} \unicode{38} \unicode{39}\\
+    \unicode{61} \unicode{62} \unicode{63} \unicode{64} \unicode{65} \unicode{66}\\
+    \unicode{41} \unicode{42} \unicode{43} \unicode{44} \unicode{45} \unicode{46}}
 }
 
 \defineglossary{decimal number}{
