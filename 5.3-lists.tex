@@ -12,7 +12,7 @@
 \definetextualcomponent{unordered list}{margin: left}
 \definetextualcomponent{unordered list item}{display: list-item; list-item-prefix: dot} \\
 
-The lists are \gpl{spanning line directive} and mark the enumeration of one or more items of a list. They can contain contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. \\
+The lists are \gpl{spanning line directive} and mark the enumeration of one or more items of a list. They can contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. \\
 
 After the respective list \g{identifier} has been \glink{match}{matched}, a new respective item \g{textual component} in which the higher \g{level} \g{text} is contained, is inserted for each \g{match} into the spanning \g{resulting textual component}. A single \g{match} may span over multiple \gpl{line} if the \g{text} \glink{match}{matched} by the \inline$spacing$ \g{binding} is of the same length as that of the \inline$number$ \g{binding}. In such a case, each item \g{match} itself is treated like a \g{spanning line directive} where the \g{content binding} is concatenated. \\
 

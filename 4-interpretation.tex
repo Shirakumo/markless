@@ -18,8 +18,8 @@ An \g{implementation} must keep several \gpl{variable} that can be modified by t
 When \glink{interpretation}{interpreting} a \g{document} exactly three things can happen to modify the resulting \g{document}:
 
 \begin{itemize}
-\item A \g{textual component} is started. This causes a new instance of the component to be inserted at the current \g{position}, the \g{position} to be moved to inside this instance, and the \g{level} to be increased by one.
-\item An open \g{textual component} is ended. If this component is not the uppermost, this step is repeated for the \g{current component} until the component to close is the current. The current \g{position} is moved to outside and after the component and the \g{level} is decreased by one.
+\item A \g{textual component} is started. This causes a new instance of the component to be inserted at the current \g{position} and the \g{position} to be moved to inside this instance.
+\item An open \g{textual component} is ended. If this component is not the uppermost, this step is repeated for the \g{current component} until the component to close is the current. The current \g{position} is moved to outside and after the component.
 \item \G{text} is inserted. This means that the \g{text} is inserted at the current \g{position} and the \g{position} is moved to after the inserted \g{text}.
 \end{itemize}
 
