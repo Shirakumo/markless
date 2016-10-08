@@ -4,7 +4,7 @@
 \end{identifier}
 \definetextualcomponent{paragraph}{margin: top, bottom} \\
 
-The paragraph is the default \g{textual component} and acts as a fall-back. \Gpl{line} belong to the same paragraph until the length of \inline{spaces} changes, a new \g{inline directive} is recognised, or an \g{empty line} is encountered. The paragraph is a \g{spanning line directive}. The paragraph \g{directive} can only contain \gpl{inline directive}. \\
+The paragraph can only be \glink{match}{matched} if no other \g{line directive} \glink{match}{matches}. \Gpl{line} belong to the same paragraph until the length of \inline{spaces} changes, a new \g{inline directive} is recognised, or an \g{empty line} is encountered. The paragraph is a \g{spanning line directive}. The paragraph \g{directive} can only contain \gpl{inline directive}. \\
 
 Paragraphs are visually distinguished by a margin above and below the \g{text}. An \g{implementation} may additionally employ indentation rules to distinguish the beginning of a paragraph. \\
 
