@@ -101,8 +101,12 @@
   Any \g{character} that represents that a new line should be started.
 }
 
+\defineglossary{escaping}{
+  If a \g{character} is preceded by \unicode{5C}, it is ``escaped'' and its semantic meaning is suppressed.
+}
+
 \defineglossary{line}{
-  Any sub-sequence within a \g{string} that is delimited by the \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline}.
+  Any sub-sequence within a \g{string} that is delimited by an \glink{escaping}{unescaped} \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline} that is not preceded by the \unicode{5C} \g{character}.
 }
 
 \defineglossary{empty line}{

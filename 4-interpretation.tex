@@ -26,7 +26,7 @@ When \glink{interpretation}{interpreting} a \g{document} exactly three things ca
 When \glink{interpretation}{interpreting} the input \g{document}, the following steps are taken in order, starting again from the beginning until the \g{document} \g{textual component} is ended.
 
 \begin{enumerate}
-\item If the \g{character} at the \g{cursor}'s position is \unicode{5C} then the cursor is advanced by one. If the \g{character} at the new position is not a \g{newline} then it is inserted into the output \g{document}. The \g{cursor} is advanced by one again.
+\item If the \g{character} at the \g{cursor}'s position is \unicode{5C} then the cursor is advanced by one. If the \g{character} at the new position is not a \g{newline} then it is inserted into the output \g{document} and the \g{cursor} is advanced by one again.
 \item If the cursor is at the beginning of a \g{line} or the position is at the beginning of a \g{resulting textual component} of a \g{line directive}:
   \begin{enumerate}
   \item The \g{text} from the \g{cursor}'s position onward is \glink{match}{matched} against every \g{line directive} that is not a \g{disabled directive}, until a match is found.
