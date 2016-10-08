@@ -247,15 +247,15 @@
 }
 
 \defineglossary{error}{
-  A message that when \glink{signalling}{signalled} causes the \g{implementation} to abort.
+  A message that indicates a problem with the \g{document} that makes it unable for the \g{interpretation} to proceed. When \glink{signalling}{signalled}, the \g{implementation} must abort \g{interpretation} without producing a resulting \g{document}.
 }
 
 \defineglossary{warning}{
-  A message that when \glink{signalling}{signalled} indicates a potential problem that occurred during \g{interpretation} that might cause the resulting \g{document} to appear wrong.
+  A message that indicates a potential problem that occurred during \g{interpretation} that might cause the resulting \g{document} to appear wrong.
 }
 
 \defineglossary{signalling}{
-  The act by which an \g{implementation} can give feedback about the \g{interpretation} of the \g{document}.
+  The act by which an \g{implementation} can display a message to the \g{user}.
 }
 
 \defineglossary{line break mode}{
