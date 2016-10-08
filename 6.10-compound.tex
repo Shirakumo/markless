@@ -1,5 +1,5 @@
 \definesubsection{Compound}
-\defineidentifier{compound-content}{<start ["]+><content !["].*><start>|<content ![ (]+>}
+\defineidentifier{compound-content}{(<start ["]+><content !["].*><start>)|<content ![ (]+>}
 \defineidentifier{compound-options}{\((in|to)( <option .*>,)+\)}
 \defineidentifier{compound}{\{compound-content\}\{compound-options\}}
 \definetextualcomponent{compound}{} \\
