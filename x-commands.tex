@@ -223,8 +223,11 @@
   \textit{\glslink{\stripped}{#2}}%
 }
 
+\def\gittag{\directlua{dofile("git-tag.lua")}}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "markless"
 %%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
 %%% End:
