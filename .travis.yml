@@ -2,10 +2,10 @@ sudo: required
 dist: trusty
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get install -y dvipng texlive-full
 - wget http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
 - sudo dpkg -i ttf-mscorefonts-installer_3.6_all.deb
 - sudo fc-cache -f -v
+- sudo apt-get install -y dvipng texlive-full
 script:
 - make
 deploy:
