@@ -1,5 +1,5 @@
 \definesection{Line Directives}
-In order for a \g{directive} to be a \g{line directive}, its \g{identifier} must \g{match} the beginning of a \g{line} and either the end of a \g{line} or the beginning of a different \g{line}. Thus the \g{identifier} of each \g{line directive} only matches at the beginning of a \g{line}.\\
+In order for a \g{directive} to be a \g{line directive}, its \g{identifier} must \g{match} the beginning of a \g{line}. \\
 
 A \g{textual component} specified by a \g{line directive} can potentially contain any other \g{textual component}. Therefore, any \g{directive} is potentially recognisable within a \g{line directive}, including other \gpl{line directive}. However, a \g{line directive} may explicitly restrict which \gpl{directive} are recognised within itself. A \g{line directive} cannot cross the boundaries of another \g{line directive} of a different kind. If such a case were to occur, the current \g{line directive} is forcibly ended without regard for any possible trailing \g{match}.
 
