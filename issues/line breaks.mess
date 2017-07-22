@@ -1,0 +1,49 @@
+# Problem Description
+Back when Markless was first designed, the question came up on how to accommodate two rather different styles of line breaking. The styles are basically the following:
+
+~ Editor Style
+| This is made for people who hate to resize their
+| windows and thus manually insert line breaks
+| everywhere to force the file into a specific width.
+| Thus, this paragraph is made of a single line.
+
+~ WYSIWYG Style
+| This is made for people who are just typing stuff in a browser.
+| They are not accustomed to weird coding practises, and thus expect this to have two lines.
+
+In order to account for both, Markless introduced "line modes" that can be switched using an instruction. At the same time, it allowed for temporarily switching between them for a single line by escaping the newline. Thus the following:
+
+~ Editor Style
+| Should you ever want to explicitly insert a new
+| line, you would do it with an escape \
+| like that.
+
+~ WYSIWYG Style
+| Should you ever want to break something up over multiple lines, you'd do it \
+| line this, without having to incur a newline.
+
+This is all fine and good, but as soon as you start interpreting the escaped newline as a way to continue a directive onto the next line, it stops making sense. To illustrate:
+
+~ Editor Style
+| # Is this a header with a single line \
+| or does it have two lines? What if you want to
+| continue the header without incurring a new line?
+
+~ WYSIWYG Style
+| # The same problem here. Is this a header with a single line \
+| or does it have two lines after all? What if you want the opposite?
+
+Due to the inherent contradictory nature in both cases I conclude that continuing a directive and controlling line breaks are two orthogonal features. Now the question becomes: how do we deal with this?
+
+# Solution Proposals
+## Doubling the Line Modes
+By having each line mode also specify the behaviour for the continuing of directives onto the next line, each case could be addressed. This does not particularly help with the intuitiveness of the entire problem however, as users might come to expect different defaults. The explanation of what each mode means exactly would also be complicated further.
+
+## Eliminating Editor Style
+In WYSIWYG style the behaviour of "escaping ignores the newline entirely" is an acceptable approach and makes intuitive sense. By eliminating editor style altogether, this problem falls away.
+
+## Eliminating Singular Line Directives
+By instead forcing singular line directives to become either guarded- or spanning line directives this problem also falls away, as the behaviour is logically defined in both cases. An example:
+
+| ## This is a single header
+| ## in both line modes.
