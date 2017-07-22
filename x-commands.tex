@@ -198,27 +198,32 @@
   \end{minipage}%
 }
 
-\newcommand{\g}[1]{%
+\providecommand{\g}{}
+\renewcommand{\g}[1]{%
   \StrSubstitute{#1}{ }{}[\stripped]%
   \textit{\gls{\stripped}}%
 }
 
-\newcommand{\G}[1]{%
+\providecommand{\G}{}
+\renewcommand{\G}[1]{%
   \StrSubstitute{#1}{ }{}[\stripped]%
   \textit{\Gls{\stripped}}%
 }
 
-\newcommand{\gpl}[1]{%
+\providecommand{\gpl}{}
+\renewcommand{\gpl}[1]{%
   \StrSubstitute{#1}{ }{}[\stripped]%
   \textit{\glspl{\stripped}}%
 }
 
-\newcommand{\Gpl}[1]{%
+\providecommand{\Gpl}{}
+\renewcommand{\Gpl}[1]{%
   \StrSubstitute{#1}{ }{}[\stripped]%
   \textit{\Glspl{\stripped}}%
 }
 
-\newcommand{\glink}[2]{%
+\providecommand{\glink}{}
+\renewcommand{\glink}[2]{%
   \StrSubstitute{#1}{ }{}[\stripped]%
   \textit{\glslink{\stripped}{#2}}%
 }
