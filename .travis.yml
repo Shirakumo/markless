@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get install -y ttf-mscorefonts-installe dvipng texlive-full
+- sudo apt-get install -y ttf-mscorefonts-installer dvipng texlive-full
 script:
 - make
 deploy:
