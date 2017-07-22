@@ -1,0 +1,21 @@
+# Problem Description
+One of the primary goals of Markless is to be relatively easy to parse. As a part of this, a strong focus was put on making line directives fast to recognise. Many of them thus follow a scheme of being identified by the first two characters on a line. This is a very desirable property.
+
+However, some of the directives do not currently use this scheme, and instead require much more intricate parsing. A good example is the ordered line directive, which starts out with an arbitrary number. Since the number can easily grow beyond 10, the two characters are quickly exceeded, and much more is needed to parse.
+
+Much worse still is the embed directive, which currently requires a scan of the full line in order to determine whether a match occurred. This is strongly in opposition to the intended goal.
+
+Furthermore, while the spec currently says that "An implementation may optimise the matching process of directives in the following manner: if the part of the identifier before the content binding matches, then the whole identifier may be considered matched" a more specific explanation of which match is necessary would be good. Putting a hard constraint to the "first two characters" for line directives would be optimal.
+
+Alternate schemes should be devised for the ordered list, embed, and footnote directives to work around this issue.
+
+# Solution Proposals
+## Attempt 1
+~ Footnote
+| [~d
+
+~ Embed
+| [~w
+
+~ Ordered Line
+| .~d
