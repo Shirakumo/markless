@@ -1,13 +1,13 @@
 LUALATEX ?= lualatex
 MAKEGLOSSARIES ?= makeglossaries
 
-build:
-	$(MAKE) build-tex
-	$(MAKE) build-glossary
-	$(MAKE) build-tex
+pdf:
+	$(MAKE) tex
+	$(MAKE) glossary
+	$(MAKE) tex
 
-build-tex:
+tex:
 	$(LUALATEX) --jobname=markless -file-line-error -shell-escape --synctex=1 -interaction=nonstopmode "\input" markless.tex
 
-build-glossary:
+glossary:
 	$(MAKEGLOSSARIES) markless
