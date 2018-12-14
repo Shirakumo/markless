@@ -1,0 +1,33 @@
+# Problem Description
+Currently some inline directives are prone to accidental invocation, leading to frustrating behaviour for users. Notable for this are:
+
+~ Bold
+| It's quite elegant: e^(i*pi)+1 = 0
+
+Arguably for the above case the inline code block should be employed, but for the italics there's no such excuse:
+
+~ Italic
+| There's problems/solutions to be found.
+
+While the examples here only illustrate single uses which would not lead to a successful match, it isn't hard to imagine that multiple separate uses like this could occur in close vicinity.
+
+# Solution Proposals
+## Double Identifiers
+Simply double the number of characters in the identifiers to disambiguate:
+
+~ Bold
+| This is now **bold**.
+
+~ Italic
+| This is //italic//.
+
+## Immediate Recurrence Escapes
+If the content binding is empty, simply output the corresponding character instead, or make the content have at least one character and introduce corresponding entity inline directives. This would not fix the problem directly but would make it a bit less awkward to type the given characters.
+
+~ Bold
+| *A times B* is: a**b.
+
+This behaviour could also be seen as more surprising than less so, however.
+
+# Issue Status
+Decision pending.

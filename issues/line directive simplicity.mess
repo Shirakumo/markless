@@ -10,12 +10,18 @@ Furthermore, while the spec currently says that "An implementation may optimise 
 Alternate schemes should be devised for the ordered list, embed, and footnote directives to work around this issue.
 
 # Solution Proposals
-## Attempt 1
-~ Footnote
+## Footnote
 | [~d
 
-~ Embed
+## Embed
 | [~w
 
-~ Ordered Line
+| [ 
+
+## Ordered Line
 | .~d
+
+| ~d(~d|.)
+
+# Issue Status
+Resolved.

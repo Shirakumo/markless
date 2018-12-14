@@ -47,3 +47,9 @@ By instead forcing singular line directives to become either guarded- or spannin
 
 | ## This is a single header
 | ## in both line modes.
+
+## Don't Allow Newlines
+Another solution would be to disallow newlines in the content binding of a singular line directive, thus again making every case unambiguous.
+
+# Issue Status
+Decision pending.
