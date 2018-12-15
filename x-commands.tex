@@ -153,6 +153,12 @@
   }%
 }
 
+\newcommand{\defineissue}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \subsection*{#1}\label{issue:\WORD}%
+  \lstinputlisting[breaklines=true,basicstyle=\small\ttfamily,breakindent=0cm]{"#1"}%
+}
+
 \newenvironment{examples}{%
   \par
   \begin{minipage}{\textwidth}

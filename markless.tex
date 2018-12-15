@@ -61,6 +61,10 @@
 \input{5-line-directives}
 \input{6-inline-directives}
 
+\newpage\section*{Issues}\label{section:ISSUES}
+\addcontentsline{toc}{section}{Issues}
+\directlua{dofile("issues.lua")}
+
 \glsaddall
 \newpage\label{section:GLOSSARY}\printglossaries
 
