@@ -51,5 +51,12 @@ By instead forcing singular line directives to become either guarded- or spannin
 ## Don't Allow Newlines
 Another solution would be to disallow newlines in the content binding of a singular line directive, thus again making every case unambiguous.
 
+## Absolute Escape Consistency
+Instead of all this nonsense we could very strictly define the line treatment like this:
+
+A literal newline in the document will always end the current line unless it is escaped. The line modes "never" and "always" would only dictate whether when a newline is encountered, a newline is output into the resulting textual component.
+
+This would mean that in "never" mode it's impossible to output a newline. For this reason it would be good to add an entity inline directive that always ouputs a newline.
+
 # Issue Status
 Decision pending.
