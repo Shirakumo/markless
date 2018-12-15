@@ -37,10 +37,21 @@
 \input{x-glossary.tex}
 
 \begin{document}
-\begin{center}
-  {\bfseries\Huge\doctitle} \\
-  {\large v\gittag}
-\end{center}
+\begin{titlepage}
+  \begin{center}
+    \vspace*{5cm}
+    {\bfseries\fontsize{32pt}{30pt}\selectfont\doctitle} \\
+    \vspace{0.5cm}
+    {\large v\gittag}
+    \vfill
+    \begin{tabular}{ll}
+      Maintainer: & Nicolas Hafner <\href{mailto:shinmera@tymoon.eu}{shinmera@tymoon.eu}> \\
+      Project URL: & \url{https://shirakumo.org/projects/markless} \\
+      Specification Source: & \url{https://github.com/Shirakumo/markless} \\
+      Discussion Channel: & \url{irc://irc.freenode.net/#shirakumo} \\
+    \end{tabular}
+  \end{center}
+\end{titlepage}
 \tableofcontents
 
 \input{1-preamble}
