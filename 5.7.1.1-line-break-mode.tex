@@ -1,0 +1,29 @@
+\definesubsubsubsection{Line Break Mode}
+\definevariable{line-break-mode}{show} \\
+
+The \var{line-break-mode} variable may only assume two values: \inline$show$, and \inline$hide$. If the line break mode is \inline$show$, when the processor encounters an unescaped \g{newline}, a new \g{line} is started in the output \g{document}. \\
+
+\begin{examples}
+\begin{examplesource}
+! set line-break-mode show
+foo
+bar\
+baz
+! set line-break-mode hide
+bada
+boom
+\end{examplesource}
+  \begin{exampleoutput}
+    foo\\
+    bar\\
+    baz\\
+    badaboom
+  \end{exampleoutput}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

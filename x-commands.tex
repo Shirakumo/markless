@@ -110,6 +110,54 @@
   \hyperref[textualcomponent:\WORD]{\textit{#1}}%
 }
 
+\newcommand{\defineinstruction}[2]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \makebox[\textwidth][l]{%
+    \textit{Instruction} %
+    \textbf{\capitalisewords{#1}}: %
+    \multilinecell{\inline$#2$}%
+  }%
+  \label{instruction:\WORD}%
+}
+
+\lstnewenvironment{instruction}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \label{instruction:\WORD}
+  \textit{Instruction} %
+  \textbf{\capitalisewords{#1}}: %
+  \lstset{basicstyle=\ttfamily}%
+}{
+}
+
+\newcommand{\instr}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[instruction:\WORD]{\textit{#1}}%
+}
+
+\newcommand{\definevariable}[2]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \makebox[\textwidth][l]{%
+    \textit{Variable} %
+    \textbf{\capitalisewords{#1}}: %
+    \multilinecell{\inline$#2$}%
+  }%
+  \label{variable:\WORD}%
+}
+
+\lstnewenvironment{variable}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \label{variable:\WORD}
+  \textit{Variable} %
+  \textbf{\capitalisewords{#1}}: %
+  \lstset{basicstyle=\ttfamily}%
+}{
+}
+
+\newcommand{\var}[1]{%
+  \MakeUppercase{\gdef\noexpand\WORD{#1}}%
+  \hyperref[variable:\WORD]{\textit{#1}}%
+}
+
 \setcounter{secnumdepth}{6}
 \setcounter{tocdepth}{6}
 

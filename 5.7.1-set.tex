@@ -1,0 +1,14 @@
+\definesubsubsection{Set}
+\defineinstruction{set}{set <variable ![ ]+> <value .+>} \\
+
+Sets the state of the \g{variable} of the given name to a certain value. An \g{implementation} may check the value for validity and \glink{signalling}{signal} an \g{error} if it is invalid. \\
+
+\input{5.7.1.1-line-break-mode.tex}
+\input{5.7.1.2-metadata.tex}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

@@ -1,0 +1,15 @@
+\definesubsubsection{Message}
+\defineinstruction{info}{info <message .*>}
+\defineinstruction{warn}{warn <message .*>}
+\defineinstruction{error}{error <message .*>} \\
+
+The \instr{info} instruction causes the \g{implementation} to \glink{signalling}{signal} the given message.
+The \instr{warn} instruction causes the \g{implementation} to \glink{signalling}{signal} a \g{warning} with the given message.
+The \instr{error} instruction causes the \g{implementation} to \glink{signalling}{signal} an \g{error} with the given message. \\
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

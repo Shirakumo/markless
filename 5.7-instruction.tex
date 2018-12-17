@@ -3,45 +3,12 @@
 \! <instruction .*>
 \end{identifier}
 
-The instruction is a \g{singular line directive}. Its purpose is to interact with the \g{implementation} and cause it to perform differently. There is no corresponding \g{resulting textual component} for the instruction \g{directive} and as such it must not have any effect on the \g{document}. \\
+The instruction is a \g{singular line directive}. Its purpose is to interact with the \g{implementation} and cause it to perform differently. There is no corresponding \g{resulting textual component} for the instruction \g{directive}. \\
 
-The following instructions and their effect must be supported by an \g{implementation}. \\
-
-\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{lX}
-  \inline$set <variable> <value>$ & Sets the state of the \g{variable} of the given name to a certain value. An \g{implementation} may check the value for validity and \glink{signalling}{signal} an \g{error} if it is invalid. The initial value of any variable is \g{implementation dependant}.\\
-  \inline$warn <message>$ & Causes the \g{implementation} to \glink{signalling}{signal} a \g{warning} with the given message. \\
-  \inline$error <message>$ & Causes the \g{implementation} to \glink{signalling}{signal} an \g{error} with the given message. \\
-  \inline$include <file>$ & Literally splices the contents of the specified file into the \g{document} in place of this instruction. The \g{implementation} must carry on to \glink{interpretation}{interpret} the newly spliced \g{text}. \\
-  \inline$disable-directives <directive>*$ & Adds the named directives to the list of \gpl{disabled directive}. \\
-  \inline$enable-directives <directive>*$ & Removes the named directives from the list of \gpl{disabled directive}. \\
-\end{tabularx}
-\renewcommand{\arraystretch}{1}
-
-\begin{examples}
-\begin{examplesource}
-! set line-break-mode always
-foo
-bar\
-baz
-! set line-break-mode never
-bada
-boom
-\end{examplesource}
-\begin{exampleoutput}
-foo\\
-bar\\
-baz\\
-badaboom
-\end{exampleoutput}
-\begin{examplesource}
-! disable-directives instruction
-! error Exit!
-\end{examplesource}
-\begin{exampleoutput}
-! error Exit!
-\end{exampleoutput}
-\end{examples}
+\input{5.7.1-set.tex}
+\input{5.7.2-message.tex}
+\input{5.7.3-include.tex}
+\input{5.7.4-directives.tex}
 
 %%% Local Variables:
 %%% mode: latex

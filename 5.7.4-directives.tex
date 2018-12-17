@@ -1,0 +1,22 @@
+\definesubsubsection{Directives}
+\defineinstruction{disable}{disable <directive ![ ]+>( <directive ![ ]+>)*}
+\defineinstruction{enable}{enable <directive ![ ]+>( <directive ![ ]+>)*} \\
+
+The \instr{disable} and \instr{enable} instructions cause the \g{implementation} to respectively disable or enable the named \gpl{directive}. If a given name is not recognised, the \g{implementation} may \glink{signalling}{signal} a \g{warning}. \\
+
+\begin{examples}
+\begin{examplesource}
+! disable instruction
+! error Exit!
+\end{examplesource}
+  \begin{exampleoutput}
+    ! error Exit!
+  \end{exampleoutput}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
