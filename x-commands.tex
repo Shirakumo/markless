@@ -138,7 +138,7 @@
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Variable} %
-    \textbf{\capitalisewords{#1}}: %
+    \textbf{#1}: %
     \multilinecell{\inline$#2$}%
   }%
   \label{variable:\WORD}%
@@ -148,7 +148,7 @@
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \label{variable:\WORD}
   \textit{Variable} %
-  \textbf{\capitalisewords{#1}}: %
+  \textbf{#1}: %
   \lstset{basicstyle=\ttfamily}%
 }{
 }
