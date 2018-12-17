@@ -51,12 +51,10 @@ By instead forcing singular line directives to become either guarded- or spannin
 ## Don't Allow Newlines
 Another solution would be to disallow newlines in the content binding of a singular line directive, thus again making every case unambiguous.
 
-## Absolute Escape Consistency
-Instead of all this nonsense we could very strictly define the line treatment like this:
+## Absolute Escape Consistency (Accepted)
+Escaping a newline never produces a newline in the resulting textual component and always continues the line onto the next one as if both lines were as one. This means that \LF is the same as neither character existing at all, regardless of the line mode.
 
-A literal newline in the document will always end the current line unless it is escaped. The line modes "never" and "always" would only dictate whether when a newline is encountered, a newline is output into the resulting textual component.
-
-This would mean that in "never" mode it's impossible to output a newline. For this reason it would be good to add an entity inline directive that always ouputs a newline.
+This also means it is impossible to emit newlines in editor mode. To reconcile this, a new entity inline directive should be added that does this unquestioningly.
 
 # Issue Status
-Decision pending.
+Resolved.

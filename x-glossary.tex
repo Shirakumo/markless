@@ -123,7 +123,8 @@
 }
 
 \defineglossary{line}{
-  Any sub-sequence within a \g{string} that is delimited by an \glink{escaping}{unescaped} \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline} that is not preceded by the \unicode{5C} \g{character}.
+  1) Any sub-sequence within a \g{string} that is delimited by an \glink{escaping}{unescaped} \g{newline}. That is to say, a line always begins at either the beginning of the \g{string} or after the \g{newline}, and always ends at either the end of the \g{string} or with a \g{newline} that is not preceded by the \unicode{5C} \g{character}.
+  2) A \g{string} that is displayed in a single horizontal row.
 }
 
 \defineglossary{empty line}{
@@ -259,7 +260,7 @@
 }
 
 \defineglossary{line break mode}{
-  A \g{variable} of the name \inline$line-break$ that specifies how \g{newline} \gpl{character} are \glink{interpretation}{interpreted} into the output \g{text} of the \g{document}. Only four values are permitted: \inline$always$, \inline$never$, \inline$escaped$, and \inline$unescaped$.
+  A \g{variable} of the name \inline$line-break$ that specifies how \g{newline} \gpl{character} are \glink{interpretation}{interpreted} into the output \g{text} of the \g{document}. Only two values are permitted: \inline$show$, \inline$hide$.
 }
 
 \defineglossary{instruction}{
