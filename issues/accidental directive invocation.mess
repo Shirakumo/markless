@@ -21,6 +21,13 @@ Simply double the number of characters in the identifiers to disambiguate:
 ~ Italic
 | This is //italic//.
 
+## Strikethrough-like
+~ Bold
+| <*thing*>
+
+~ Italic
+| </thing/>
+
 ## Immediate Recurrence Escapes
 If the content binding is empty, simply output the corresponding character instead, or make the content have at least one character and introduce corresponding entity inline directives. This would not fix the problem directly but would make it a bit less awkward to type the given characters.
 
