@@ -1,12 +1,12 @@
 \definesubsection{Bold}
-\defineidentifier{bold}{\\*<content .*>\\*}
+\defineidentifier{bold}{\\*\\*<content .*>\\*\\*}
 \definetextualcomponent{bold}{font-weight: bold} \\
 
 The bold \g{directive} is a \g{surrounding inline directive} that marks the \g{text} to belong to a \g{textual component} that sets the weight of the font to bold. Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. \\
 
 \begin{examples}
-  \example{not *bold* at all}{not \textbf{bold} at all}
-  \example{and *some \\*things\\* are bad*}{and \textbf{some *things* are bad}}
+  \example{not **bold** at all}{not \textbf{bold} at all}
+  \example{and **some *things* are bad**}{and \textbf{some *things* are bad}}
 \end{examples}
 
 %%% Local Variables:

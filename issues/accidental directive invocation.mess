@@ -12,7 +12,7 @@ Arguably for the above case the inline code block should be employed, but for th
 While the examples here only illustrate single uses which would not lead to a successful match, it isn't hard to imagine that multiple separate uses like this could occur in close vicinity.
 
 # Solution Proposals
-## Double Identifiers
+## Double Identifiers (Accepted)
 Simply double the number of characters in the identifiers to disambiguate:
 
 ~ Bold
@@ -37,4 +37,4 @@ If the content binding is empty, simply output the corresponding character inste
 This behaviour could also be seen as more surprising than less so, however.
 
 # Issue Status
-Decision pending.
+Resolved.
