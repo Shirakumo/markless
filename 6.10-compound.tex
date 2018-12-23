@@ -1,5 +1,5 @@
 \definesubsection{Compound}
-\defineidentifier{compound}{"<content .>"\\((in|to)( <option .*>,)+\\)}
+\defineidentifier{compound}{"<content .>"\\(<option .*>(, +<option .*>)*\\)}
 \definetextualcomponent{compound}{} \\
 
 The compound \g{directive} is a \g{compound inline directive}. It determines its \g{style} dynamically by the additive combination of present options in the \inline$option$ binding. In the case where the style combination of two options conflicts, the style of the last option has priority. \\
