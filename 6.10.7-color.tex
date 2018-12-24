@@ -1,5 +1,5 @@
 \definesubsubsection{Color}
-\defineidentifier{compound-color}{(color (<hex #.+>|<r ~n+>,<g ~n+>,<b ~n+>))|<name .+>}
+\defineidentifier{compound-color}{(color (<hex #.+>|<r ~n+> <g ~n+> <b ~n+>))|<name .+>}
 \definestyle{compound-color}{color: color} \\
 
 If given, this option marks the \g{style} to change the colour. The colour can be given in three ways:
@@ -15,7 +15,7 @@ If the specified colour value is invalid or unknown to the \g{implementation} ac
 \begin{examples}
   \example{This is "blue"(blue).}{This is \textcolor{blue}{blue}.}
   \example{"Magic!"(color #9D0ECC)}{\textcolor{5-10-7-2}{Magic!}}
-  \example{Now in "technicolor"(color 145,16,16).}{Now in \textcolor{5-10-7-3}{technicolor}.}
+  \example{Now in "technicolor"(color 145 16 16).}{Now in \textcolor{5-10-7-3}{technicolor}.}
 \end{examples}
 
 %%% Local Variables:

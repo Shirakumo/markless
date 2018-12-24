@@ -1,5 +1,5 @@
 \definesubsubsection{Size}
-\defineidentifier{compound-size}{(size )?(<point ~n+pt>|<em ~n+?(\\.~n+?)?em>|<name .+>)}
+\defineidentifier{compound-size}{(size (<point ~n+pt>|<em ~n+?(\\.~n+?)?em>))|<name .+>}
 \definestyle{compound-size}{font-size: size} \\
 
 This option marks the \g{style} to change the font size. The size can be given in three ways:
@@ -23,7 +23,7 @@ If the specified size value is invalid or unknown to the \g{implementation} acco
 
 \begin{examples}
   \example{Oh "shit!"(huge)}{Oh {\fontsize{2.5em}{2.6em}\selectfont shit!}}
-  \example{In "20pt."(20pt)}{In {\fontsize{20pt}{20pt}\selectfont 20pt.}}
+  \example{In "20pt."(size 20pt)}{In {\fontsize{20pt}{20pt}\selectfont 20pt.}}
   \longexample{Well "uh, "I don't know..."(size 0.5em)"(in size 0.8em)}{Well {\fontsize{0.8em}{0.8em}\selectfont uh, {\fontsize{0.5em}{0.5em}\selectfont I don't know...}}}
 \end{examples}
 
