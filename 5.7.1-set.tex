@@ -1,7 +1,7 @@
 \definesubsubsection{Set}
 \defineinstruction{set}{set <variable ![ ]+> <value .+>} \\
 
-Sets the state of the \g{variable} of the given name to a certain value. An \g{implementation} may check the value for validity and \glink{signalling}{signal} an \g{error} if it is invalid. \\
+Sets the state of the \g{variable} of the given name to a certain value. An \g{implementation} may check the value for validity and \glink{signalling}{signal} an \g{error} if it is invalid.  An \g{implementation} is allowed to add further variables. If a variable is not recognised, the \g{implementation} must \glink{signalling}{signal} an \g{error}. \\
 
 \input{5.7.1.1-line-break-mode.tex}
 \input{5.7.1.2-metadata.tex}

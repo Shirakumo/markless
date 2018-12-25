@@ -5,6 +5,8 @@
 
 The instruction is a \g{singular line directive}. Its purpose is to interact with the \g{implementation} and cause it to perform differently. There is no corresponding \g{resulting textual component} for the instruction \g{directive}. \\
 
+An \g{implementation} is allowed to add further instructions. If an instruction is not recognised, the \g{implementation} must \glink{signalling}{signal} an \g{error}. \\
+
 \input{5.7.1-set.tex}
 \input{5.7.2-message.tex}
 \input{5.7.3-include.tex}
