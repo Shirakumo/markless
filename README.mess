@@ -1,0 +1,85 @@
+[ image markless-logo.png ]
+
+Markless is a text based markup language intended for simple document and comment publications.
+
+# Markless Example
+While this document itself is written in Markless and may serve as a tutorial, a brief example follows. Hopefully it is self-explanatory.
+
+:: markless
+! set line-break-mode hide
+
+Markless is structured visually and all its markup is intended to be
+intuitive. As such, it should be relatively easy to get used to.
+
+The above exclamation mark line might be a bit mysterious,
+however. That's an instruction that tells Markless to hide line
+breaks, allowing you to add line breaks to your text without the
+resulting document having strange line breaks everywhere.
+
+## Lists
+Lists in Markless come in two ways -- ordered and unordered. To
+exemplify this, here's a recipe for crepes:
+
+- 1 Egg
+- Flour
+- Milk
+- Filling. I recommend:
+  - Cinnamon
+  - Sugar
+
+1. Mix the egg, flour, and milk together until you get a sticky
+   dough.
+2. Heat up a pan. Once hot, pour some of the dough and spread it with
+   spatulas across the pan's surface.
+3. Once you can lift up the side of the now hardened dough, flip it
+   over.
+4. Spread some sugar and cinnamon over the dough, and wait until the
+   underside is nicely baked.
+5. Fold the dough once or twice and serve.
+
+Evidently, lists can be nested and span multiple lines given the
+proper indentation.
+
+## Text Styling
+Markless offers a lot of ways to style text like //italic//, **bold**,
+__underline__, <-strikethrough->, ``literal``, v(subtext), and
+^(supertext). These styles can all be nested in each other to be
+combined.
+
+Further styles, and combination of styles is also possible with the
+"cmpound markup"(italic, bold). This compound markup also allows "font
+changing"(font Impact), "coloring"(blue), "sizing"(small),
+"linking"(https://example.com), and "hidden text"(spoiler).
+
+## Other Things
+Aside from this, Markless also offers embedding of images, audio, and
+video, footnotes[1], blockquotes, code blocks, and some less often
+seen things like comments and instructions.
+
+[ image explanation.png width 100% ]
+
+~ The Author
+| Hopefully this should cover most of the usage examples.
+
+[1] Like this one.
+::
+
+# Feature List
+Markless spots the following features:
+
+- Basic blocks like paragraphs, blockquotes, lists, section headers, horizontal rules, and code blocks.
+- Embedding of images, audio, and video.
+- Text markup for bold, italic, underline, strikethrough, supertext, subtext, spoilers, code, and font family, size, and colour.
+- Automatic URL markup and linking.
+- Section cross-referencing.
+- Instructions to alter the parsing behaviour from within the document, and to set metadata.
+- Both explicit and implicit line breaks.
+- A standards document that specifies the language clearly.
+
+# Markless Resources
+The primary resource for Markless is its standards document, which can be found in LaTeX source form "here"(https://github.com/shirakumo/markless) and compiled to PDF "here"(https://github.com/Shirakumo/markless/raw/master/markless.pdf).
+
+## Markless Implementations
+This is a list of known implementations of the Markless standard. If you develop your own implementation, please "let us know"() so that we can add it.
+
+- "cl-markless"(https://shirakumo.github.io/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
