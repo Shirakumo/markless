@@ -1,5 +1,5 @@
 \definesubsection{URL}
-\defineidentifier{url}{<target ~a(~w|[+-.])*://(~w|[\$-_.+!*'()\&+,/:;=?@\%])+>}
+\defineidentifier{url}{<target ~a(~w|[+-.])*://(~w|[\$-_.+!*'()\&+,/:;=?@\%#])+>}
 \definetextualcomponent{url}{interaction: link; target: target} \\
 
 URL is an \g{inline directive} that marks the \g{text} to belong to a \g{textual component} that sets its interaction to allow following to the URL target. The user must be presented with an action that allows them to follow to the URL target. The exact manner in which the target is followed as well as the way in which the action is presented are \g{implementation dependant}. The \g{text} of the \g{resulting textual component} must be exactly the same as that of the \inline$target$ \g{binding}.\\

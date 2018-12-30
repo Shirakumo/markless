@@ -1,8 +1,8 @@
 \definesubsection{Code block}
 \begin{identifier}{code block}
-::<language ![ ]+>?<options .*>
+<prefix ::+><language ![,]+>?<options .*>
 <content .*>
-::
+<prefix>
 \end{identifier}
 \definetextualcomponent{code block}{font-family: monospace; white-space: preserve} \\
 
