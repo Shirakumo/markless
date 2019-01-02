@@ -1,31 +1,76 @@
 \definesection{Interpretation}
-This section describes the procedure by which an \g{implementation} \glink{interpretation}{interprets} a \g{document}.
+This section describes the procedure by which an \g{implementation} \glink{interpretation}{interprets} a \g{document}. This procedure is used as a reference to allow verification of correctness. An \g{implementation} does not necessarily have to follow this procedure as long as the output it produces is equivalent with an \g{implementation} that does.
 
-\definesubsection{Parser State}
-An \g{implementation} must keep several \gpl{variable} that can be modified by the \g{interpretation}.
+\definesubsection{State}
+The following state is kept and updated as the procedure advances.
 
 \begin{itemize}
-\item A \g{document} \g{textual component} where all resulting \g{text} is kept.
-\item The \g{position} within the resulting \g{document}.
-\item The \g{cursor} within the inputting \g{document}.
-\item The \g{line break mode}, defaulting to \inline$unescaped$.
+\item The input stream from which characters are read.
+\item The parser state variables such as the \g{line break mode}.
+\item A \g{cursor}.
+\item A stack wherein each entry is composed of a \g{directive} and a \g{textual component}.
 \item A list of \gpl{disabled directive}.
-\item A table associating \gpl{label} to \gpl{textual component}. Label names must be \g{case insensitive}.
-\item Additionally, it might keep a variety of internal \gpl{variable} that can be changed by an \g{instruction}.
+\item A table associating \gpl{label} to \gpl{textual component}.
 \end{itemize}
 
-\definesubsection{Parser Steps}
-When \glink{interpretation}{interpreting} a \g{document} exactly three things can happen to modify the resulting \g{document}:
+\definesubsection{Procedure}
+\begin{step}
+\item A ``root-directive'' and a ``root-component'' are pushed onto the stack.
+\item If the input stream has things to read:
+  \begin{step}
+  \item A \g{line} is read from the input stream.
+  \item The \g{cursor} is set to the beginning of the \g{line}.
+  \item The stack is traversed upwards from the bottom:
+    \begin{step}
+    \item The \g{directive} at the current stack entry attempts to \g{match}.
+    \item If the \g{match} succeeds:
+      \begin{step}
+      \item The \g{cursor} is advanced by the \glink{match}{matched} \gpl{character}.
+      \item The current stack entry is advanced upwards.
+      \item Go to 2.3.1.
+      \end{step}
+    \item The stack is unwound down to and including the current stack entry. See \sectionref{Stack Unwinding}.
+    \end{step}
+  \item The \g{directive} on top of the stack is invoked:
+    \begin{step}
+    \item If an \g{applicable directive} \glink{match}{matches}:
+      \begin{step}
+      \item The \glink{match}{matched} \g{directive} may enter \gpl{textual component} into the \g{current component}.
+      \item The \glink{match}{matched} \g{directive} may push itself and a \g{textual component} onto the stack or perform other changes to the state as specified.
+      \item The \g{cursor} is advanced by the \glink{match}{matched} \gpl{character}.
+      \item Go to 2.4.
+      \end{step}
+    \item The \g{character} at the \g{cursor} is added to the \g{current component}.
+    \item The \g{cursor} is advanced by the \g{character}.
+    \end{step}
+  \item If the \g{cursor} is not yet at the end of the \g{line}:
+    \begin{step}
+    \item Go to 2.4.
+    \end{step}
+  \item If the \g{line break mode} is \inline$show$, a \g{newline} is added to the \g{current component}.
+  \item Go to 2.
+  \end{step}
+\item The stack is unwound fully. See \sectionref{Stack Unwinding}.
+\item The interpretation is complete. The ``root-component'' represents the resulting \g{document}.
+\end{step}
 
-\begin{itemize}
-\item A \g{textual component} is started. This causes a new instance of the component to be inserted at the current \g{position} and the \g{position} to be moved to inside this instance.
-\item An open \g{textual component} is ended. If this component is not the uppermost, this step is repeated for the \g{current component} until the component to close is the current. The current \g{position} is moved to outside and after the component.
-\item \G{text} is inserted. This means that the \g{text} is inserted at the current \g{position} and the \g{position} is moved to after the inserted \g{text}.
-\end{itemize}
+\definesubsubsection{Stack Unwinding}
+\begin{step}
+\item If the stack is taller than the desired height:
+  \begin{step}
+  \item If the directive on top of the stack is a \g{inline directive}:
+    \begin{step}
+    \item The \g{current component} is converted to one that has no \g{style}.
+    \item \Gpl{character} that have been consumed by the prefix match of the \g{directive} are prepended to the \g{current component}.
+    \item Other potentially necessary actions to undo the match of the \g{directive} are performed.
+    \end{step}
+  \item The top of the stack is popped off.
+  \item Go to 1.
+  \end{step}
+\end{step}
 
-When \glink{interpretation}{interpreting} the input \g{document}, the following steps are taken in order, starting again from the beginning until the \g{document} \g{textual component} is ended.
-
-SCRAPPED - REDO THIS IN A WAY THAT MAKES ACTUAL SENSE ONCE OTHER ISSUES ARE FIXED
+\definesubsubsection{Root Directive}
+The root directive always \glink{match}{matches} but is never considered an \g{applicable directive}.
 
 %%% Local Variables:
 %%% mode: latex

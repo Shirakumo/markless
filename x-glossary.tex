@@ -90,7 +90,7 @@
 }
 
 \defineglossary{current component}{
-  The \g{textual component} with the highest \g{level} that the \g{position} is in.
+  The \g{textual component} on top of the parse stack.
 }
 
 \defineglossary{style}{
@@ -147,6 +147,10 @@
   A pattern in \sectionref{identifier syntax} to specify the way in which the \g{identifier} can be recognised.
 }
 
+\defineglossary{applicable directive}{
+  A \g{directive} is applicable if it is not a \g{disabled directive}.
+}
+
 \defineglossary{directive}{
   A directive specifies what happens when the \g{implementation} \glink{match}{matches} a particular \g{identifier}. In particular, it may specify how the input \g{string} is \glink{interpretation}{interpreted} into \g{text} in the \g{document}.
 }
@@ -154,7 +158,6 @@
 \defineglossary{line directive}{
   A \g{directive} that spans one or more \gpl{line} as specified in \sectionref{line directives}.
 }
-
 
 \defineglossary{singular line directive}{
   A \g{line directive} as specified in \sectionref{singular line directives}.
