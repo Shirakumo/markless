@@ -1,11 +1,13 @@
 \definesubsection{Dashes}
-\defineidentifier{em-dash}{--}
+\defineidentifier{en-dash}{--}
+\defineidentifier{em-dash}{---}
+\definetextualcomponent{en-dash}{display: en-dash}
 \definetextualcomponent{em-dash}{display: em-dash} \\
 
-Em-dash is a \g{entity inline directive}. If the \g{document} does not have direct support for em-dashes, a fallback character may be used when appropriate instead. In unicode encoded documents, this should be \unicode{2014}. \\
+The dashes are \gpl{entity inline directive}. If the \g{document} does not have direct support for dashes, a fallback character may be used when appropriate instead. In unicode encoded documents, this should be \unicode{2013} for the en-dash and \unicode{2014} for the em-dash. \\
 
 \begin{examples}
-  \example{A game -- or gamble, if you will.}{A game --- or gamble, if you will.}
+  \example{A game -- or gamble --- if you will.}{A game -- or gamble --- if you will.}
 \end{examples}
 
 %%% Local Variables:
