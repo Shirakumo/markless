@@ -6,7 +6,7 @@ The compound \g{directive} is a \g{compound inline directive}. It determines its
 
 Only the \g{text} held by the \g{content binding} is outputted to the \g{resulting textual component}. The \inline$option$ binding cannot contain any other \gpl{directive}.\\
 
-An \g{implementation} must at least support the options specified in this section, but may add additional options the syntax and implications of which are completely \g{implementation dependant}. If an option is found that the \g{implementation} does not support, it is ignored and a \g{warning} may be \glink{signalling}{signalled}. \\
+An \g{implementation} must at least support the options specified in this section, but may add additional options the syntax and implications of which are completely \g{implementation dependant}. If an option is found that the \g{implementation} does not support or recognise, it is ignored and a \g{warning} may be \glink{signalling}{signalled}. \\
 
 When a compound \g{directive} is \glink{processing}{processed}, processing begins anew over the \g{content binding}. Once the \inline$options$ binding has been \glink{full match}{fully matched}, the \g{resulting textual component} is ended and control is handed back to the \g{standard processing loop}.
 

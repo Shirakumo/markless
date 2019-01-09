@@ -1,7 +1,7 @@
 \definesubsubsection{Embed Parameters}
 The parameters are processed in the order they are given and can effect both the content of the \g{resulting textual component} as well as its \g{style}. A parameter may also affect the processing of parameters after it. Two general types of parameters are defined: flag parameters and value parameters. Flag parameters are single parameters that add or remove an attribute from the \g{resulting textual component}'s \g{style}. Value parameters add an attribute whose value is determined by the parameter following the current one. The following parameter is then skipped over and thus not processed. \\
 
-An \g{implementation} must at least support the parameters specified in this section if permitted by the output \g{document}, but may add additional parameters the implications of which are completely \g{implementation dependant}. If the output \g{document} does not support a particular parameter, a \g{warning} is \glink{signalling}{signalled}. \\
+An \g{implementation} must at least support the parameters specified in this section if permitted by the output \g{document}, but may add additional parameters the implications of which are completely \g{implementation dependant}. If the output \g{document} does not support a particular parameter, or an unknown parameter is given, a \g{warning} is \glink{signalling}{signalled}. \\
 
 \input{5.9.2.1-float.tex}
 \input{5.9.2.2-width.tex}
