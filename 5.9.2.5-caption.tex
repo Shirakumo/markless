@@ -1,0 +1,22 @@
+\definesubsubsubsection{Caption}
+\defineidentifier{embed-property-caption}{caption <content .*>} 
+\definestyle{embed-property-caption}{interaction: image} \\
+
+Causes a \g{textual component} to be output either alongside or within the embed's \g{textual component}. The text may contain any \gpl{inline directive}. The \g{text} held by the \g{content binding} is outputted to this additional \g{resulting textual component}. The text can only contain \gpl{inline directive}.\\
+
+\begin{examples}
+  \longexample{[ image markless-logo.png, caption The //Markless// logo image. ]}{\begin{minipage}{.98\linewidth}
+      \begin{center}
+        \includegraphics[height=2cm]{markless-logo}
+      \end{center}
+      \vspace{-1cm}
+      \captionof{figure}{The \textit{Markless} logo image.}
+    \end{minipage}}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
