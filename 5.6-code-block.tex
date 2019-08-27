@@ -10,7 +10,7 @@ The code block is a \g{guarded line directive}. It marks the \g{text} to belong 
 
 The \gpl{newline} and \g{whitespace} must be represented exactly as in the source text. Multiple consecutive \g{whitespace} \gpl{character} cannot be combined and must be individually represented. A \g{newline} \g{character} cannot be escaped and must always result in a new line being started. \G{escaping} is deactivated within the content, meaning backslashes are output literally in the \g{resulting textual component}.  \\
 
-The \inline$options$ \g{binding} holds potential parameters that can configure the \g{style} of the \g{resulting textual component}. The syntax and effect of the options is \g{implementation dependant}. \\
+The \inline$options$ \g{binding} holds potential parameters that can configure the \g{style} of the \g{resulting textual component}. The syntax and effect of the options is \g{implementation dependant}. If a language is requested in the \linline$language$ \g{binding} that the \g{implementation} does not have specific support for, a \g{warning} is \glink{signalling}{signalled}. The language \inline$text$ must always be supported and will incur no styling changes. \\
 
 \begin{examples}
 \begin{examplesource}

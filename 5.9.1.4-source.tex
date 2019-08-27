@@ -7,13 +7,13 @@
 \defineidentifier{embed-property-encoding}{encoding <encoding .+>}
 \definestyle{embed-type-source}{font-family: monospace; white-space: preserve} \\
 
-Embeds the source code pointed to by the \inline$target$ into the document. To do this, the file is read as a text file in the \g{encoding} specified by \ident{embed-property-encoding}. If the \ident{embed-property-encoding} is not given, UTF-8 \g{encoding} is assumed. \\
+Embeds the source code pointed to by the \inline$target$ into the document. To do this, the file is read as a text file in the \g{encoding} specified by \ident{embed-property-encoding}. If the \ident{embed-property-encoding} is not given, UTF-8 \g{encoding} is assumed. If an encoding is requested that the \g{implementation} does not support, an \g{error} is \glink{signalling}{signalled}.\\
 
 The file's contents are split into a sequence of lines. If \ident{embed-property-start} is given, as many lines as indicated in its \inline$start$ \g{binding} are discarded from the front. If \ident{embed-property-end} is given, and its \inline$end$ \g{binding} starts with a \unicode{2B}, as many lines as indicated in the \g{binding} are output into the \g{resulting textual component}. If \ident{embed-property-end} is given, but its \g{binding} does not start with \unicode{2B}, the lines until and including the line indicated by the \inline$end$ \g{binding} are output into the \g{resulting textual component}, counting the first line read from the file as the line numbered \inline$1$. \\
 
 A line in this context is determined as follows: each line in the file is delimited by either the beginning of the file, the end of the file, or the nearest Linefeed \unicode{A} characters. This means that unlike a Markless \g{line}, the Linefeed \unicode{A} end of line marker cannot be escaped. \\
 
-The \ident{embed-property-language} and \ident{embed-property-options} options hold parameters that configure the \g{style} of the \g{resulting textual component}. The syntax and effect of the options is \g{implementation dependant}, but it must be the same as for the \ident{code block} \g{directive}. \\
+The \ident{embed-property-language} and \ident{embed-property-options} options hold parameters that configure the \g{style} of the \g{resulting textual component}. The syntax and effect of the options is \g{implementation dependant}, but it must be the same as for the \ident{code block} \g{directive}. If a language is requested that the \g{implementation} does not have specific support for, a \g{warning} is \glink{signalling}{signalled}. \\
 
 \begin{examples}
   \begin{examplesource}
