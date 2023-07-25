@@ -293,7 +293,7 @@ does
 The primary resource for Markless is its standards document, which can be found in LaTeX source form "here"(https://github.com/shirakumo/markless) and compiled to PDF "here"(https://github.com/Shirakumo/markless/raw/master/markless.pdf).
 
 ## Contact
-The development of Markless happens on its GitHub repository at https://github.com/shirakumo/markless . Discussion primarily happens on its IRC channel at irc://irc.freenode.net/#shirakumo .
+The development of Markless happens on its GitHub repository at https://github.com/shirakumo/markless . Discussion primarily happens on its IRC channel at irc://irc.libera.chat/#shirakumo .
 
 ## Implementations
 This is a list of known implementations of the Markless standard. If you develop your own implementation, please "let us know"() so that we can add it.
