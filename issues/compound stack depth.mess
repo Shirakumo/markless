@@ -1,0 +1,35 @@
+# Problem Description
+The current syntax for the compound directive is roughly the following:
+
+::
+"foo"(bar)
+::
+
+This creates a problem when double quotes are used naturally as part of a paragraph like so:
+
+::
+Catherine said "I don't know what to do," to which Jonathan snapped "You never do!"
+::
+
+Due to it being allowed for a compound directive to contain another directive, the parser has to naively assume that each double quote starts a new compound directive, until it either reaches the next part of the directive, ``"(`` or the end of a block, at which point it can unwind again.
+
+However, as lengthy paragraphs with many quotes are not uncommon, this can quickly lead the parser to reach a very deep directive stack, risking errors resulting from a stack overflow, or bad parse behaviour from discarding stack frames.
+
+# Solution Proposals
+## Disallow Nesting
+Disallowing the nesting of compound directives would swiftly solve it, as any eager parse of an opening double quote could be replaced by the next double quote encountered.
+
+This comes at a high cost, however. Some text behaviours are only achievable through the compound directive, as bespoke inline directives do not exist for all compound options, making it impossible to achieve some behaviours.
+
+## Retroactive Stack Shifting
+We impose a maximum compound nesting limit that is strictly lower than the stack limit. When another opening double quote is encountered and the nesting limit is reached, the stack is traversed downwards until a non-compound stack frame is reached. This frame is then removed from the stack by converting the associated component to a plain nesting component and re-emitting the double quote at its beginning.
+
+This would allow all previous documents to keep working, and improve the worst-case behaviour of the implementation. However, it requires implementing rather specialised behaviour for this one directive, and it does not solve the problem at its root. If we nest other directives in between the eagerly parsed compound directives, the stack cap can sill be reached. Granted this is far less plausible to occur, but nevertheless possible.
+
+## Changing Opening Syntax
+If we change the directive's identifier to something like ``""foo"(bar)`` instead, then accidental nesting is far less likely to occur. This would also mirror the other inline directives that all have two-character leading identifiers, rather than one.
+
+The obvious downside of this approach is that it breaks all existing documents out there, which at this point there are quite a few of already.
+
+# Issue Status
+Open.
