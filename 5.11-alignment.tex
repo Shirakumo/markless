@@ -1,0 +1,41 @@
+\definesubsection{Alignment}
+\begin{identifier}{Left Align}
+  \|\<<content .*>
+\end{identifier}
+\begin{identifier}{Right Align}
+  \|\><content .*>
+\end{identifier}
+\begin{identifier}{Center}
+  \>\<<content .*>
+\end{identifier}
+\begin{identifier}{Justify}
+  \|\|<content .*>
+\end{identifier}
+\definetextualcomponent{left align}{text-align: left}
+\definetextualcomponent{right align}{text-align: right}
+\definetextualcomponent{center}{text-align: center}
+\definetextualcomponent{justify}{text-align: justify} \\
+
+All alignment directives are \g{spanning line directive} that change the alignment of a body of \g{text}. The alignment content can contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. \\
+
+\begin{examples}
+  \begin{examplesource}
+    |< Left
+    >< Center
+    |> Right
+  \end{examplesource}
+  \begin{exampleoutput}
+    \begin{minipage}{0.5\textwidth}
+      \begin{flushleft}Left\end{flushleft}
+      \begin{center}Center\end{center}
+      \begin{flushright}Right\end{flushright}
+    \end{minipage}
+  \end{exampleoutput}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
