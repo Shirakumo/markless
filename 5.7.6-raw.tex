@@ -1,0 +1,18 @@
+\definesubsubsection{Raw}
+\defineinstruction{raw}{raw <backend ![ ]+> <content .*>} \\
+
+If the \g{implementation}'s chosen output backend matches that of the \inline$backend$ \g{binding}, the \g{implementation} should emit the \inline$content$ \g{binding}'s text verbatim into the resulting document. This should allow creating output specific effects. The exact semantics and results of this are \g{implementation dependant}. If the \g{implementation}'s chosen output backend does not match, the instruction is ignored. \\
+
+Users should note that basic Markless parsing rules such as backslash escapes still apply for the \inline$content$, so the content is not copied directly 1:1 from the source text to the output document. \\
+
+\begin{examples}
+  \example{! raw latex \\\\textit\{Hello\}}{\textit{Hello}}
+  \example{! raw html <blink>Hello</blink>}{}
+\end{examples}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "markless"
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
