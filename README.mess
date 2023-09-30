@@ -153,6 +153,16 @@ Note however that footnotes are global, and as such the footnote number must be 
 
 Each footnote is associated with a label named by its number. This will allow you to cross-reference it even without a footnote reference marker. More on that "later"(#Links and Labels).
 
+## Alignment
+Sometimes it can be useful to change the alignment of the text. Markless allows for this as well:
+
+:: markless, example
+|< Keeping left (as is the default)
+>< centering it out
+|> and going all the way to the right
+|| Or keeping the text justified, which only really makes a difference with long lines.
+::
+
 ## Instructions and Comments
 These are some of the more unique features of Markless. Instructions allow you to change the behaviour of the parser from within the document, and comments allow you to include information that is only relevant for the authors.
 
