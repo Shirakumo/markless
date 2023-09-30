@@ -15,6 +15,7 @@
    (h1 :font-size 2.0em)
    (h2 :font-size 1.5em)
    (h3 :font-size 1.2em)
+   (img :max-width 100%)
    (code
     :background (hex F8F8F8)
     :border 1px solid (hex F0F0F0)
@@ -34,9 +35,20 @@
      (pre :white-space pre-wrap
           :word-wrap break-word))
     (>article
+     :border 1px solid (hex F0F0F0)
      ((:or img audio video) :max-width 100%)))
    ((:or ul ol)
     ((:and >li>p :first-child)
      :margin 0)
     ((:and >li>p)
      :margin 1em 0 0 0)))))
+
+(:media "(max-width:800px)"
+        (html
+         (body
+          (main
+           (.example
+            :flex-direction column
+            (>* :width inherit)
+            (>code
+             :border-bottom 1px solid black))))))
