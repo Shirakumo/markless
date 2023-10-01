@@ -1,6 +1,6 @@
 \definesubsection{Blockquote}
 \begin{identifier}{blockquote header}
-\~ <content .+>
+\~ <content !(\| )+>(\| <body .*>)?
 \end{identifier}
 \begin{identifier}{blockquote body}
 \| <content .*>
@@ -8,7 +8,7 @@
 \definetextualcomponent{blockquote header}{margin: left; font-weight: bold}
 \definetextualcomponent{blockquote body}{margin: left} \\
 
-The blockquote header is a \g{singular line directive} that identifies the source of a quote. Only the \g{text} held by the \g{content binding} is outputted into the \g{resulting textual component}. The blockquote header can only contain \gpl{inline directive}. \\
+The blockquote header is a \g{singular line directive} that identifies the source of a quote. Only the \g{text} held by the \g{content binding} is outputted into the \g{resulting textual component}. The blockquote header \g{content binding} can only contain \gpl{inline directive}. If the \inline$body$ \g{binding} is present, then the blockquote header's \g{resulting textual component} is closed, and parsing resumes as if at a block toplevel, meaning a blockquote body will be parsed next. This allows a shorter form of combined header and body. \\
 
 The blockquote body is a \g{spanning line directive} that identifies a body of \g{text} that is being quoted. The blockquote body can contain any \g{directive} with the condition that the \gpl{directive} are matched against the \g{text} of the \g{resulting textual component}. \\
 
@@ -31,6 +31,14 @@ An implementation may choose to group the \comp{blockquote header} and \comp{blo
   \begin{exampleoutput}
     \begin{blockquote}
       Unattributed text.
+    \end{blockquote}
+  \end{exampleoutput}
+  \begin{examplesource}
+~ Yukari | Hello there!
+  \end{examplesource}
+  \begin{exampleoutput}
+    \begin{blockquote}[Yukari]
+      Hello there!
     \end{blockquote}
   \end{exampleoutput}
 \end{examples}
