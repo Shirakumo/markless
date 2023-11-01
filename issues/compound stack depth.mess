@@ -26,10 +26,10 @@ We impose a maximum compound nesting limit that is strictly lower than the stack
 
 This would allow all previous documents to keep working, and improve the worst-case behaviour of the implementation. However, it requires implementing rather specialised behaviour for this one directive, and it does not solve the problem at its root. If we nest other directives in between the eagerly parsed compound directives, the stack cap can sill be reached. Granted this is far less plausible to occur, but nevertheless possible.
 
-## Changing Opening Syntax
-If we change the directive's identifier to something like ``""foo"(bar)`` instead, then accidental nesting is far less likely to occur. This would also mirror the other inline directives that all have two-character leading identifiers, rather than one.
+## Changing Opening Syntax (Accepted)
+If we change the directive's identifier to something like ``''foo''(bar)`` instead, then accidental nesting is far less likely to occur. This would also mirror the other inline directives that all have two-character leading identifiers, rather than one.
 
 The obvious downside of this approach is that it breaks all existing documents out there, which at this point there are quite a few of already.
 
 # Issue Status
-Open.
+Resolved.
