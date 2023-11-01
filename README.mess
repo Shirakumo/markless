@@ -95,7 +95,7 @@ Note that Markless will signal an error if you try to use an embed type or optio
 One thing to note if you come from other markups like HTML is that in Markless, embeddings are blocks, so they cannot appear in the middle of text.
 
 ## Literal Text and Code
-This "entire page"(link README.mess) is written in Markless, so it's natural that there would be a way to include code snippets as well.
+This ''entire page''(link README.mess) is written in Markless, so it's natural that there would be a way to include code snippets as well.
 
 ::: markless, example
 ::
@@ -151,7 +151,7 @@ When you talk about a footnote, you reference it in the same way as you declare 
 
 Note however that footnotes are global, and as such the footnote number must be unique for each footnote. Markless won't care whether you leave gaps in your numbering, but duplicates will not generate predictable results.
 
-Each footnote is associated with a label named by its number. This will allow you to cross-reference it even without a footnote reference marker. More on that "later"(#Links and Labels).
+Each footnote is associated with a label named by its number. This will allow you to cross-reference it even without a footnote reference marker. More on that ''later''(#Links and Labels).
 
 ## Alignment
 Sometimes it can be useful to change the alignment of the text. Markless allows for this as well:
@@ -213,14 +213,14 @@ But //this
 For further styles, as well as the combination of styles, there's the compound expression.
 
 :: markless, example
-The "compound expression"(blue) is "versatile"(italic, green). It allows for
+The ''compound expression''(blue) is ''versatile''(italic, green). It allows for
 
-- "color"(color #0088EE)"ing"(color 200 100 50)
-- "siz"(large)"ing"(size 15pt)
-- "link"(http://example.com)"ing"(link #1)
-- "decorat"(underline)"ing"()
-- "font"(font Comic Sans MS) "changes"(font Jokerman)
-- and "more"(spoiler)
+- ''color''(color #0088EE)''ing''(color 200 100 50)
+- ''siz''(large)''ing''(size 15pt)
+- ''link''(http://example.com)''ing''(link #1)
+- ''decorat''(underline)''ing''()
+- ''font''(font Comic Sans MS) ''changes''(font Jokerman)
+- and ''more''(spoiler)
 
 [1] See?
 ::
@@ -245,7 +245,7 @@ Using this, the compound directive can cross-reference other parts of the docume
 
 :: markless, example
 # Important
-Importance "typically"(#20) refers to when something is "important"(#important).
+Importance ''typically''(#20) refers to when something is ''important''(#important).
 
 [20] Except for when it doesn't.
 ::
@@ -300,14 +300,14 @@ does
 ::
 
 # Markless Resources
-The primary resource for Markless is its standards document, which can be found in LaTeX source form "here"(https://github.com/shirakumo/markless) and compiled to PDF "here"(https://github.com/Shirakumo/markless/raw/master/markless.pdf).
+The primary resource for Markless is its standards document, which can be found in LaTeX source form ''here''(https://github.com/shirakumo/markless) and compiled to PDF ''here''(https://github.com/Shirakumo/markless/raw/master/markless.pdf).
 
 ## Contact
 The development of Markless happens on its GitHub repository at https://github.com/shirakumo/markless . Discussion primarily happens on its IRC channel at irc://irc.libera.chat/#shirakumo .
 
 ## Implementations
-This is a list of known implementations of the Markless standard. If you develop your own implementation, please "let us know"() so that we can add it.
+This is a list of known implementations of the Markless standard. If you develop your own implementation, please ''let us know''(https://github.com/shirakumo/markless/issues/new) so that we can add it.
 
-- "cl-markless"(https://shirakumo.github.io/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
-- "markless.el"(https://github.com/shirakumo/markless.el) A package for the Emacs editor for syntax highlighting and editing support of Markless files.
-- "markless-cm"(https://github.com/shirakumo/markless-cm) A syntax mode to help highlight Markless in CodeMirror.
+- ''cl-markless''(https://shirakumo.github.io/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
+- ''markless.el''(https://github.com/shirakumo/markless.el) A package for the Emacs editor for syntax highlighting and editing support of Markless files.
+- ''markless-cm''(https://github.com/shirakumo/markless-cm) A syntax mode to help highlight Markless in CodeMirror.
