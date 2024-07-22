@@ -2,7 +2,7 @@
 \defineinstruction{disable}{disable <directive ![ ]+>( <directive ![ ]+>)*}
 \defineinstruction{enable}{enable <directive ![ ]+>( <directive ![ ]+>)*} \\
 
-The \instr{disable} and \instr{enable} instructions cause the \g{implementation} to respectively disable or enable the named \gpl{directive}. If a given name is not recognised, the \g{implementation} may \glink{signalling}{signal} a \g{warning}. \\
+The \instr{disable} and \instr{enable} instructions cause the \g{implementation} to respectively disable or enable the named \gpl{directive}. If a given name is not recognised, the \g{implementation} may \glink{signalling}{signal} a \g{warning}. If a user tries to disable the \comp{paragraph} \g{directive}, an \g{error} must be \glink{signalling}{signalled}. \\
 
 \begin{examples}
 \begin{examplesource}
