@@ -40,6 +40,7 @@
 }
 
 \newcommand{\symbolref}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[symbol:#1]{\expandafter\inline\expandafter{\WORD}}%
 }
@@ -49,16 +50,19 @@
 }
 
 \newcommand{\definesyntax}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \inline$#1$\label{syntax:\WORD}%
 }
 
 \newcommand{\syntax}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[syntax:\WORD]{\inline$#1$}%
 }
 
 \newcommand{\defineidentifier}[2]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Identifier} %
@@ -69,6 +73,7 @@
 }
 
 \lstnewenvironment{identifier}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \label{identifier:\WORD}
   \textit{Identifier} %
@@ -78,11 +83,13 @@
 }
 
 \newcommand{\ident}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[identifier:\WORD]{\textit{#1}}%
 }
 
 \newcommand{\definestyle}[2]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Style} %
@@ -93,11 +100,13 @@
 }
 
 \newcommand{\style}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[style:\WORD]{\textit{#1}}%
 }
 
 \newcommand{\definetextualcomponent}[2]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Textual Component} %
@@ -109,11 +118,13 @@
 }
 
 \newcommand{\comp}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[textualcomponent:\WORD]{\textit{#1}}%
 }
 
 \newcommand{\defineinstruction}[2]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Instruction} %
@@ -124,6 +135,7 @@
 }
 
 \lstnewenvironment{instruction}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \label{instruction:\WORD}
   \textit{Instruction} %
@@ -133,11 +145,13 @@
 }
 
 \newcommand{\instr}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[instruction:\WORD]{\textit{#1}}%
 }
 
 \newcommand{\definevariable}[2]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \makebox[\textwidth][l]{%
     \textit{Variable} %
@@ -148,6 +162,7 @@
 }
 
 \lstnewenvironment{variable}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \label{variable:\WORD}
   \textit{Variable} %
@@ -157,6 +172,7 @@
 }
 
 \newcommand{\var}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[variable:\WORD]{\textit{#1}}%
 }
@@ -165,31 +181,37 @@
 \setcounter{tocdepth}{6}
 
 \newcommand{\definesection}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \newpage\section{#1}\label{section:\WORD}%
 }
 
 \newcommand{\definesubsection}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \subsection{#1}\label{section:\WORD}%
 }
 
 \newcommand{\definesubsubsection}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \subsubsection{#1}\label{section:\WORD}%
 }
 
 \newcommand{\definesubsubsubsection}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \paragraph{#1}\label{section:\WORD}\mbox{}\\%
 }
 
 \newcommand{\definesubsubsubsubsection}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \subparagraph{#1}\label{section:\WORD}\mbox{}\\%
 }
 
 \newcommand{\sectionref}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \hyperref[section:\WORD]{\textit{#1}}%
 }
@@ -205,6 +227,7 @@
 }
 
 \newcommand{\defineissue}[1]{%
+  \let\WORD\undefined%
   \MakeUppercase{\gdef\noexpand\WORD{#1}}%
   \subsection*{#1}\label{issue:\WORD}%
   \lstinputlisting[breaklines=true,basicstyle=\small\ttfamily,breakindent=0cm]{"#1"}%
