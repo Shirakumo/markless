@@ -23,6 +23,7 @@ jobs:
           mkdir -p ~/.local/share/fonts
           curl -Lo ~/.local/share/fonts/ComicSansMS.ttf https://github.com/ImageMagick/msttcorefonts/raw/main/fonts/Comic_Sans_MS.ttf
           fc-cache -fv
+          sudo apt-get update
           sudo apt-get install --yes --no-install-recommends \
             sbcl texlive texlive-luatex texlive-extra-utils texlive-lang-english texlive-plain-generic texlive-latex-extra xindy context
       - name: Install env
