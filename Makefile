@@ -1,5 +1,10 @@
 LUALATEX ?= lualatex
 MAKEGLOSSARIES ?= makeglossaries
+MAKE4HT ?= make4ht
+
+all:
+	$(MAKE) pdf
+	$(MAKE) html
 
 pdf:
 	$(MAKE) tex
@@ -11,3 +16,6 @@ tex:
 
 glossary:
 	$(MAKEGLOSSARIES) markless
+
+html:
+	$(MAKE4HT) -l -s markless "markless"

@@ -1,0 +1,11 @@
+/* css.sty */
+table.tabular{
+    margin-left: 0;
+    margin-right: 0;
+}
+.paragraphHead,.subsubsectionHead{
+    font-size: 1.2em;
+}
+#TBL-2 p{
+    display: inline-block;
+}

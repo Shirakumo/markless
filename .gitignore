@@ -7,4 +7,11 @@
 *.synctex.gz
 *.toc
 *.xdy
+*.4ct
+*.4tc
+*.dvi
+*.idv
+*.lg
+*.tmp
+*.xref
 auto/
