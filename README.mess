@@ -73,13 +73,13 @@ Since paragraphs can take on arbitrary leading spaces, you can also add some spa
 You can embed images, audio, and video in your documents. An implementation might also support additional kinds of embeds.
 
 :: markless, example
-[ image markless-logo.png ]
+[ image assets/markless-logo.png ]
 ::
 
 Each embed accepts a number of options that allow you to influence its interactivity and its look.
 
 :: markless, example
-[ image markless-logo.png, width 50%, float right ]
+[ image assets/markless-logo.png, width 50%, float right ]
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at efficitur sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam erat volutpat. Nunc egestas massa sed ante vulputate, quis mollis tellus fermentum. Morbi ante ligula, imperdiet ac auctor maximus, aliquet non lectus.
 ::
 
