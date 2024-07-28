@@ -1,0 +1,50 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Restore cache
+        id: cache-ql
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.quicklisp
+            ~/.cache/common-lisp
+          key: lisp
+      - name: Install packages
+        run: |
+          mkdir -p ~/.local/share/fonts
+          curl -Lo ~/.local/share/fonts/ComicSansMS.ttf https://github.com/ImageMagick/msttcorefonts/raw/main/fonts/Comic_Sans_MS.ttf
+          fc-cache -fv
+          sudo apt-get install --yes --no-install-recommends \
+            sbcl texlive texlive-luatex texlive-extra-utils texlive-lang-english texlive-plain-generic texlive-latex-extra
+      - name: Install env
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          curl https://beta.quicklisp.org/quicklisp.lisp \
+            | cat - <(echo "(quicklisp-quickstart:install :path \"~/.quicklisp/\")" \
+                           "(when (< 0 (length \"$DIST\")) (ql-dist:install-dist \"$DIST\" :prompt NIL))" \
+                           "(ql:quickload '(clip cl-markless-plump) :silent T)") \
+            | sbcl --noinform
+        env:
+          DIST: http://dist.shirakumo.org/shirakumo.txt
+      - uses: actions/checkout@v1
+      - name: Build
+        run: |
+          mkdir ~/gh-pages/
+          make
+          cp -r markless.html markless.css markless.pdf index.html index.css assets ~/gh-pages/
+      - name: Upload Github Pages Artefact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ~/gh-pages/
+      - name: Write to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
