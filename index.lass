@@ -1,0 +1,54 @@
+(html
+ :background (hex E0E0E0)
+ (body
+  :margin 0
+  (main
+   :border 2px solid (hex D0D0D0)
+   :border-top none
+   :border-bottom none
+   :background (hex FFFFFF)
+   :max-width 1024px
+   :margin 0 auto
+   :padding 1em 1em 5em 1em
+   ((:or h1 h2 h3 h4 h5 h6)
+    :margin .5em 0 0 0)
+   (h1 :font-size 2.0em)
+   (h2 :font-size 1.5em)
+   (h3 :font-size 1.2em)
+   (img :max-width 100%)
+   (code
+    :background (hex F8F8F8)
+    :border 1px solid (hex F0F0F0)
+    (pre :margin 0))
+   (blockquote
+    :border-left 3px solid (hex D0D0D0)
+    :margin 0
+    :padding-left 0.5em
+    (cite :display block :text-align right)
+    ((:and cite :before) :content "— "))
+   (.example
+    :display flex
+    (>* :flex-grow 1
+        :width 50%
+        :padding .5em)
+    (>code
+     (pre :white-space pre-wrap
+          :word-wrap break-word))
+    (>article
+     :border 1px solid (hex F0F0F0)
+     ((:or img audio video) :max-width 100%)))
+   ((:or ul ol)
+    ((:and >li>p :first-child)
+     :margin 0)
+    ((:and >li>p)
+     :margin 1em 0 0 0)))))
+
+(:media "(max-width:800px)"
+        (html
+         (body
+          (main
+           (.example
+            :flex-direction column
+            (>* :width inherit)
+            (>code
+             :border-bottom 1px solid black))))))

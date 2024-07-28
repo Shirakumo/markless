@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>The Markless Document Markup Standard</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <main/>
+  </body>
+</html>

@@ -1,0 +1,315 @@
+[ image assets/markless-logo.png ]
+
+Markless is a text based markup language intended for simple document and comment publications.
+
+# Tutorial
+## Paragraphs and Headings
+Paragraphs can be introduced by adding an empty line, or by changing the amount of spaces before the text.
+
+:: markless, example
+Paragraph one
+Still paragraph one
+
+Paragraph two
+  Paragraph three
+::
+
+Markless is structured in such a way that the text can be aligned over all directives, as every directive has at least two prefix characters on each line.
+
+:: markless, example
+# An Example
+  Here's an example of this using a header and a paragraph.
+
+  Further paragraphs can be sectioned in much the same way, keeping the alignment.
+::
+
+Headings, as you can see, are prefixed by ``# ``. You can create deeper headings by adding more pound signs to the front.
+
+:: markless, example
+# §1
+## §1.1
+## §1.2
+### §1.2.1
+::
+
+Headings can be arbitrarily deep, but the document that you output to might limit it at some point. For example, HTML only allows up to level 6.
+
+## Lists and Enumerations
+Lists are created by prefixing with ``- ``. You can also continue a list item over multiple lines and nest other blocks into one. Adjacent list items are automatically grouped together into the same list.
+
+:: markless, example
+Today we're buying
+- Eggs
+- Sugar
+
+- It's also possible to do
+  multiple lines in one item
+- As well as multiple
+  
+  paragraphs.
+- - And
+  - Nested
+  - Lists
+::
+
+Enumerations work in much the same way, except you use a number followed by a dot to denote an item. The exact number you write will be output as the item count.
+
+:: markless, example
+1.First item
+2.Second item
+10.Boo! Tenth item!
+::
+
+Since paragraphs can take on arbitrary leading spaces, you can also add some spacing if you prefer it.
+
+:: markless, example
+1. Item one
+2. - Lists
+   - in
+   - Lists
+::
+
+## Embeddings
+You can embed images, audio, and video in your documents. An implementation might also support additional kinds of embeds.
+
+:: markless, example
+[ image markless-logo.png ]
+::
+
+Each embed accepts a number of options that allow you to influence its interactivity and its look.
+
+:: markless, example
+[ image markless-logo.png, width 50%, float right ]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at efficitur sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam erat volutpat. Nunc egestas massa sed ante vulputate, quis mollis tellus fermentum. Morbi ante ligula, imperdiet ac auctor maximus, aliquet non lectus.
+::
+
+Some types of embedding have more options than others.
+
+:: markless, example
+[ audio assets/Jahzzar - Take Me Higher.mp3 ]
+[ video assets/splat.webm, loop ]
+::
+
+Note that Markless will signal an error if you try to use an embed type or option that it doesn't recognise.
+
+One thing to note if you come from other markups like HTML is that in Markless, embeddings are blocks, so they cannot appear in the middle of text.
+
+## Literal Text and Code
+This ''entire page''(link README.mess) is written in Markless, so it's natural that there would be a way to include code snippets as well.
+
+::: markless, example
+::
+a
+::
+:::
+
+Code blocks need a matching number of colons that guard the code. The beginning line also accepts additional options for a code language and styling options.
+
+::: markless, example
+:: markless, example
+An example within an example! How about //that//!
+::
+:::
+
+Naturally, whether the language and options make any difference is dependant on the implementation used.
+
+Code can also be used inline, though then you won't be able to specify a language or options for styling.
+
+:: markless, example
+There's a ``bug`` in here!
+::
+
+## Quotes
+Including quotations and citations in your document can be very important for more academic or journalistic writing. Markless allows both a generic quotation block, as well as a citation source header.
+
+:: markless, example
+| This is a quote
+
+~ The Markless homepage
+| Markless allows both a generic quotation block, as well as a citation source header.
+::
+
+The source header can appear before or after a quotation block, depending on your preference. Naturally you can also nest quotes and use any other element within.
+
+:: markless, example
+| He said these things:
+| - Eggs are round
+| - It is how it is
+~ A wise man
+::
+
+## Footnotes
+For longer explanations or additional information you can make use of footnotes. Footnotes can be declared anywhere in the text and will always appear at the end of the document or relevant page in the resulting document. You can also reference the footnotes from anywhere, the order makes no difference.
+
+:: markless, example
+[1] Similar to ordered lists, footnotes are numbered.
+
+When you talk about a footnote, you reference it in the same way as you declare it[1]. Since the order makes no difference you can organise your footnotes to be close to the relevant sections[2].
+
+[2] Like this, it should be easier to keep an overview of things.
+::
+
+Note however that footnotes are global, and as such the footnote number must be unique for each footnote. Markless won't care whether you leave gaps in your numbering, but duplicates will not generate predictable results.
+
+Each footnote is associated with a label named by its number. This will allow you to cross-reference it even without a footnote reference marker. More on that ''later''(#Links and Labels).
+
+## Alignment
+Sometimes it can be useful to change the alignment of the text. Markless allows for this as well:
+
+:: markless, example
+|< Keeping left (as is the default)
+>< centering it out
+|> and going all the way to the right
+|| Or keeping the text justified, which only really makes a difference with long lines.
+::
+
+## Instructions and Comments
+These are some of the more unique features of Markless. Instructions allow you to change the behaviour of the parser from within the document, and comments allow you to include information that is only relevant for the authors.
+
+:: markless, example
+; This sets the author metadata
+! set author Alpha
+
+; And this will generate a message during compilation
+! info Hello there!
+::
+
+The instructions even allow you to change which directives are recognised and disable or enable them on the fly.
+
+:: markless, example
+! disable header
+# No header to see here
+! enable header
+# Move along now
+::
+
+There's other instructions that might be of use, like ``include``, and of course the implementation can add further ones.
+
+## Text Styles
+Aside from the blocks that we've looked at until now, there's also a wide range of text styling options available.
+
+### Basic Styling
+For your basic styling needs there's convenient shorthand expressions that you can use.
+
+:: markless, example
+This text will be **bold**, //italic//, __underlined__, and <-struck through->.
+
+Aside from that you can also create v(subtext) and ^(supertext), and even ^(nest ^(both)).
+
+You also already saw the ``inline code`` from the previous section.
+::
+
+All of these expressions can also span across multiple lines, as long as they remain within the same block.
+
+:: markless, example
+This is //italic
+and still italic//
+
+But //this
+  won't be italic//.
+::
+
+### Compound
+For further styles, as well as the combination of styles, there's the compound expression.
+
+:: markless, example
+The ''compound expression''(blue) is ''versatile''(italic, green). It allows for
+
+- ''color''(color #0088EE)''ing''(color 200 100 50)
+- ''siz''(large)''ing''(size 15pt)
+- ''link''(http://example.com)''ing''(link #1)
+- ''decorat''(underline)''ing''()
+- ''font''(font Comic Sans MS) ''changes''(font Jokerman)
+- and ''more''(spoiler)
+
+[1] See?
+::
+
+More explicitly, the compound expression allows the following options:
+
+- ``bold``, ``italic``, ``underline``, ``strikethrough`` as seen before
+- ``spoiler`` for initially hidden text
+- ``font`` to change the text's font.
+- ``color`` lets you change the text colour both with RGB and HEX.
+- ``size`` to alter the font size. You can use ``em``, or ``pt`` units.
+- ``link`` for hyperlinks to URLs or internal sections.
+- size names like ``small``, ``large``, etc.
+- color names like ``green``, ``orange``, etc.
+- internal links and URLs.
+
+## Miscellaneous
+### Links and Labels
+In order to allow cross-referencing, some things will be associated with "labels". For instance, every footnote will automatically associate itself with a label of its footnote number. Headers will create a label with the same name as their textual contents.
+
+Using this, the compound directive can cross-reference other parts of the document.
+
+:: markless, example
+# Important
+Importance ''typically''(#20) refers to when something is ''important''(#important).
+
+[20] Except for when it doesn't.
+::
+
+### Entities
+Markless includes two entities that output other content. The dash, and the newline.
+
+:: markless, example
+This is useful -- as things typically are -- in some cases.
+
+The line break, -/- is mostly useful for things in the following section.
+::
+
+### Escapes and Line Breaks
+Sometimes it is necessary or desirable to prevent Markless from parsing something as an expression. For this reason you can "escape" syntax with a backslash.
+
+:: markless, example
+\| Look, ma! No \//italics//
+::
+
+Naturally, if you want to write a backslash, you need to escape the backslash itself as well.
+
+In the examples up until now, when there was a line break in the Markless text, there would be a line break in the output as well. If for some reason you would like to continue your line but have a new line in the text, you can escape it with a backslash.
+
+:: markless, example
+### This way, headers can be \
+multiple lines long.
+::
+
+Some people prefer to keep the length of their text lines limited. In that case it would be quite a hassle if every one of the line breaks produced a line break in the document, or if every line had to be escaped. For this reason, Markless includes a ``line-break-mode`` variable that can be changed with an instruction.
+
+:: markless, example
+! set line-break-mode hide
+Now the lines can be hard-wrapped at a chosen 
+limit like 80 characters, and the output will 
+not contain these line breaks, making it look 
+exactly as one would expect.
+
+If at some point a line break is still 
+desired, it can be inserted explicitly with 
+the -/- entity form above.
+::
+
+The line break mode only decides the visibility of line breaks in the output document though, and directives will still follow the lines.
+
+:: markless, example
+! set line-break-mode hide
+# This Header very long header does not work 
+as intended
+# But this one \
+does
+::
+
+# Markless Resources
+The primary resource for Markless is its standards document, which can be found in LaTeX source form ''here''(https://github.com/shirakumo/markless) and compiled to PDF ''here''(https://github.com/Shirakumo/markless/raw/master/markless.pdf).
+
+## Contact
+The development of Markless happens on its GitHub repository at https://github.com/shirakumo/markless . Discussion primarily happens on its IRC channel at irc://irc.libera.chat/#shirakumo .
+
+## Implementations
+This is a list of known implementations of the Markless standard. If you develop your own implementation, please ''let us know''(https://github.com/shirakumo/markless/issues/new) so that we can add it.
+
+- ''markless-tests''(https://shirakumo.org/projects/markless-tests) Normative test cases for Markless implementations
+- ''cl-markless''(https://shirakumo.org/docs/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
+- ''markless.el''(https://shirakumo.org/projects/markless.el) A package for the Emacs editor for syntax highlighting and editing support of Markless files.
+- ''markless-cm''(https://shirakumo.org/projects/markless-cm) A syntax mode to help highlight Markless in CodeMirror.
+- ''markless-vsc''(https://shirakumo.org/projects/markless-vsc) A syntax mode to help highlight Markless in VisualStudio Code.

@@ -5,6 +5,7 @@ MAKE4HT ?= make4ht
 all:
 	$(MAKE) pdf
 	$(MAKE) html
+	$(MAKE) homepage
 
 pdf:
 	$(MAKE) tex
@@ -19,3 +20,6 @@ glossary:
 
 html:
 	$(MAKE4HT) -l -s markless "markless"
+
+homepage:
+	make.lisp
