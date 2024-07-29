@@ -9,3 +9,6 @@ table.tabular{
 #TBL-2 p{
     display: inline-block;
 }
+body {
+    color-scheme: none;
+}
