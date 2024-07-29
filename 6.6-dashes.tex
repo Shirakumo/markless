@@ -1,10 +1,9 @@
 \definesubsection{Dashes}
-\defineidentifier{en-dash}{--}
-\defineidentifier{em-dash}{---}
+\defineidentifier{dash}{---?}
 \definetextualcomponent{en-dash}{display: en-dash}
 \definetextualcomponent{em-dash}{display: em-dash} \\
 
-The dashes are \gpl{entity inline directive}. If the \g{document} does not have direct support for dashes, a fallback character may be used when appropriate instead. In unicode encoded documents, this should be \unicode{2013} for the en-dash and \unicode{2014} for the em-dash. \\
+The dash is an \g{entity inline directive}. The \g{resulting textual component} is the \inline$en-dash$ if the \g{identifier} matches two hyphens, and \inline$en-dash$ if it matches three hyphens. If the \g{document} does not have direct support for dashes, a fallback character may be used when appropriate instead. In unicode encoded documents, this should be \unicode{2013} for the en-dash and \unicode{2014} for the em-dash. \\
 
 \begin{examples}
   \example{A game -- or gamble --- if you will.}{A game -- or gamble --- if you will.}
