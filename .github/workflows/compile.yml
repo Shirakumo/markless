@@ -10,6 +10,7 @@ jobs:
       run:
         shell: bash
     steps:
+      - uses: actions/checkout@v1
       - name: Restore cache
         id: cache-ql
         uses: actions/cache@v3
@@ -17,35 +18,42 @@ jobs:
           path: |
             ~/.quicklisp
             ~/.cache/common-lisp
+            ~/.sbclrc
           key: lisp
       - name: Install packages
         run: |
           mkdir -p ~/.local/share/fonts
           curl -Lo ~/.local/share/fonts/ComicSansMS.ttf https://github.com/ImageMagick/msttcorefonts/raw/main/fonts/Comic_Sans_MS.ttf
           fc-cache -fv
-          sudo apt-get update
           sudo apt-get install --yes --no-install-recommends \
-            sbcl texlive texlive-luatex texlive-extra-utils texlive-lang-english texlive-plain-generic texlive-latex-extra xindy context
+            sbcl xindy context macutils
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          package-file: |
+            .github/tl_packages
       - name: Install env
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           curl https://beta.quicklisp.org/quicklisp.lisp \
             | cat - <(echo "(quicklisp-quickstart:install :path \"~/.quicklisp/\")" \
                            "(when (< 0 (length \"$DIST\")) (ql-dist:install-dist \"$DIST\" :prompt NIL))" \
+                           "(ql::without-prompting (ql:add-to-init-file))" \
                            "(ql:quickload '(clip cl-markless-plump) :silent T)") \
             | sbcl --noinform
         env:
           DIST: http://dist.shirakumo.org/shirakumo.txt
-      - uses: actions/checkout@v1
       - name: Build
         run: |
-          mkdir ~/gh-pages/
+          mkdir -p $OUTPUT
           make
-          cp -r markless.html markless.css markless.pdf index.html index.css assets ~/gh-pages/
+          cp -r markless.html markless.css markless.pdf index.html index.css assets $OUTPUT
+        env:
+          OUTPUT: ${{ format('{0}/gh-pages/', runner.temp) }}
       - name: Upload Github Pages Artefact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
-          path: ~/gh-pages/
+          path: ${{ format('{0}/gh-pages/', runner.temp) }}
       - name: Write to Github Pages
         id: deployment
         uses: actions/deploy-pages@v4

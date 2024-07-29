@@ -22,4 +22,4 @@ html:
 	$(MAKE4HT) -l -s markless "markless"
 
 homepage:
-	make.lisp
+	bash make.lisp

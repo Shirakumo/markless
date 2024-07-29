@@ -1,6 +1,15 @@
 [ image assets/markless-logo.png ]
 
-Markless is a text based markup language intended for simple document and comment publications.
+Markless is a text based markup language intended for simple document and comment publications. It has an independent standard available in ''HTML''(link markless.html) and ''PDF''(link markless.pdf), as well as an official ''test suite''(https://shirakumo.org/projects/markless-tests).
+
+## Implementations
+This is a list of known implementations of the Markless standard. If you develop your own implementation, please ''let us know''(https://github.com/shirakumo/markless/issues/new) so that we can add it.
+
+- ''markless-tests''(https://shirakumo.org/projects/markless-tests) Normative test cases for Markless implementations
+- ''cl-markless''(https://shirakumo.org/docs/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
+- ''markless.el''(https://shirakumo.org/projects/markless.el) A package for the Emacs editor for syntax highlighting and editing support of Markless files.
+- ''markless-cm''(https://shirakumo.org/projects/markless-cm) A syntax mode to help highlight Markless in CodeMirror.
+- ''markless-vsc''(https://shirakumo.org/projects/markless-vsc) A syntax mode to help highlight Markless in VisualStudio Code.
 
 # Tutorial
 ## Paragraphs and Headings
@@ -299,17 +308,5 @@ as intended
 does
 ::
 
-# Markless Resources
-The primary resource for Markless is its standards document, which can be found in LaTeX source form ''here''(https://github.com/shirakumo/markless) and compiled to PDF ''here''(https://github.com/Shirakumo/markless/raw/master/markless.pdf).
-
 ## Contact
 The development of Markless happens on its GitHub repository at https://github.com/shirakumo/markless . Discussion primarily happens on its IRC channel at irc://irc.libera.chat/#shirakumo .
-
-## Implementations
-This is a list of known implementations of the Markless standard. If you develop your own implementation, please ''let us know''(https://github.com/shirakumo/markless/issues/new) so that we can add it.
-
-- ''markless-tests''(https://shirakumo.org/projects/markless-tests) Normative test cases for Markless implementations
-- ''cl-markless''(https://shirakumo.org/docs/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
-- ''markless.el''(https://shirakumo.org/projects/markless.el) A package for the Emacs editor for syntax highlighting and editing support of Markless files.
-- ''markless-cm''(https://shirakumo.org/projects/markless-cm) A syntax mode to help highlight Markless in CodeMirror.
-- ''markless-vsc''(https://shirakumo.org/projects/markless-vsc) A syntax mode to help highlight Markless in VisualStudio Code.
