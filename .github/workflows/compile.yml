@@ -11,6 +11,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v1
+      - name: Get tags
+        run: git fetch --tags origin
       - name: Restore cache
         id: cache-ql
         uses: actions/cache@v3
