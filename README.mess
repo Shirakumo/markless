@@ -10,6 +10,7 @@ This is a list of known implementations of the Markless standard. If you develop
 - ''markless.el''(https://shirakumo.org/projects/markless.el) A package for the Emacs editor for syntax highlighting and editing support of Markless files.
 - ''markless-cm''(https://shirakumo.org/projects/markless-cm) A syntax mode to help highlight Markless in CodeMirror.
 - ''markless-vsc''(https://shirakumo.org/projects/markless-vsc) A syntax mode to help highlight Markless in VisualStudio Code.
+- ''markless-rs''(https://codeberg.org/catgirlQueer/markless-rs) An implementation in Rust, available as a library.
 
 # Tutorial
 ## Paragraphs and Headings
