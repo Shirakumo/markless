@@ -19,5 +19,6 @@ tabularx
 environ
 multirow
 make4ht
+tex4ht
 context
 binhex

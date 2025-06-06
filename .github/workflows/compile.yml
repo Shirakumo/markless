@@ -15,7 +15,7 @@ jobs:
         run: git fetch --tags origin
       - name: Restore cache
         id: cache-ql
-        uses: actions/cache@v3
+        uses: actions/cache@v3.4.1
         with:
           path: |
             ~/.quicklisp
@@ -48,7 +48,9 @@ jobs:
       - name: Build
         run: |
           mkdir -p $OUTPUT
-          make
+          make pdf
+          make html || true
+          make homepage
           cp -r markless.html markless.css markless.pdf index.html index.css assets $OUTPUT
         env:
           OUTPUT: ${{ format('{0}/gh-pages/', runner.temp) }}
