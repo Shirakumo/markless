@@ -3,7 +3,7 @@
 Markless is a text based markup language intended for simple document and comment publications. It has an independent standard available in ''HTML''(link markless.html) and ''PDF''(link markless.pdf), as well as an official ''test suite''(https://shirakumo.org/projects/markless-tests).
 
 ## Implementations
-This is a list of known implementations of the Markless standard. If you develop your own implementation, please ''let us know''(https://github.com/shirakumo/markless/issues/new) so that we can add it.
+This is a list of known implementations of the Markless standard. If you develop your own implementation, please ''let us know''(https://shirakumo.org/project/markless/issues/new) so that we can add it.
 
 - ''markless-tests''(https://shirakumo.org/projects/markless-tests) Normative test cases for Markless implementations
 - ''cl-markless''(https://shirakumo.org/docs/cl-markless/) An implementation in Common Lisp, available as a library and a standalone executable.
@@ -310,4 +310,4 @@ does
 ::
 
 ## Contact
-The development of Markless happens on its GitHub repository at https://github.com/shirakumo/markless . Discussion primarily happens on its IRC channel at irc://irc.libera.chat/#shirakumo .
+The development of Markless happens on its GitHub repository at https://shirakumo.org/project/markless . Discussion primarily happens on its IRC channel at irc://irc.libera.chat/#shirakumo .
