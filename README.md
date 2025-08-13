@@ -1,4 +1,4 @@
-[![header](assets/markless-logo.png)](https://shirakumo.org/docs/markless)  
-Please see the [official website](https://shirakumo.org/docs/markless).
+# This repository has [moved](https://shirakumo.org/projects/markless)!
+Due to Microsoft's continued enshittification of the platform this repository has been moved to [Codeberg](https://shirakumo.org/projects/markless) in August of 2025. It will not receive further updates or patches. **Issues and pull requests will not be looked at here either**, please submit your patches and issue tickets on Codeberg, or send them directly via good old email patches to [shirakumo@tymoon.eu](mailto:shirakumo@tymoon.eu).
 
-You may also be interested in the [normative test suite](https://shirakumo.org/projects/markless-tests).
+Thanks.
